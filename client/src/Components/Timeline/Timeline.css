@@ -1,0 +1,105 @@
+.container{
+    padding: 2rem;
+    padding-bottom: 400px;
+    /* margin: 0 auto; */
+    margin-top: 5%;
+    width: 100%;
+    /* background-color: rgb(248 248 248);; */
+    background-image: url("https://images.unsplash.com/photo-1478029115463-6371b5133cac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwyMTAwMTE3fHxlbnwwfHx8fA%3D%3D&w=1000&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(100%);
+    height: 260vh;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.top-section{
+    text-align: center;
+    padding: 4rem 0;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #fff;
+}
+.top-section h1{
+    font-size: 40px;
+    padding-bottom: 15px;
+}
+.timeline{
+    position: relative;
+    min-height: 150px;
+}
+.line{
+    position: absolute;
+    z-index: 2;
+    left: calc(50% - 1px);
+    width: 2px;
+    top: -50px;
+    bottom: -50px;
+    background-color: #fff;
+    display: none;
+}
+.line:after,
+.line:before{
+    content: "";
+    position: absolute;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.line:after{
+    bottom: 0;
+}
+.section{
+    display: flex;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 600ms ease;
+    position: relative;
+    z-index: 1;
+    margin: 25px 0;
+    padding: 2rem;
+    border-radius: 1rem;
+    align-items: center;
+    min-height: 300px;
+}
+.section:nth-child(odd){
+    flex-direction: row-reverse;
+    transform: translateX(100%);
+}
+.bead{
+    position: absolute;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #fff;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+.content{
+    width: calc(50% - 2rem);
+}
+.content h2{
+    padding-bottom: 25px;
+    font-size: 30px;
+    color: #fff;
+}
+.content p{
+    text-align: start;
+    font-weight: 300;
+    color: #fff;
+    line-height: 2rem;
+    
+}
+.show-me:nth-child(n){
+    transform: none;
+    opacity: 1;
+}
+h1{
+    font-weight: 400;
+    letter-spacing: 1px;
+}

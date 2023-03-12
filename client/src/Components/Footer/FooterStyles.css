@@ -1,0 +1,233 @@
+footer{
+    padding: 0px 1rem;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: #dddbdb;
+    border-top-left-radius: 10rem;
+}
+.footer-top{
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.brand{
+    display: flex;
+    width: 30%;
+    align-items: center;
+    padding: 3rem 3rem;
+    /* border-right: 2px dashed #000; */
+    /* justify-content: center; */
+    /* justify-content: center; */
+}
+
+.brandname{
+    font-size:3rem;
+    font-weight: 600;
+}
+
+
+/* FIELD  */
+.field{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 3rem;
+    padding-left:7rem ;
+   
+    /* justify-content: center; */
+}
+.headingfield{
+    padding: 1rem 0;
+}
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    /* margin-top: 10px; */
+    /* width: 100%; */
+    /* max-width: 180px; */
+    display: flex;
+    width: 100%;
+    /* justify-content: center; */
+    flex-direction: row;
+  }
+  .combine{
+    width: 70%;
+  }
+  .form__field {
+    
+   
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 17px;
+    font-weight: 300;
+    color: #000;
+    padding: 10px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  
+  .form__field::placeholder {
+    color: transparent;
+  }
+  
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 17px;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #9b9b9b;
+    pointer-events: none;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #116399, #38caef);
+    border-image-slice: 1;
+  }
+  
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 17px;
+    color: #02b25d;
+    font-weight: 500;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+  .submit{
+    position: absolute;
+    left: 60%;
+  }
+ /* Submitbtn  */
+ button {
+    
+    font-size: 14px;
+    background: royalblue;
+    color: white;
+    padding: 0.4em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+  button:hover span {
+    transform: translateX(5em);
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+  
+ /* Submitbtn  */
+/* FIELD  */
+
+
+
+
+
+/* FooterBottom  */
+.footer-bottom{
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.branddesc{
+    width: 33.33%;
+    padding: 0 2.5rem;
+    text-align: justify;
+}
+.menulist{
+    width: 37.33%;
+    display: flex;
+    column-gap: 15px;
+    padding: 0 3.3rem;
+    /* text-align: center; */
+    line-height: 30px;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+}
+.list a{
+    text-decoration: none;
+    color: #02b25d;
+    font-weight: 500;
+}
+
+.subscribe{
+    width: 30.33%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items:center;
+    /* justify-content: center; */
+    border-left: 2px solid #000;
+    font-size: 2.5rem;
+    padding: 1.5rem 1.5rem;
+}
+.subscribe h1{
+    font-size:2.5rem;
+    padding-bottom: 10px;
+    
+}
+.icons{
+    display: flex;
+    column-gap: 15px;
+}
+/* FooterBottom  */

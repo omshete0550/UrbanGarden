@@ -1,0 +1,14 @@
+.SingleCateg{
+    display: flex;
+    
+    
+    padding: 0;
+}
+.filter{
+    width: 18%;
+   /* position: fixed; */
+}
+.grid{
+    width: 83%;
+    /* margin-left: 18vw; */
+}

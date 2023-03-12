@@ -1,0 +1,270 @@
+html body main { 
+  width: 100%;
+  max-width: 1440px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-left: 10%;
+}
+.Testi_head{
+    font-size: 40px;
+    text-align: center;
+    color: #41403e;
+    margin-top: 10%;
+    text-transform: uppercase;
+}
+html body main .slider .buttons {
+  z-index: 1;
+  right: 50%;
+  top: 261px;
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  border-radius: 50px;
+  transform: translateX(50%);
+  background-color: #FFFFFF;
+}
+html body main .slider .buttons .previous,
+html body main .slider .buttons .next {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+html body main .slider .buttons .previous {
+  left: 0;
+  background-image: url("https://alcs-slider.netlify.app/images/icon-prev.svg");
+}
+html body main .slider .buttons .previous:hover {
+  transform: scale(1.25);
+}
+html body main .slider .buttons .next {
+  right: 0;
+  background-image: url("https://alcs-slider.netlify.app/images/icon-next.svg");
+}
+html body main .slider .buttons .next:hover {
+  transform: scale(1.25);
+}
+html body main .slider .slide {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+html body main .slider .slide .testimonial {
+  padding: 32px 51px;
+  background-size: 60px;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-image: url(https://alcs-slider.netlify.app/images/pattern-quotes.svg);
+}
+html body main .slider .slide .testimonial blockquote {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  margin-bottom: 36px;
+}
+html body main .slider .slide .testimonial .author {
+  font-size: 15px;
+  font-weight: 700;
+}
+html body main .slider .slide .testimonial .author span {
+  display: block;
+  color: #c1cfba;
+  font-weight: 500;
+}
+html body main .slider .slide .slider-img {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(https://alcs-slider.netlify.app/images/pattern-bg.svg);
+}
+html body main .slider .slide .slider-img img {
+  width: 240px;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0px 16px 40px 0px rgba(105, 210, 156, 0.4);
+}
+html body main .slider .slide .active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0.4s;
+}
+html body .hide {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  html body main {
+    max-width: 800px;
+  }
+  html body main .slider .buttons {
+    top: 280px;
+  }
+}
+@media screen and (min-width: 900px) {
+  html body main {
+    width: 100%;
+    max-width: 1054px;
+    padding: 64px 64px 64px 0;
+  }
+  html body main .slider .buttons {
+    right: 43%;
+    top: 500px;
+  }
+  html body main .slider .slide {
+    position: relative;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+  }
+  html body main .slider .slide .testimonial {
+    padding: 32px 0 0 0;
+    background-size: 80px;
+    background-position: 19% -7%;
+    transform: translateX(100px);
+  }
+  html body main .slider .slide .testimonial blockquote {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  html body main .slider .slide .testimonial .author span {
+    display: contents;
+  }
+  html body main .slider .slide .slider-img {
+    padding: 55px;
+  }
+  html body main .slider .slide .slider-img img {
+    width: 400px;
+  }
+}
+
+/* .testi{
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: transparent;
+}
+.testi h1{
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #41403e;
+    font-weight: 700;
+    padding-bottom: 15px;
+}
+.testimonial{
+    margin-top: 20px;
+    display: flex;
+    background-image: url('https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 80px;   
+    border-top-left-radius: 125px;
+    border-top-right-radius: 125px;
+}
+.testimonial h1{
+    font-size: 40px;
+    color: #41403e;
+    text-align: center;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+.wrapper1{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px 10px;
+}
+.review{
+    background: url("https://w0.peakpx.com/wallpaper/229/509/HD-wallpaper-baby-blue-color-gradient-background-ultra-aero-colorful-blue-abstract-design-background-colors-colourful-shades-soft-blur-gradient-pale-lightcolored.jpg");
+    position: relative;
+    flex: 1;
+    width: 350px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    margin-bottom: 25px;
+    padding: 20px 20px;
+}
+.review .rev_content{
+    text-align: start;
+    font-size: 14px;
+    height: 120px;
+    font-weight: 300;
+    display: flex;
+    column-gap: 25px;
+    justify-content: space-around;
+}
+.brandContent{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+}
+.brandContent h2{
+    font-size: 28px;
+}
+.brandContent span{
+    font-size: 15px;
+    font-style: italic;
+}
+.brandContent p{
+    padding-top: 10px;
+    font-size: 18px;
+}
+.review .rev_content img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.review .rev_user{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 100px;
+}
+.review .rev_user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.rev_user_content{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 100px;
+}
+.rev_user_content p{
+    padding: 0 10px;
+    text-align: justify;
+    line-height: 1.3rem;
+}
+.date{
+    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+} */

@@ -1,0 +1,26 @@
+{
+  "name": "urbangarden",
+  "version": "1.0.0",
+  "description": "A platform to let local nursery owners go online and meet their online audiences to grow their businesses.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Nursery",
+    "E-commerce"
+  ],
+  "author": "Hamza Sayyed",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20"
+  }
+}
