@@ -1,70 +1,69 @@
- .parent{
-    padding: 10px 15px;
-    /* margin-top: 5%; */
- }
- .parent-heading {
+.parent {
+  padding: 10px 15px;
+  /* margin-top: 5%; */
+}
+.parent-heading {
   font-size: 40px;
   font-weight: 600;
   color: #41403e;
   text-align: center;
   padding-bottom: 10px;
- }
- .product--image {
-    width: 100%;
-    height: 16em;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-  
-  .card {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    /* max-width: 320px; */
-    margin: 1rem 1rem 1.2rem 1rem;
-    /* text-align: center; */
-    font-family: arial;
-    transition: all 1s;
-    border-radius: 4px;
+}
+.product--image {
+  width: 100%;
+  height: 16em;
+  object-fit: cover;
+  border-radius: 4px;
+}
 
-  }
-  .detail{
-    padding: 5px 15px;
-    display: flex;
-    flex-direction:column;
-    row-gap: 10px;
-  }
-  .cart{
-    display: flex;
-    align-items: center;
-    padding: 5px 20px;
-    column-gap: 130px;
-  }
-  
-  .price {
-    color: grey;
-    font-size: 22px;
-  }
-  
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    /* color: white; */
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.5rem;
-    background: transparent;
-  }
-  
-  .card button:hover {
-    opacity: 0.7;
-  }
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* max-width: 320px; */
+  margin: 1rem 1rem 1.2rem 1rem;
+  /* text-align: center; */
+  font-family: arial;
+  transition: all 1s;
+  border-radius: 4px;
+}
+.detail {
+  padding: 5px 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.cart {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  column-gap: 130px;
+}
 
-  .card:hover{
-    opacity: 1.0;
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    transition: all .5s;
-    
-  }
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: green;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.5rem;
+  background: transparent;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  transition: all 0.5s;
+}

@@ -1,13 +1,20 @@
 import React from 'react';
 import Header from '../../Components/Header/Header'
 import ProductSlider from '../../Components/Carousel/ProductSlider';
+import TrendingSlider from '../../Components/Carousel/trendingSlider';
+import GardeningSlider from '../../Components/Carousel/gardeningSlider';
+import PlantSlider from '../../Components/Carousel/plantSlider';
 import OfferSlider from '../../Components/Carousel/OfferSlider';
+import BulbSlider from '../../Components/Carousel/bulbSlider';
+import PebbleSlider from '../../Components/Carousel/pebbleSlider';
+import PotSlider from '../../Components/Carousel/potSlider';
+import SeedSlider from '../../Components/Carousel/seedSlider';
+import AccessorySlider from '../../Components/Carousel/accessorySlider';
+import SoilAndFertilizerSlider from '../../Components/Carousel/soilfertSlider';
 import CategoryBox from '../../Components/Category/CategoryBox';
 import Footer from '../../Components/Footer/Footer';
-import { Link } from 'react-router-dom';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 import { categoryData } from '../../Components/data';
-import useFetch from "../../hooks/useFetch";
 
 const HomePage = () => {
   const mystyle = {
@@ -19,7 +26,6 @@ const HomePage = () => {
   const category = categoryData.map((item) =>
     <CategoryBox title={item.title} key={item.id} content={item.content} />
   )
-  const { data, loading, error } = useFetch("/products");
 
   return (
     <div style={{ overflow: 'hidden' }}>
@@ -35,14 +41,14 @@ const HomePage = () => {
 
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={mystyle}>TRENDING <FaAngleDoubleRight style={{ paddingTop: "8px" }} /> </h2>
-        <ProductSlider data={data} />
+        <TrendingSlider />
       </div>
       {/* TRENDING  */}
 
       {/* NEW_ARRIVALS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>NEW ARRIVALS <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <ProductSlider />
       </div>
       {/* NEW_ARRIVALS  */}
 
@@ -58,56 +64,56 @@ const HomePage = () => {
       {/* GARDENING  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>GARDENING <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <GardeningSlider />
       </div>
       {/* GARDENING  */}
 
       {/* PLANTS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>PLANTS <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <PlantSlider />
       </div>
       {/* PLANTS  */}
 
       {/* SEEDS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>SEEDS <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <SeedSlider />
       </div>
       {/* SEEDS  */}
 
       {/* BULBS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>BULBS <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <BulbSlider />
       </div>
       {/* BULBS  */}
 
       {/* POTS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>POTS <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <PotSlider />
       </div>
       {/* POTS  */}
 
       {/* SOIL & FERTILIZERS  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>SOIL & FERTILIZER <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <SoilAndFertilizerSlider />
       </div>
       {/* SOIL & FERTILIZER  */}
 
       {/* PEBBLES  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>PEBBLES <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <PebbleSlider />
       </div>
       {/* PEBBLES  */}
 
       {/* ACCESSORIES  */}
       <div className="Bestsellers" style={{ textAlign: "left", padding: "5px 0 0 0" }}>
         <h2 style={{ padding: "0px 0 0 40px", fontSize: "1.8rem" }}>ACCESSORIES <FaAngleDoubleRight style={{ paddingTop: "8px" }} /></h2>
-        <ProductSlider data={data} />
+        <AccessorySlider />
       </div>
       {/* ACCESSORIES  */}
 

@@ -4,8 +4,9 @@ import Product from './Product'
 import "react-multi-carousel/lib/styles.css";
 import '../Carousel/ProductSlider.css'
 import './ProductSlider.css'
+import { productData } from '../data';
 
-const ProductSlider = ({ data }) => {
+const ProductSlider = () => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -26,8 +27,8 @@ const ProductSlider = ({ data }) => {
     }
   };
 
-  const product = data.map((item) =>
-    <Product name={item.name} key={item._id} url={item.photos[0]} price={item.price} description={item.desc} />
+  const product = productData.map((item) =>
+    <Product name={item.name} key={item._id} url={item.imageurl} price={item.price} description={item.desc} />
   )
 
   return (

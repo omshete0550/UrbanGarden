@@ -88,7 +88,7 @@ export const trendingProducts = async (req, res, next) => {
         Product.aggregate([
             {
                 $group: {
-                    _id: { name: "$name", season: "$season" },
+                    _id: { id: "$_id", name: "$name", desc: "$desc", price: "$price", photos: "$photos" },
                     totalRating: { $sum: "$rating" },
                     count: { $sum: 1 },
                     latestPostDate: { $max: "$createdAt" },
@@ -101,8 +101,7 @@ export const trendingProducts = async (req, res, next) => {
             },
             {
                 $sort: {
-                    avgRating: -1,
-                    latestPostDate: -1,
+                    count: -1,
                 },
             },
             { $limit: 10 },
