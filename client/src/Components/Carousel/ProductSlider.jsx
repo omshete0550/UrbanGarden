@@ -28,7 +28,7 @@ const ProductSlider = () => {
   };
 
   const product = productData.map((item) =>
-    <Product name={item.name} key={item._id} url={item.imageurl} price={item.price} description={item.desc} />
+    <Product name={item.name} key={item._id} url={item.imageurl} price={item.price} description={item.desc} idx={item._id} />
   )
 
   return (

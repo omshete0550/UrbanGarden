@@ -1,0 +1,172 @@
+.verticalTabPanel{
+    padding: 50px 50px;
+}
+.TabHeading{
+    /* margin-bottom: 25px; */
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.TabHeading h4{
+    margin-bottom: 2px;
+    font-size: 15px;
+}
+.TabHeading span{
+    font-size: 12px;
+}
+
+/*  */
+.UserOverview{
+    width: 60vw;
+    /* background: #e7e7e7; */
+    background-image: url(https://png.pngtree.com/background/20210711/original/pngtree-summer-refreshing-e-commerce-product-background-picture-image_1071852.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    padding: 25px 20px;
+    border-radius: 5px;
+}
+.UserOverview .UserInfo{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 250px;
+    /* justify-content: space-between; */
+}
+.UserOverview .UserInfo img{
+    width: 200px;
+    height: 225px;
+    margin-left: 25%;
+    margin-top: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.UserOverview .UserInfo h3{
+   margin-left: 50px;
+   font-size: 25px;
+   margin-top: 95px;
+}
+.UserOverview .UserInfo button{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 15px;
+    width: 130px;
+    height: 45px;
+    padding: 10px 30px;
+    background-color: #3ab757;
+    border-radius: 10px;
+    border: 1px solid #3ab757;
+    color: #fff;
+    cursor: pointer;
+}
+.UserOverviewGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin-top: 5%;
+}
+.UserOverviewGrid .OverviewGirdBox{
+    width: 275px;
+    height: 300px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.UserOverviewGrid .OverviewGirdBox i{
+    font-size: 50px;
+    color: #555;
+}
+.UserOverviewGrid .OverviewGirdBox h3{
+    font-size: 25px;
+}
+.UserOverviewGrid .OverviewGirdBox:hover{
+    background-color: #e7e7e7;
+}
+/*  */
+.UserProfile{
+    width: 60vw;
+    min-height: 900px;
+    /* background: #ccc; */
+    /* border: 1px solid #000; */
+    background: transparent;
+    background-image: url(https://img.freepik.com/free-vector/watercolor-leaves-with-copy-space-design_53876-62987.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    padding: 25px 20px;
+    border-radius: 5px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.UserProfile h1{
+    /* border-bottom: 1px solid #fff; */
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+}
+.UserProfile .ProfileInfo
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.UserProfile .ProfileInfo img{
+    width: 200px;
+    height: 250px;
+    margin-bottom: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.UserProfile .ProfileInfo .Profile{
+    /* margin-left: 50px; */
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin-top: 30px;
+}
+.UserProfile .ProfileInfo .Profile span{
+    text-align: left;
+}
+.UserProfile button{
+    width: 400px;
+    height: 50px;
+    padding: 10px 135px;
+    margin-top: 50px;
+    background-color: #3ab757;
+    border-radius: 2px;
+    font-size: 25px;
+    font-weight: 500;
+    border: 1px solid #3ab757;
+    color: #fff;
+    cursor: pointer;
+}
+.UserProfile button:hover{
+    filter: brightness(75%);
+}
+
+/*  */
+
+.UserAddress .AddressHeading{
+    display: flex;
+    justify-content: space-between;
+    width: 55vw;
+    margin-bottom: 50px;
+}
+.UserAddress .AddressHeading h3{
+    font-size: 25px;
+}
+.UserAddress .AddressHeading button{
+    width: 215px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    color: #3ab757;
+    cursor: pointer;
+}

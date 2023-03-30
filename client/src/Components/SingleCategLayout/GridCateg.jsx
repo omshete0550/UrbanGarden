@@ -9,7 +9,7 @@ const GridCateg = (props) => {
   const category = props.gridheading.toLowerCase()
   const { data, loading } = useFetch(`/products?category=${category}`);
   const product = data?.map((item) =>
-    <Product name={item.name} url={item.photos[0]} key={item._id} price={item.price} description={item.desc} />
+    <Product name={item.name} url={item.photos[0]} key={item._id} price={item.price} description={item.desc} idx={item._id} />
   )
   return (
     <div >

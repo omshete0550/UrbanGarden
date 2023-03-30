@@ -4,14 +4,8 @@ import SingleCategLayout from '../../Components/SingleCategLayout/SingleCategLay
 const SingleCategoryPage = () => {
   return (
     <div>
-        {/* NAVBAR  */}
-          <Header />
-        {/* NAVBAR  */}
-
-        {/* Single Category Layout (Filters + Grid) */}
-          <SingleCategLayout/>
-        {/* Single Category Layout (Filters + Grid) */}
-      
+      <Header />
+      <SingleCategLayout />
     </div>
   )
 }

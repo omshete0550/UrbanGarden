@@ -27,7 +27,7 @@ const TrendingSlider = () => {
     };
     const { data, loading } = useFetch("/products/trending");
     const product = data?.map((item) =>
-        <Product name={item._id.name} key={item._id.id} url={item._id.photos[0]} price={item._id.price} description={item._id.desc} />
+        <Product name={item._id.name} idx={item._id.id} key={item._id.id} url={item._id.photos[0]} price={item._id.price} description={item._id.desc} />
     )
 
     return (

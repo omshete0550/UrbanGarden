@@ -1,0 +1,82 @@
+.NurRevBx{
+    border-bottom: 2px solid #ccc;
+    width: 79%;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.NurRevBx .RevUser{
+    display: flex;
+    margin-bottom: 15px;
+}
+.NurRevBx .RevUser i{
+    font-size: 30px;
+    color: #555;
+    margin-right: 12px;
+}
+.NurRevBx .RevUser h4{
+    font-size: 20px;
+    color: #000;
+    margin-top: 5px;
+    margin-right: 70%;
+}
+
+.NurRevBx .RevRating .RevRatingBx{
+    width: 65px;
+    height: 40px;
+    padding: 10px;
+    background-color: #3ab757;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.RevRating{
+    display: flex;
+    /* justify-content: space-around; */
+}
+.RevStatus{
+    margin-top: -25px;
+    margin-left: 15px;
+}
+.NurRevBx .RevRating span{
+    color: #fff;
+    font-size: 15px;
+}
+.NurRevBx .RevRating h5{
+    margin-top: 15px;
+    font-size: 20px;
+}
+.NurRevBx .RevRating h6{
+    margin-top: 5px;
+    font-size: 13px;
+}
+.NurRevBx .RevRating .RevRatingBx i{
+    margin-left: 5px;
+    font-size: 15px;
+    color: white;
+ }
+
+.popupRev{
+    display: flex;
+}
+.RevSubBtn{
+    margin-top: 10px;
+    padding: 10px;
+    width: 75px;
+    cursor: pointer;
+    background-color: #3ab757;
+}
+.WriteRevBx{
+    margin-top: 25px;
+}
+.WriteRevBx h3{
+    margin-bottom: 15px;
+}
+.WriteRevBx p{
+    margin-bottom: 5px;
+}
+.WriteRevBx textarea{
+    padding: 10px;
+}
+.RevContent{
+    width: 100%;
+    margin-top: 15px;
+}

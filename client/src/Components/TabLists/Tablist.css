@@ -1,0 +1,116 @@
+.SingleNurOverview h2{
+    margin-bottom: 45px;
+    font-size: 25px;
+}
+.SingleNurCateg h3{
+    font-weight: 400;
+    font-size: 20px;
+}
+.SpeCategBtn{
+    padding-top: 15px;
+    display: flex;
+}
+.SpeCategBtn button {
+    border: none;
+    display: flex;
+    padding: 0.75rem 1.5rem;
+    background-color: rgb(32 152 159);
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 0.5rem;
+    user-select: none;
+    gap: 0.75rem;
+    box-shadow: 0 4px 6px -1px #488aec31, 0 2px 4px -1px #488aec17;
+    transition: all .6s ease;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+.SpeCategBtn button:hover {
+    box-shadow: 0 10px 15px -3px #488aec4f, 0 4px 6px -2px #488aec17;
+}
+  
+.SpeCategBtn button:focus, .SpeCategBtn button:active {
+    opacity: .85;
+    box-shadow: none;
+}
+.AvgCost{
+    margin-top: 45px;
+}
+.AvgCost h3{
+    padding-bottom: 15px;
+}
+.AvgCost span{
+    font-weight: 300;
+    font-weight: 15px;
+    color: #555;
+}
+.AvgCost p{
+    font-weight: 200;
+    font-size: 12px;
+    color: #555;
+}
+.moreInfo{
+    margin-top: 45px;
+}
+.moreInfo h3{
+    padding-bottom: 15px;
+}
+.moreInfo .Info{
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    color: rgb(32 152 159);
+}
+/* .SingleNurPhoto{
+    margin-top: 45px;
+} */
+.SingleNurPhoto h2{
+    margin-bottom: 45px;
+    font-size: 25px;
+}
+/* .SingleNurReview{
+    margin-top: 45px;
+} */
+.SingleNurReview h2{
+    margin-bottom: 45px;
+    font-size: 25px;
+}
+/* .SingleNurOrder{
+    margin-top: 45px;
+} */
+.SingleNurOrder h2{
+    /* margin-bottom: -45px; */
+    font-size: 25px;
+    margin-left: 15px;
+}
+.SingleNurOrder .parentGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    width: 75%;
+}
+
+.SingleNurReview .writeReviewPopupProduct button{
+    position: absolute;
+    left: 75%;
+    top: 110%;
+}
+
+.SingleNurReview .writereviewpopupbox {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dbdbdb;
+    width: 650px;
+    height: 480px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}

@@ -31,7 +31,7 @@ const PebbleSlider = () => {
     product = []
   } else {
     product = data?.map((item) =>
-      <Product name={item.name} key={item._id} url={item.photos[0]} price={item.price} description={item.desc} />
+      <Product name={item.name} key={item._id} url={item.photos[0]} price={item.price} description={item.desc} idx={item._id} />
     )
   }
 

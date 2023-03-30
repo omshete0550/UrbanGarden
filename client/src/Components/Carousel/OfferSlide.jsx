@@ -4,9 +4,9 @@ const OfferSlide = (props) => {
   return (
     <div>
       <div className='offercard'>
-                <img className='product--image' src={props.url} alt="product-image" />
-                
-            </div>
+        <img className='slider--image' src={props.url} alt="product-image" />
+
+      </div>
     </div>
   )
 }

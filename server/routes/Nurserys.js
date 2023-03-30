@@ -4,7 +4,7 @@ import { countByCity, createNursery, deleteNursery, getNursery, getNurserys, upd
 import { verifyAdmin } from "../utils/verifyToken.js";
 
 //create
-router.post("/", verifyAdmin, createNursery)
+router.post("/:ownerId", verifyAdmin, createNursery)
 
 //update
 router.put("/:id", verifyAdmin, updateNursery)
@@ -13,7 +13,7 @@ router.put("/:id", verifyAdmin, updateNursery)
 router.delete("/:id", verifyAdmin, deleteNursery)
 
 //get
-router.get("/find/:id", getNursery)
+router.get("/:id", getNursery)
 
 //get all
 router.get("/", getNurserys)

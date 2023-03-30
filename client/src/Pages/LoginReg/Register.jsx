@@ -6,7 +6,6 @@ import { register } from "../../redux/apiCalls";
 
 const Register = () => {
     const dispatch = useDispatch();
-    const { isFetching, error } = useSelector((state) => state.user);
     const [location, setLocation] = useState(null);
     const [credentials, setCredentials] = useState({
         username: undefined,

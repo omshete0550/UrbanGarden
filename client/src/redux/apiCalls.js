@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess } from "./slices/userSlice";
+import { loginFailure, loginStart, loginSuccess, updateUser } from "./slices/userSlice";
 import axios from "axios";
 
 export const login = async (dispatch, user) => {
@@ -17,5 +17,13 @@ export const register = async (dispatch, user) => {
         dispatch(loginSuccess(res.data));
     } catch (err) {
         dispatch(loginFailure());
+    }
+};
+export const update = async (dispatch, user) => {
+    try {
+        const res = await axios.put(`/users/${user.id}`, user);
+        dispatch(updateUser(res.data));
+    } catch (err) {
+        console.log(err)
     }
 };

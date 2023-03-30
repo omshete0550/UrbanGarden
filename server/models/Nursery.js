@@ -27,6 +27,7 @@ const NurserySchema = new mongoose.Schema({
         type: Number,
         min: 0,
         max: 5,
+        default: 0
     },
     products: {
         type: [String],

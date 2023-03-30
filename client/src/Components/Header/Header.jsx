@@ -1,16 +1,21 @@
 import React from "react";
-import { FaAddressBook, FaCaretDown, FaSearch, FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaAddressBook, FaCaretDown, FaSearch, FaShoppingCart } from 'react-icons/fa'
 import './Header.css';
 import logo from '../../UGbg.png';
+import PopupBtn from '../../Components/PopupButton/PopoverPopupState'
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate("/");
+  }
   return (
     <div>
       <div className="header">
 
         <div className="header-up">
-          <div className="logo-div">
+          <div className="logo-div" onClick={handleClick}>
             <img src={logo} width="80" height="80"></img>
             <h1 style={{ color: "#00743c" }}>Urban <br></br> Garden</h1>
           </div>
@@ -38,8 +43,9 @@ const Header = () => {
               <div>Expert Support<br></br><i>Available 24/7</i></div>
             </div>
             <div className="techsupport" style={{ padding: "20px 20px", fontSize: "1rem" }}>
-              <FaUser className="techsupport-icon" style={{ fontSize: "1.7rem" }} />
-              <div>Login</div>
+              {/* <FaUser className="techsupport-icon" style={{fontSize: "1.7rem"}}/> */}
+              {/* <div>Login</div> */}
+              <div><PopupBtn /></div>
             </div>
             <div className="techsupport">
               <FaShoppingCart className="techsupport-icon" />

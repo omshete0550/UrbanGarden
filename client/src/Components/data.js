@@ -129,3 +129,44 @@ export const categoryData = [
         content: "Green up your indoor space with exciting accessories",
     },
 ]
+
+export const reviewData = [
+    {
+        id: 1,
+        url: "https://img.freepik.com/free-vector/gradient-h-logo-template_23-2149372721.jpg?w=2000",
+        name: "Hamza Ali",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!Goodbyeee!"
+    },
+    {
+        id: 2,
+        name: "Mohib Abbas",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!"
+    },
+    {
+        id: 3,
+        name: "Parth Puranik",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!"
+    },
+    {
+        id: 4,
+        name: "Om Shete",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!"
+    },
+    {
+        id: 5,
+        name: "Jagjeet Singh",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!"
+    },
+    {
+        id: 6,
+        name: "Abhishek Upadhay",
+        datepost: "22-04-2023",
+        review: "Goodbyeee!"
+    },
+
+]

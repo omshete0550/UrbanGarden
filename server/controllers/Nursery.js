@@ -1,9 +1,18 @@
 import Nursery from "../models/Nursery.js";
+import User from "../models/User.js";
 
 export const createNursery = async (req, res, next) => {
+    const ownerId = req.params.ownerId
     const newNursery = new Nursery(req.body);
     try {
         const savedNursery = await newNursery.save()
+        try {
+            const owner = await User.findById(ownerId)
+            owner.nursuries = savedNursery._id;
+            owner.save()
+        } catch (error) {
+            next(error)
+        }
         res.status(201).json(savedNursery)
     } catch (error) {
         next(error)
