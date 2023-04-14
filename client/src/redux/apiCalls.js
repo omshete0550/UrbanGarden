@@ -13,8 +13,10 @@ export const login = async (dispatch, user) => {
 export const register = async (dispatch, user) => {
     dispatch(loginStart());
     try {
-        const res = await axios.post("/auth/register", user);
-        dispatch(loginSuccess(res.data));
+        await axios.post("/auth/register", user);
+        const username = user.username
+        const password = user.password
+        login(dispatch, { username, password });
     } catch (err) {
         dispatch(loginFailure());
     }

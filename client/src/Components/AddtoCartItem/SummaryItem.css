@@ -1,0 +1,67 @@
+.summarycontainer{
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    
+    
+    justify-content: center;
+}
+.headingsummary{
+    text-align: center;
+    letter-spacing: 1px;
+}
+.itemList{
+    margin: 30px 10px;
+    display: flex;
+    flex-direction: column;
+}
+.item{
+    display: flex;
+}
+.quantityList, .titleList, .priceList{
+    width: 33.33%;
+}
+.quantityList p{
+    padding: 5px 0;
+}
+.titleList p{
+    padding: 5px 0;
+}
+.priceList p{
+    padding: 5px 0;
+}
+.priceList{
+    text-align: right;
+}
+.deliverycharges{
+    margin: 0px 10px;
+    display: flex;
+    column-gap: 13rem;
+}
+.totalcost{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    column-gap: 14rem;
+    border-radius: 10px;
+}
+.checkout{
+    width: 100%;
+    
+    margin: 20px 10px 20px 10px;
+}
+.checkoutbtn{
+    border-radius: 0px;
+    margin-left: 10px;
+    background-color:orange;
+    color: white;
+    width: 90%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 15px;
+    border: 0;
+    cursor: pointer;
+}

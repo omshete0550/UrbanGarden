@@ -48,7 +48,7 @@ const Footer = () => {
                 </label>
               </div>
               <div className="submit">
-                <button>
+                <button className='buttonn'>
                   <div className="svg-wrapper-1">
                     <div className="svg-wrapper">
                       <svg
@@ -81,32 +81,32 @@ const Footer = () => {
           </div>
           <div className="menulist">
             <div className="list">
-              <a href="">About Us</a>
-              <a href="">Categories</a>
-              <a href="">How to Trade</a>
-              <a href="">Contact Us</a>
+                <a href="">About Us</a>
+                <a href="">Categories</a>
+                <a href="">How to Trade</a>
+                <a href="">Contact Us</a>    
             </div>
             <div className="list">
-              <a href="">Gardening</a>
-              <a href="">Plants</a>
-              <a href="">Seeds</a>
-              <a href="">Bulbs</a>
+                <a href="">Gardening</a>
+                <a href="">Plants</a>
+                <a href="">Seeds</a>
+                <a href="">Bulbs</a>  
             </div>
             <div className="list">
-              <a href="">Pots</a>
-              <a href="">Pebbles</a>
-              <a href="">Soil & Fertlizer</a>
-              <a href="">Accessories</a>
+                <a href="">Pots</a>
+                <a href="">Pebbles</a>
+                <a href="">Soil & Fertlizer</a>
+                <a href="">Accessories</a>  
             </div>
           </div>
           <div className="subscribe">
-            <h1>Get in Touch</h1>
-            <div className="icons">
-              <FaFacebook />
-              <FaTwitter />
-              <FaInstagram />
-              <FaGithub />
-            </div>
+          <h1>Get in Touch</h1>
+          <div className="icons">
+                <FaFacebook/>
+                <FaTwitter/>
+                <FaInstagram/>
+                <FaGithub/>
+                </div>
           </div>
         </div>
       </footer>

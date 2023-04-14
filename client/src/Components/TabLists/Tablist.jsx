@@ -13,6 +13,8 @@ import '../TabLists/Tablist.css'
 import CustomImageList from '../ImageList/CustomImageList';
 import SingleNurRevBox from '../SingleNurRevBox/SingleNurRevBox';
 import WriteReviewPopUp from '../SingleProductLayout/WriteReviewPopUp';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,8 +57,19 @@ export default function Tablist(props) {
     setValue(newValue);
   };
 
-  const product = productData.map((item) =>
-    <Product name={item.name} url={item.imageurl} key={item.id} price={item.price} description={item.description} />
+  const location = useLocation()
+  const nurseryId = location.pathname.split('/')[2]
+  const [dataa, setDataa] = useState([]);
+  const getprods = async () => {
+    const res = await axios.get(`/nurserys/${nurseryId}/products`);
+    setDataa(res.data);
+  };
+  React.useEffect(() => {
+    getprods();
+  }, [location]);
+
+  const product = dataa?.map((item) =>
+    <Product name={item.name} url={item.photos[0]} key={item._id} price={item.price} description={item.desc} idx={item._id} />
   )
 
   const [buttonPopUp, setButtonPopUp] = useState(false);

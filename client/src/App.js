@@ -9,6 +9,7 @@ import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
 import SingleNurseryPage from './Pages/SingleNurseryPage/SingleNurseryPage';
 import SingleCategoryPage from './Pages/HomePage/SingleCategoryPage';
 import AddProductControl from './Pages/AddProductDetails/AddProductControl';
+import AddtoCartPage from './Pages/AddtoCartPage/AddtoCartPage'
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Home/Products/:productId" element={<SingleProductPage />} />
         <Route path="/category/:categ/Products/:productId" element={<SingleProductPage />} />
         <Route path="/nursery/:nurseryId" element={<SingleNurseryPage />} />
+        <Route path="/Cart" element={user ? <AddtoCartPage /> : <Navigate to="/Login" />} />
       </Routes>
     </div>
   );

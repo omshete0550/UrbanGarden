@@ -96,6 +96,9 @@ const Register = () => {
                         <label htmlFor="">Password</label>
                         <input type="text" id='password' placeholder="Enter your password" onChange={handleChange} />
                     </div>
+                    <div className='NurseryOwnerChk'>
+                        <p><input type="checkbox" />Are You a Nursery Owner?</p>
+                    </div>
                     <button className="register-button" onClick={handleClick}>Sign Up</button>
 
                     <span className="signup">Already have an account? <Link to={'/login'}>SignIn</Link></span>

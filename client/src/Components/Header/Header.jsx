@@ -4,12 +4,18 @@ import './Header.css';
 import logo from '../../UGbg.png';
 import PopupBtn from '../../Components/PopupButton/PopoverPopupState'
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart);
   function handleClick() {
     navigate("/");
   }
+  function handleClick1() {
+    navigate("/Cart");
+  }
+  // console.log(cart);
   return (
     <div>
       <div className="header">
@@ -40,14 +46,12 @@ const Header = () => {
           <div className="buttons-div">
             <div className="techsupport">
               <FaAddressBook className="techsupport-icon" />
-              <div>Expert Support<br></br><i>Available 24/7</i></div>
+              <div>{cart.quantity}</div>
             </div>
             <div className="techsupport" style={{ padding: "20px 20px", fontSize: "1rem" }}>
-              {/* <FaUser className="techsupport-icon" style={{fontSize: "1.7rem"}}/> */}
-              {/* <div>Login</div> */}
               <div><PopupBtn /></div>
             </div>
-            <div className="techsupport">
+            <div className="techsupport" onClick={handleClick1}>
               <FaShoppingCart className="techsupport-icon" />
 
             </div>

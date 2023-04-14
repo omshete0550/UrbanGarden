@@ -1,4 +1,5 @@
 import Nursery from "../models/Nursery.js";
+import Product from "../models/Product.js";
 import User from "../models/User.js";
 
 export const createNursery = async (req, res, next) => {
@@ -64,6 +65,18 @@ export const countByCity = async (req, res, next) => {
         const list = await Promise.all(cities.map(city => {
             return Nursery.countDocuments({ city: city })
         }))
+        res.status(200).json(list)
+    } catch (err) {
+        next(err);
+    }
+};
+export const getNurseryProducts = async (req, res, next) => {
+    try {
+        const nursery = await Nursery.findById(req.params.id)
+        const list = await Promise.all(
+            nursery.products.map(product => {
+                return Product.findById(product)
+            }))
         res.status(200).json(list)
     } catch (err) {
         next(err);

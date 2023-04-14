@@ -34,9 +34,11 @@
   flex-direction: column;
   justify-content: space-around;
   margin-top: 33px;
+  border-bottom: 0;
 }
 .login .details .input label {
   font-size: 14px;
+  margin-top: -15px;
 }
 .login .details .input input {
   width: 314px;
@@ -68,6 +70,7 @@
   font-size: 16px;
   color: #8a8b95;
   display: block;
+  text-align: center;
 }
 .login .details .facebook-button {
   background-color: #0d65c2;

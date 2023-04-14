@@ -170,3 +170,46 @@ export const reviewData = [
     },
 
 ]
+
+export const cartData = [
+    {
+        id: 1,
+        url: "https://5.imimg.com/data5/DT/NN/PM/SELLER-46366228/rose-tree-500x500.jpg",
+        title: "Rose Plant",
+        nurseryowner: "Apna Nursery",
+        size: "Medium",
+        dimensions: "25cm x 30cm x 40cm",
+        price: "$156.32"
+
+    },
+    {
+        id: 2,
+        url: "https://5.imimg.com/data5/DT/NN/PM/SELLER-46366228/rose-tree-500x500.jpg",
+        title: "Cactus Plant",
+        nurseryowner: "Tumhara Nursery",
+        size: "Medium",
+        dimensions: "25cm x 30cm x 40cm",
+        price: "$156.32"
+    },
+    {
+        id: 3,
+        url: "https://5.imimg.com/data5/DT/NN/PM/SELLER-46366228/rose-tree-500x500.jpg",
+        title: "Lily",
+        nurseryowner: "Hamara Nursery",
+        size: "Medium",
+        dimensions: "25cm x 30cm x 40cm",
+        price: "$156.32"
+
+    },
+    {
+        id: 4,
+        url: "https://5.imimg.com/data5/DT/NN/PM/SELLER-46366228/rose-tree-500x500.jpg",
+        title: "Rose Plant",
+        nurseryowner: "Sabka Nursery",
+        size: "Medium",
+        dimensions: "25cm x 30cm x 40cm",
+        price: "$156.32"
+
+    },
+
+]

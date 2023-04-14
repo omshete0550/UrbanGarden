@@ -1,59 +1,27 @@
-import Box from '@mui/material/Box';
-import Rating from '@mui/material/Rating';
 import './ProductLayout.css'
 import { useState } from "react";
 import { FaHandHoldingWater, FaRuler, FaSun } from 'react-icons/fa'
-import Carousel from 'react-multi-carousel';
-import Product from '../Carousel/Product';
-import { productData } from '../data';
 import Footer from '../Footer/Footer';
 import WriteReviewPopUp from './WriteReviewPopUp';
 import '../data';
-import useFetch from '../../hooks/useFetch';
 import ReviewBox from './ReviewBox';
 import { reviewData } from '../data';
 import { addProduct } from '../../redux/slices/Cartslice';
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import TrendingSlider from '../../Components/Carousel/trendingSlider';
 
 const ProductLayout = (props) => {
     const user = useSelector((state) => state.user.currentUser);
-    const productId = props.product
-    const { data, loading } = useFetch(`/products/${productId}`);
-    console.log(data.photos)
-    const images = [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg_gLhxxiLc3dxJM_G8ithy_6f_GMdbMUfHtGt7ga7o3dZwswdB1IGU0rROU9QWaETpQc&usqp=CAU",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEuIBum0MfyROhaNHceEGjnpngaOppcdmx2948DKDAtbekGZoDCEBIYuiuFCafv-yp7qQ&usqp=CAU",
-        "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61gCgvYeV4L._AC_SY606_.jpg",
-        "https://www.ikea.com/in/en/images/products/fejka-artificial-potted-plant-with-pot-in-outdoor-succulent__0614211_pe686835_s5.jpg?f=s"
-    ]
+    const images = props.image
+    const data = props.data
+    const firstimg = images[0]
     //MainImg and 4 SmallImgs
-    const [mainImgSrc, setMainImgSrc] = useState(images[3]);
+    const [mainImgSrc, setMainImgSrc] = useState(firstimg);
+    console.log(mainImgSrc)
     const handleSmallImgClick = (src) => {
         setMainImgSrc(src);
     };
-    const responsive = {
-        superLargeDesktop: {
-            breakpoint: { max: 4000, min: 1024 },
-            items: 5
-        },
-        desktop: {
-            breakpoint: { max: 1024, min: 800 },
-            items: 4
-        },
-        tablet: {
-            breakpoint: { max: 800, min: 464 },
-            items: 2
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
-        }
-    };
-
-    const product = productData.map((item) =>
-        <Product name={item.name} key={item.id} url={item.imageurl} price={item.price} description={item.description} />
-    )
     const review = reviewData.map((item) =>
         <ReviewBox key={item.id} url={item.url} name={item.name} datepost={item.datepost} review={item.review} />
     )
@@ -150,16 +118,7 @@ const ProductLayout = (props) => {
                 <h3>YOU MAY ALSO LIKE</h3>
                 <p className='horizontalLine'></p>
             </div>
-
-            <Carousel
-                responsive={responsive}
-                slidesToSlide={2}
-                draggable={true}
-                swipeable={true}
-            >
-                {product}
-            </Carousel>
-
+            <TrendingSlider />
 
             <div className="popupProduct">
                 <div className="ratingPopUpProduct">

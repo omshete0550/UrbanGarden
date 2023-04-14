@@ -31,31 +31,24 @@ const TestimonialSeller = (props) => {
 
   const [index, setIndex] = useState(0);
 
-  const slides = document.querySelectorAll(".slide");
-
-  const display = (index) => {
-    slides.forEach((slide) => {
-      slide.style.display = "none";
-    });
-    slides[index].style.display = "flex";
+  const display = (currentIndex) => {
+    return currentIndex === index ? "flex" : "none";
   };
 
   const nextSlide = () => {
     let newIndex = index + 1;
-    if (newIndex > slides.length - 1) {
+    if (newIndex > testimonials.length - 1) {
       newIndex = 0;
     }
     setIndex(newIndex);
-    display(newIndex);
   };
 
   const prevSlide = () => {
     let newIndex = index - 1;
     if (newIndex < 0) {
-      newIndex = slides.length - 1;
+      newIndex = testimonials.length - 1;
     }
     setIndex(newIndex);
-    display(newIndex);
   };
 
   return (
@@ -68,8 +61,8 @@ const TestimonialSeller = (props) => {
             <div className="next" onClick={nextSlide}></div>
           </div>
 
-          {testimonials.map((item) => (
-            <div className="slide" key={item.id}>
+          {testimonials.map((item, currentIndex) => (
+            <div className="slide" key={item.id} style={{ display: display(currentIndex) }}>
               <div className="testimonial">
                 <blockquote>{item.quote}</blockquote>
                 <p className="author">

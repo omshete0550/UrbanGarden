@@ -9,7 +9,6 @@ import useFetch from '../../hooks/useFetch'
 const SingleNurseryInfo = (props) => {
   const nurseryId = props.nursery
   const { data, loading } = useFetch(`/nurserys/${nurseryId}`);
-  console.log(data)
   const [popup, setPop] = useState(false);
   const handleClickOpen = () => {
     setPop(!popup)
