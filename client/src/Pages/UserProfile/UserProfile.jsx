@@ -3,13 +3,12 @@ import './UserProfile.css';
 import Header from '../../Components/Header/Header'
 import Footer from '../../Components/Footer/Footer'
 import VerticalTabs from '../../Components/VerticalTabPanel/TabPanel';
-import { useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { useSelector } from 'react-redux';
 
 const UserProfile = () => {
-  const location = useLocation()
-  const name = location.pathname.split('/')[2]
-  const { data, loading, error } = useFetch("/users/" + name);
+  const user = useSelector((state) => state.user.currentUser);
+  const { data, loading, error } = useFetch("/users/" + user.details.username);
 
   return (
     <>

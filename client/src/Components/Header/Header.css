@@ -85,6 +85,7 @@
     border-radius: 3px;
     align-items: center;
     font-size: 0.9rem;
+    position: relative;
     /* flex-direction: column; */
 }
 .techsupport-icon{
@@ -93,10 +94,24 @@
 }
 .techsupport:hover{
     cursor: pointer;
-    background-color: #cbcbcb;
+    /* background-color: #cbcbcb; */
 }
-
-
+.techsupport .shoppingCartNumber{
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #02b25d;
+    color: #fff;
+    font-size: 15px;
+}
+.techsupport .shoppingCartNumber span{
+    position: absolute;
+    left: 5px;
+    top: 1px;
+}
 
 .header-down{
     height: 50%;

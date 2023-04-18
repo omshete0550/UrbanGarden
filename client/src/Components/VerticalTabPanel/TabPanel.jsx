@@ -9,6 +9,9 @@ import { FaAddressBook, FaBoxOpen, FaShoppingBag } from 'react-icons/fa';
 import './TabPanel.css';
 import { useDispatch } from 'react-redux';
 import { update } from '../../redux/apiCalls';
+import { cartHistory } from '../data'
+import useFetch from "../../hooks/useFetch"
+import axios from 'axios';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,7 +76,6 @@ export default function VerticalTabs(props) {
       }
     })
   }
-
   const addData = async (e) => {
     const id = user._id
     e.preventDefault();
@@ -91,6 +93,64 @@ export default function VerticalTabs(props) {
       update(dispatch, { username, email, phone, id });
       closePopup()
     }
+  };
+  const { data, loading, error } = useFetch('/orders/find/' + user._id)
+
+  const PrevHistCarts = () => {
+
+    const renderProducts = async (products) => {
+      const productsWithDetails = await Promise.all(
+        products.map(async (product) => {
+          const response = await axios.get(`/products/${product.productId}`);
+          const pro = response.data;
+          return pro;
+        })
+      );
+
+      return productsWithDetails.map((product) => (
+        <div className="orderproductcard" key={product._id}>
+          <img src={product.photos[0]} alt="" />
+          <div className="orderproductdesc">
+            <span>{product.name}</span>
+            <p>{product.desc}</p>
+            {/* <p>Additional Details: {product.additionalDetails}</p> */}
+          </div>
+        </div>
+      ));
+    };
+
+    return (
+      <div>
+        {data.map((item) => (
+          <div className="OrderHistory" key={item._id}>
+            <div className="orderhistory">
+              <div className="orderhistoryheader">
+                <div className="OrderPlaced">
+                  <span>Order Placed</span>
+                  <p>{item.createdAt}</p>
+                </div>
+                <div className="OrderTotal">
+                  <span>Total</span>
+                  <p>{item.amount}</p>
+                </div>
+                <div className="OrderShip">
+                  <span>Ship To</span>
+                  <p>{item.customerName}</p>
+                </div>
+                <div className="OrderPay">
+                  <span>Mode Of Payment</span>
+                  <p>Cash on delivery</p>
+                </div>
+              </div>
+            </div>
+            <div className="orderhistoryproduct">
+              <h3>Delivered {item.updatedAt}</h3>
+              {renderProducts(item.products)}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -145,96 +205,9 @@ export default function VerticalTabs(props) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className="OrderHistory">
+        <div>
           <h1>Your Orders</h1>
-
-          <div className="orderhistory">
-            <div className="orderhistoryheader">
-              <div className='OrderPlaced'>
-                <span>Order Placed</span>
-                <p>19 February 2023</p>
-              </div>
-              <div className='OrderTotal'>
-                <span>Total</span>
-                <p>Rs. 4527</p>
-              </div>
-              <div className='OrderShip'>
-                <span>Ship To</span>
-                <p>Om Shete</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="orderhistoryproduct">
-            <h3>Delivered 08-Mar-2023</h3>
-            <div className="orderproductcard">
-              <img src="https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg" alt="" />
-              <div className='orderproductdesc'>
-                <span>Beatiful Product Name</span>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, quod non nulla modi ipsum delectus!</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="orderhistory">
-            <div className="orderhistoryheader">
-              <div className='OrderPlaced'>
-                <span>Order Placed</span>
-                <p>19 February 2023</p>
-              </div>
-              <div className='OrderTotal'>
-                <span>Total</span>
-                <p>Rs. 4527</p>
-              </div>
-              <div className='OrderShip'>
-                <span>Ship To</span>
-                <p>Om Shete</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="orderhistoryproduct">
-            <h3>Delivered 08-Mar-2023</h3>
-            <div className="orderproductcard">
-              <img src="https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg" alt="" />
-              <div className='orderproductdesc'>
-                <span>Beatiful Product Name</span>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, quod non nulla modi ipsum delectus!</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="orderhistory">
-            <div className="orderhistoryheader">
-              <div className='OrderPlaced'>
-                <span>Order Placed</span>
-                <p>19 February 2023</p>
-              </div>
-              <div className='OrderTotal'>
-                <span>Total</span>
-                <p>Rs. 4527</p>
-              </div>
-              <div className='OrderShip'>
-                <span>Ship To</span>
-                <p>Om Shete</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="orderhistoryproduct">
-            <h3>Delivered 08-Mar-2023</h3>
-            <div className="orderproductcard">
-              <img src="https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg" alt="" />
-              <div className='orderproductdesc'>
-                <span>Beatiful Product Name</span>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, quod non nulla modi ipsum delectus!</p>
-              </div>
-            </div>
-          </div>
-
+          {PrevHistCarts}
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -246,6 +219,7 @@ export default function VerticalTabs(props) {
               <div className="addnewaddress-main">
                 <div className="addnewaddress">
                   <div className="addnewaddress-header">
+                    <img src="https://img.freepik.com/free-icon/placeholder_318-903608.jpg" alt="" />
                     <h1>Add New Address</h1>
                     <h2 onClick={closePopup}>X</h2>
                   </div>
@@ -310,9 +284,10 @@ export default function VerticalTabs(props) {
               {popup ?
                 <div className="addnewaddress-main">
                   <div className="addnewaddress">
-                    <div className="addnewaddress-header">
+                    <div className="addnewaddress-header editheader">
+                      <img className='editheadderprofimg' src={user.img || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt="" />
                       <h1>Edit Profile</h1>
-                      <h2 onClick={closePopup}>X</h2>
+                      <img className='closecircleXmarkprof' src="https://www.svgrepo.com/show/378998/circle-xmark.svg" onClick={closePopup} alt="" />
                     </div>
                     <div className='addnewaddress-content-container'>
                       <div className='addnewaddress-content'>
@@ -337,7 +312,7 @@ export default function VerticalTabs(props) {
                         </div>
                       </div>
                     </div>
-                    <button className='addnewaddressSubBtn' onClick={addData}>Submit</button>
+                    <button className='EditProfBtn' onClick={addData}>Submit</button>
                   </div>
                 </div> : ""}
             </div>
@@ -375,7 +350,6 @@ export default function VerticalTabs(props) {
         </section>
 
       </TabPanel>
-
       <TabPanel value={value} index={5}>
         <div className="privacyPolicy">
           <h1>Privacy Policy</h1>

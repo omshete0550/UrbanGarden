@@ -1,21 +1,20 @@
-.addCartLayout{
-    
-    display: flex;
-    margin: 30px;
-    column-gap: 30px;
+.addCartLayout {
+  display: flex;
+  margin: 30px;
+  column-gap: 30px;
 }
-.cartItems{
-    background-color: #ebebeb;
-    width: 70%;
-    border-radius: 5px;
-    height: 70vh;
-    overflow-y: scroll;
+.cartItems {
+  background-color: #a4be9e;
+  width: 70%;
+  border-radius: 5px;
+  height: 70vh;
+  overflow-y: scroll;
 }
-.cartItems::-webkit-scrollbar{
-display: none;
+.cartItems::-webkit-scrollbar {
+  display: none;
 }
-.summaryItems{
-    background-color: #ebebeb;
-    width: 30%;
-    border-radius: 5px;
+.summaryItems {
+  background-color: white;
+  width: 30%;
+  border-radius: 5px;
 }

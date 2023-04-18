@@ -103,7 +103,7 @@ const Timeline = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="containerwsd">
       <div className="top-section">
         <h1>How it Works</h1>
         <p>

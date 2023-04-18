@@ -15,9 +15,9 @@ const cartSlice = createSlice({
     },
     removeProduct: (state, action) => {
       const productId = action.payload;
-      const removedProduct = state.products.find(product => product.id === productId);
-      state.products = state.products.filter(product => product.id !== productId);
-      state.total = state.total - removedProduct.price;
+      const removedProduct = state.products.find(product => product._id == productId);
+      state.products = state.products.filter(product => product._id !== productId);
+      state.total = state.total - (removedProduct.price * removedProduct.quantity);
       state.quantity -= 1;
     },
     reset: (state) => {

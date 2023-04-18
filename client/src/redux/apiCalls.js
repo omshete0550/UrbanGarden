@@ -23,8 +23,13 @@ export const register = async (dispatch, user) => {
 };
 export const update = async (dispatch, user) => {
     try {
-        const res = await axios.put(`/users/${user.id}`, user);
-        dispatch(updateUser(res.data));
+        const details = await axios.put(`/users/${user.id}`, user);
+        const isAdmin = details.data.isAdmin;
+        const updtduser = {
+            isAdmin: isAdmin,
+            details: { ...details.data }
+        };
+        dispatch(updateUser(updtduser));
     } catch (err) {
         console.log(err)
     }

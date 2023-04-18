@@ -50,12 +50,24 @@ export const deleteProduct = async (req, res, next) => {
 };
 export const getProduct = async (req, res, next) => {
     try {
-        const product = await Product.findById(req.params.id);
-        res.status(200).json(product);
+        let product;
+        if (req.params.username) {
+            // Search by username if username is given in request parameters
+            product = await Product.find({ name: req.params.username });
+        } else if (req.params.id) {
+            // Search by ID if ID is given in request parameters
+            product = await Product.findById(req.params.id);
+        }
+        if (product) {
+            res.status(200).json(product);
+        } else {
+            res.status(404).json({ message: "Product not found" });
+        }
     } catch (err) {
         next(err);
     }
 };
+
 export const getProducts = async (req, res, next) => {
     const { min, max, ...others } = req.query;
     try {

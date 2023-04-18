@@ -81,12 +81,17 @@ export default function NurseryForm() {
     }
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
   const handleReset = () => {
     setActiveStep(0);
     localStorage.clear();
+    setInpVal({
+      name: "",
+      city: "",
+      address: "",
+      photos: "",
+      desc: "",
+    })
+    setImagePreview(null)
   };
 
   const getData = (e) => {
@@ -101,7 +106,7 @@ export default function NurseryForm() {
 
   //image upload states
   const [image, setImage] = useState(null);
-  const [upladingImg, setUploadingImg] = useState(false);
+  const [uplodingImg, setUploadingImg] = useState(false);
   const [imagePreview, setImagePreview] = useState(null);
 
   function validateImg(e) {
@@ -135,7 +140,9 @@ export default function NurseryForm() {
   const handleSubmit = async () => {
     try {
       if (!image) return alert("Please upload your profile picture");
+      setUploadingImg(true);
       inpVal.photos = await uploadImage(image);
+      setUploadingImg(false);
       const res = await axios.post(`/nurserys/${user.details._id}`, inpVal)
       navigate("/")
     } catch (err) {
@@ -211,7 +218,7 @@ export default function NurseryForm() {
                   <h1>Upload Nursery Images</h1>
                   <input type="file" name="image" id="image-upload" hidden accept="image/png, image/jpeg" onChange={validateImg} />
                 </div>
-                <button onClick={addData}> Next</button>
+                <button disabled={uplodingImg} onClick={addData}> Next</button>
               </div>
 
             </>
@@ -219,16 +226,26 @@ export default function NurseryForm() {
 
           {activeStep === 2 &&
             <>
-              <div className="ConfirmInfo">
-                <h1>Name: {inpVal.name}</h1>
-                <span>desc: {inpVal.desc}</span>
-                <span>City: {inpVal.city}</span>
-                <span>Phone No: {inpVal.phone}</span>
-                <span>Address: {inpVal.address}</span>
-                <img src={imagePreview} />
+              <div className="Confirminfo">
+                <div className='confirminfoImagePrev'>
+                  <img src={imagePreview} alt="" />
+                </div>
+
+                <div className='confirminfoprev'>
+                  <h1>Name: {inpVal.name}</h1>
+                  <span>Description: {inpVal.desc}</span>
+                  <span>City: {inpVal.city}</span>
+                  <span>Phone No: {inpVal.phone}</span>
+                  <span>Address: {inpVal.address}</span>
+                </div>
+
               </div>
-              <button onClick={handleReset}> Reset</button>
-              <button onClick={handleSubmit}> Submit</button>
+              <div className='resetbtnNurDiv'>
+                <Button className='resetbtnNur' onClick={handleReset}>Reset</Button>
+              </div>
+              <div className='PrevSubbtnDiv'>
+                <Button className='PrevSubbtn' onClick={handleSubmit}>Submit</Button>
+              </div>
             </>}
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />

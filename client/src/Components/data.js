@@ -213,3 +213,40 @@ export const cartData = [
     },
 
 ]
+export const cartHistory = [
+    {
+        id: 1,
+        OrderedDate: "19 Feb 2015",
+        ReceivedDate: "25 Feb 2015",
+        total: 4500,
+        products: [
+            {
+                id: 123,
+                img: "https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg",
+                prodName: "Rose",
+                prodDesc: "Rose plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant"
+            },
+            {
+                id: 456,
+                img: "https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg",
+                prodName: "Lily",
+                prodDesc: "Rose plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant"
+            }
+        ]
+    },
+    {
+        id: 2,
+        OrderedDate: "19 Feb 2015",
+        ReceivedDate: "25 Feb 2015",
+        total: 4500,
+        products: [
+            {
+                id: 123,
+                img: "https://www.studioplant.com/media/catalog/product/cache/977f13580b1ba83e886742859ef85b5c/d/s/ds22-01.jpg",
+                prodName: "Rose",
+                prodDesc: "Rose plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant plant"
+            }
+        ]
+    }
+
+]

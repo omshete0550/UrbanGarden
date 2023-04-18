@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema({
-    userId: {
+    customerName: {
+        type: String,
+        required: true,
+    },
+    customerId: {
         type: String,
         required: true
     },
@@ -10,9 +14,11 @@ const OrderSchema = new mongoose.Schema({
             productId: {
                 type: String,
             },
+            postedBy: {
+                type: String,
+            },
             quantity: {
                 type: Number,
-                default: 1,
             },
         },
     ],
@@ -25,8 +31,12 @@ const OrderSchema = new mongoose.Schema({
         required: true
     },
     status: {
-        type: String,
-        default: "pending"
+        type: Number,
+        default: 0,
+    },
+    method: {
+        type: Number,
+        require: true,
     },
 },
     { timestamps: true }

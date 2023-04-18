@@ -9,7 +9,7 @@
 }
 .addnewaddress {
   height: 75vh;
-  width: 35%;
+  width: 30%;
   position: absolute;
   top: 15%;
   right: 30%;
@@ -25,7 +25,7 @@
   border-bottom: 2px solid #fff;
   margin-bottom: 15px;
   border-bottom: 2px solid #3ab757;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 .addnewaddress-header img {
   width: 100px;
@@ -35,7 +35,8 @@
 .addnewaddress-header h1 {
   color: #3ab757;
   font-weight: 700;
-  margin-top: 40px;
+  margin-top: 30px;
+  font-size: 35px;
   margin-left: 15px;
 }
 .addnewaddress-header h2 {
@@ -55,7 +56,7 @@
   margin-bottom: 15px;
 }
 .addnewaddress-content-container .addnewaddress-content .input {
-  width: 345px;
+  width: 300px;
   height: 44px;
   background-color: #fff;
   border-radius: 5px;
@@ -94,30 +95,48 @@
   color: #05060fc2;
 }
 .addnewaddressSubBtn {
-  width: 345px !important;
+  width: 300px !important;
   height: 45px;
-  padding: 10px 140px;
+  padding: 10px 120px;
   background-color: #3ab757 !important;
   color: #fff !important;
   border-radius: 10px;
   font-size: 18px;
-  margin-left: 15%;
-  /* border: 1px solid #3ab757; */
+  font-weight: 600 !important;
+  margin-left: 18%;
   color: #fff;
   cursor: pointer;
 }
 .EditProfBtn {
   margin-top: 0% !important;
-  margin-left: 15%;
-  width: 345px !important;
+  margin-left: 18%;
+  width: 300px !important;
+  padding: 10px 100px !important;
 }
-.editheader img {
-  width: 100px !important;
-  height: 100px !important;
+.editheadderprofimg {
+  width: 125px !important;
+  height: 125px !important;
   box-shadow: none !important;
+  border-radius: 50%;
+}
+.editheader h1 {
+  margin-top: 55px;
 }
 /* addnewaddress Ends */
-
+.closecircleXmarkaddr {
+  width: 25px !important;
+  height: 25px !important;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.closecircleXmarkprof {
+  width: 25px !important;
+  height: 25px !important;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
 /* Terms of Use */
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap");
@@ -371,7 +390,7 @@ html {
 /* Order History */
 
 .orderhistory {
-  width: 50vw;
+  width: 55vw;
   background: #f0f2f2;
 }
 .orderhistory .orderhistoryheader {
@@ -381,6 +400,9 @@ html {
   border: 1px solid #ccc;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+.orderhistory .OrderPay {
+  margin-left: 100px;
 }
 .OrderHistory h1 {
   padding: 20px 5px;
@@ -396,8 +418,8 @@ html {
   margin-right: 150px;
 }
 .OrderHistory .orderhistoryproduct {
-  width: 50vw;
-  height: 30vh;
+  width: 55vw;
+  height: auto;
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 15px 40px;

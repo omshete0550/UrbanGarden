@@ -12,9 +12,9 @@ import "../SingleCategLayout/GridCateg.css"
 import '../TabLists/Tablist.css'
 import CustomImageList from '../ImageList/CustomImageList';
 import SingleNurRevBox from '../SingleNurRevBox/SingleNurRevBox';
-import WriteReviewPopUp from '../SingleProductLayout/WriteReviewPopUp';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import Rating from '@mui/material/Rating';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +72,14 @@ export default function Tablist(props) {
     <Product name={item.name} url={item.photos[0]} key={item._id} price={item.price} description={item.desc} idx={item._id} />
   )
 
-  const [buttonPopUp, setButtonPopUp] = useState(false);
+  const [popup, setPop] = useState(false);
+  const handleClickOpen = () => {
+    setPop(!popup)
+  }
+
+  const closePopup = () => {
+    setPop(false)
+  }
 
   return (
     <Box sx={{ width: '100%', marginLeft: '12%', marginTop: '25%', marginBottom: '5%' }}>
@@ -126,13 +133,52 @@ export default function Tablist(props) {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <div className='SingleNurReview'>
-          <h2>{data.name} Reviews</h2>
+          <h2>Gulabo Nursery Reviews</h2>
 
           <div className="writeReviewPopupProduct">
-            <button onClick={() => setButtonPopUp(true)}>WRITE A REVIEW</button>
+            <button onClick={handleClickOpen}>WRITE A REVIEW</button>
+            <div>
+              {popup ?
+                <div className="popup-main">
+                  <div className="popup">
+                    <img className='closecircleXmark' src="https://www.svgrepo.com/show/378998/circle-xmark.svg" onClick={closePopup} alt="" />
+
+                    <div className="topwrite">
+                      <h1>UrbanGarden</h1>
+                    </div>
+
+                    <div className="identitylabel">
+                      <div className="identityicon">
+                        <p>IC</p>
+                      </div>
+                      <div className="identitydetails">
+                        <h3>Hamza Ali Sayed</h3>
+                        <p>Post Publicly</p>
+                      </div>
+                    </div>
+                    <div className="doreview">
+                      <Box
+                        sx={{
+                          '& > legend': { mt: 2 },
+                        }}
+                      >
+                        <Rating name="read-only" value={value} readOnly />
+                      </Box>
+                    </div>
+                    <div className="typereview">
+                      <textarea name="" id="" cols="45" rows="7"></textarea>
+                    </div>
+                    <div className="writereviewbuttons">
+                      <div className="postbutton">
+                        <button>POST</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> : ""}
+            </div>
           </div>
-          <WriteReviewPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-          </WriteReviewPopUp>
+          {/* <WriteReviewPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp}>
+        </WriteReviewPopUp> */}
 
           <SingleNurRevBox />
           <SingleNurRevBox />

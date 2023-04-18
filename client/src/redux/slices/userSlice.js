@@ -25,7 +25,6 @@ const userSlice = createSlice({
         },
         updateUser: (state, action) => {
             state.isFetching = false;
-            state.currentUser = null;
             state.currentUser = action.payload;
         }
     },

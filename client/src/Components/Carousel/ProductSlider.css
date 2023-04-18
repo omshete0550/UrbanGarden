@@ -2,6 +2,10 @@
   padding: 10px 15px;
   /* margin-top: 5%; */
 }
+.product-p {
+  height: 30px;
+  margin-bottom: 25px;
+}
 .parent-heading {
   font-size: 40px;
   font-weight: 600;
@@ -23,6 +27,7 @@
   /* text-align: center; */
   font-family: arial;
   transition: all 1s;
+  height: 425px;
   border-radius: 4px;
 }
 .detail {

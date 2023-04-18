@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaAddressBook, FaCaretDown, FaSearch, FaShoppingCart } from 'react-icons/fa'
 import './Header.css';
 import logo from '../../UGbg.png';
 import PopupBtn from '../../Components/PopupButton/PopoverPopupState'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Header = () => {
+  const [Search, setSearch] = useState("");
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   function handleClick() {
@@ -15,7 +17,11 @@ const Header = () => {
   function handleClick1() {
     navigate("/Cart");
   }
-  // console.log(cart);
+  async function handleClick2() {
+    const res = await axios.get(`/products/username/${Search}`)
+    navigate(`Products/${res.data[0]._id}`)
+  }
+
   return (
     <div>
       <div className="header">
@@ -37,8 +43,12 @@ const Header = () => {
               </select>
             </div>
             <div className="search-bar">
-              <input type="text" className="searchbar" placeholder="What are you looking for?" required></input>
-              <div className="searchicon">
+              <input type="text"
+                className="searchbar"
+                placeholder="What are you looking for?"
+                onChange={(e) => setSearch(e.target.value)}
+                required></input>
+              <div className="searchicon" onClick={handleClick2}>
                 <FaSearch className="search-icon" />
               </div>
             </div>
@@ -46,14 +56,14 @@ const Header = () => {
           <div className="buttons-div">
             <div className="techsupport">
               <FaAddressBook className="techsupport-icon" />
-              <div>{cart.quantity}</div>
+              <div>Expert Support</div>
             </div>
             <div className="techsupport" style={{ padding: "20px 20px", fontSize: "1rem" }}>
               <div><PopupBtn /></div>
             </div>
             <div className="techsupport" onClick={handleClick1}>
               <FaShoppingCart className="techsupport-icon" />
-
+              <p className="shoppingCartNumber"><span>{cart.quantity}</span></p>
             </div>
           </div>
         </div>

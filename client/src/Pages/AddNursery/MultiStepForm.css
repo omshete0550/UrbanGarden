@@ -77,7 +77,7 @@
 }
 .NurseryDetails button,
 .ProductInformation button,
-.ConfirmInfoContainer button {
+.ConfirmInfoContainer button{
   margin-left: 90%;
   background: transparent;
   color: #000;
@@ -93,8 +93,8 @@
 .NurseryDetails button {
   margin-top: 45px;
 }
-.ProductInformation button {
-  margin-top: 45px;
+.NurseryDetails .confirmBtnNursery{
+  margin-top: 5px;
 }
 .ConfirmInfoContainer button {
   margin-top: -15px;
@@ -125,6 +125,12 @@
   animation: rotate 1s;
   transition: all 0.5s;
 }
+.NurseryImage{
+  margin-top: -15px;
+}
+.NurseryImage h1{
+  margin-bottom: 12px;
+}
 
 @keyframes rotate {
   0% {
@@ -135,135 +141,70 @@
     transform: rotateY(360deg);
   }
 }
-.ConfirmInfo{
-  margin-top: 5%;
+.Confirminfo{
+  margin-top: 7%;
   padding: 20px 80px;
+  display: flex;
 }
-.ConfirmInfo h1{
+.Confirminfo .confirminfoImagePrev{
+  margin-right: 10%;
+}
+.Confirminfo .confirminfoImagePrev img{
+  width: 350px;
+  height: 300px;
+}
+.Confirminfo .confirminfoprev{
+  display: flex;
+  flex-direction: column;
+}
+.Confirminfo h1{
   font-size: 45px;
-  margin-bottom: 15px;
+  font-weight: 600;
+  margin-bottom: 45px;
 }
-.ConfirmInfo span{
-  font-size: 20px;
+.Confirminfo span{
+  font-size: 18px;
+  margin-bottom: 25px;
   font-weight: 400;
 }
-
-/* .nurseryInfo{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex-direction: column;
-    padding: 20px 80px;
+.resetbtnNurDiv{
+  margin-top: 2%;
+  margin-left: 5%;
 }
- .NurImgUp h1{
-  margin-top: 5%;
-    font-size: 40px;
-    font-weight: 600;
-    padding-bottom: 15px;
+.resetbtnNur{
+  margin-top: 45px;
+  background: #048e4b;
+  color: #fff;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  width: 125px;
+  height: 50px;
+  padding: 10px 30px;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
-
-.checkbox-btn {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  .checkbox-btn .chk-label{
-    font-size: 18px;
-  }
-
-  .checkbox-btn input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-  
-  .checkbox-btn label {
-    cursor: pointer;
-    font-size: 14px;
-  }
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    border: 2.5px solid #000;
-    transition: .2s linear;
-  }
-  .checkbox-btn input:checked ~ .checkmark {
-    background-color: transparent;
-  }
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    visibility: hidden;
-    opacity: 0;
-    left: 50%;
-    top: 40%;
-    width: 10px;
-    height: 14px;
-    border: 2px solid #0ea021;
-    filter: drop-shadow(0px 0px 10px #0ea021);
-    border-width: 0 2.5px 2.5px 0;
-    transition: .2s linear;
-    transform: translate(-50%, -50%) rotate(-90deg) scale(0.2);
-  }
-  
-  .checkbox-btn input:checked ~ .checkmark:after {
-    visibility: visible;
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    animation: pulse 1s ease-in;
-  }
-  
-  .checkbox-btn input:checked ~ .checkmark {
-    transform: rotate(45deg);
-    border: none;
-  }
-  
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: translate(-50%, -50%) rotate(0deg) scale(1);
-    }
-    50% {
-      transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
-    }
-  }
-  
-
-.categCheckBox{
-  display: flex;
-  padding-bottom: 12px;
+.resetbtnNur:hover{
+  color: #000;
 }
-.categCheckBox input{
-  margin-top: 5px;
+.PrevSubbtnDiv{
+  margin-left: 85%;
+  margin-top: -4%;
 }
-.categCheckBox h6{
-  font-size: 25px;
+.PrevSubbtn{
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  width: 125px;
+  height: 50px;
+  padding: 10px 30px;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
-.NurImgUp{
-    display: flex;
-    flex-direction: column;
-    margin-top: 3%;
+.PrevSubbtn:hover{
+  color: #000;
 }
-
-.ConfirmInfo{
-  display: flex;
-
-  align-items: start;
-  flex-direction: column;
-  margin-top: 5%;
-}
-.ConfirmInfo span{
-  text-align: start;
-  font-size: 22px;
-  padding-bottom: 12px;
-} */

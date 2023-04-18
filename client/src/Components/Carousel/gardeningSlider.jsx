@@ -26,7 +26,7 @@ const GardeningSlider = () => {
     }
   };
   let product = []
-  const { data, loading } = useFetch("/products/categories?category=gardening");
+  const { data, loading } = useFetch("/products/categories?category=Gardening");
   if (data[0] == null) {
     product = []
   } else {

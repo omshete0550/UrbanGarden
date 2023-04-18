@@ -14,7 +14,9 @@ router.put("/:id", verifyAdmin, updateProduct)
 router.delete("/:id/:nurseryId", verifyAdmin, deleteProduct)
 
 //get
-router.get("/:id", getProduct)
+router.get('/:id', getProduct);
+router.get('/username/:username', getProduct);
+
 
 //get all
 router.get("/", getProducts)

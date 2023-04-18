@@ -3,21 +3,26 @@ import Header from '../../Components/Header/Header'
 import AddtoCartItem from '../../Components/AddtoCartItem/AddtoCartItem'
 import SummaryItem from '../../Components/AddtoCartItem/SummaryItem'
 import './AddtoCartPage.css'
-import {cartData} from '../../Components/data'
+import { useSelector } from 'react-redux'
+
 const AddtoCartPage = () => {
-  const cartItem = cartData.map((item) => 
-        <AddtoCartItem title={item.title} key={item.id} url={item.url} nurseryowner={item.nurseryowner} />
-    )
+
+  const cart = useSelector((state) => state.cart);
+  const cartData = cart.products;
+  const cartItem = cartData.map((item) =>
+    <AddtoCartItem product={item} />
+  )
+
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="addCartLayout">
-            <div className="cartItems">
-              {cartItem}
-            </div>
-            <div className="summaryItems">
-                <SummaryItem/>
-            </div>
+        <div className="cartItems">
+          {cartItem}
+        </div>
+        <div className="summaryItems">
+          <SummaryItem />
+        </div>
       </div>
     </div>
   )

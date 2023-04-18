@@ -13,7 +13,7 @@ router.put("/:id", verifyAdmin, updateOrder);
 router.delete("/:id", verifyAdmin, deleteOrder);
 
 //GET USER ORDERS
-router.get("/find/:userId", verifyUser, getUserAllOrder);
+router.get("/find/:userId", getUserAllOrder);
 
 //GET ALL
 router.get("/", verifyAdmin, getAll);

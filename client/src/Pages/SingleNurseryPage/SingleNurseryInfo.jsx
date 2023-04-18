@@ -78,13 +78,17 @@ const SingleNurseryInfo = (props) => {
                 <div className="popup-main">
                   <div className="popup">
                     <div className="popup-header">
-                      <img src={data.photos[0]} alt="" />
+
+                      <img className='userimgEditProf' src={data.photos[0]} alt="" />
+                      <img className='pencilEditProf' src="https://cdn-icons-png.flaticon.com/512/61/61456.png" alt="" />
+
                       <div>
                         <h1>Edit Nursery Profile</h1>
-                        <p>Fill this form to Edit your Profile! And it will get updated on your screen.</p>
+                        <p>Fill this form to Edit your Profile!</p>
                       </div>
 
-                      <h2 onClick={closePopup}>X</h2>
+                      <img className='closecircleXmark' src="https://www.svgrepo.com/show/378998/circle-xmark.svg" onClick={closePopup} alt="" />
+
                     </div>
                     <div className='popup-content-container'>
                       <div className='popup-content'>

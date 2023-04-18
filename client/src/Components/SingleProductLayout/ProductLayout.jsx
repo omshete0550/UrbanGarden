@@ -18,7 +18,7 @@ const ProductLayout = (props) => {
     const firstimg = images[0]
     //MainImg and 4 SmallImgs
     const [mainImgSrc, setMainImgSrc] = useState(firstimg);
-    console.log(mainImgSrc)
+
     const handleSmallImgClick = (src) => {
         setMainImgSrc(src);
     };
@@ -105,7 +105,7 @@ const ProductLayout = (props) => {
                             className="dimenProduct"
                         />
                         <div className="cartProduct">
-                            <button className="button btn-cart" onClick={handleClick}>
+                            <button className="buttonds btn-cart" onClick={handleClick}>
                                 <span><span>Add to My Bag</span></span>
                             </button>
                         </div>

@@ -5,7 +5,7 @@ export const createOrder = async (req, res, next) => {
     const newOrder = new Order(req.body);
     try {
         const savedOrder = await newOrder.save();
-        res.status(200).json(savedOrder);
+        res.status(201).json(savedOrder);
     } catch (err) {
         next(err)
     }
@@ -40,7 +40,7 @@ export const deleteOrder = async (req, res, next) => {
 //GET USER ORDERS
 export const getUserAllOrder = async (req, res, next) => {
     try {
-        const orders = await Order.find({ userId: req.params.userId });
+        const orders = await Order.find({ customerId: req.params.userId });
         res.status(200).json(orders);
     } catch (err) {
         next(err)

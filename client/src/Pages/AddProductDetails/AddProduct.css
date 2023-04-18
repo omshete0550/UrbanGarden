@@ -1,11 +1,10 @@
-.MultiStepProduct{
+.MultiStepProduct {
   width: 100%;
   height: 100vh;
   padding: 50px;
   background-image: url(https://img.freepik.com/free-psd/tropical-foliage-background_53876-91352.jpg);
-  filter: brightness(85%);
 }
-.AddBxPro{
+.AddBxPro {
   /* margin: 50px; */
   padding: 50px;
   width: 90%;
@@ -16,38 +15,36 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.ProductInp{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
+.ProductInp {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
 }
-.ProductInp h6{
-    margin-left: 5px;
-    font-size: 15px;
-    margin-bottom: 15px;
-    font-weight: 300;
+.ProductInp h6 {
+  margin-left: 5px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-weight: 300;
 }
-.ProductInp .input 
-{
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    padding: 1em;
-    background-color: #fff;
-    border: 1px solid #000;
-    /* box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3); */
-    transition: 300ms ease-in-out;
-    width: 55%;
+.ProductInp .input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #000;
+  /* box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3); */
+  transition: 300ms ease-in-out;
+  width: 55%;
 }
-  
-.ProductInp .input:focus 
-{
+
+.ProductInp .input:focus {
   background-color: white;
   transform: scale(1.05);
   /* box-shadow: 13px 13px 100px #969696,-13px -13px 100px #ffffff; */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; 
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.ProductDetails img{
+.ProductDetails img {
   width: 450px;
   height: 400px;
   position: absolute;
@@ -56,66 +53,70 @@
 .ProductDetails button,
 .ProductInformation button,
 .ConfirmInfoContainer button {
-    margin-left: 90%;
-    background: transparent;
-    color: #000;
-    font-size: 17px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: none;
-    padding: 20px 30px;
-    perspective: 30rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
+  margin-left: 90%;
+  background: transparent;
+  color: #000;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  padding: 20px 30px;
+  perspective: 30rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
-.ProductDetails button{
+.ProductDetails button {
   margin-top: 45px;
 }
-.ProductInformation button{
+.ProductInformation button {
   margin-top: 15px;
 }
-.ConfirmInfoContainer button{
+.ConfirmInfoContainer button {
   margin-top: -15px;
 }
 .ProductDetails button::before,
 .ProductInformation button::before,
-.ConfirmInfoContainer button::before{
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    background: linear-gradient(320deg, rgba(0, 140, 255, 0.678), rgba(128, 0, 128, 0.308));
-    z-index: 1;
-    transition: background 3s;
+.ConfirmInfoContainer button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    320deg,
+    rgba(0, 140, 255, 0.678),
+    rgba(128, 0, 128, 0.308)
+  );
+  z-index: 1;
+  transition: background 3s;
 }
-  
+
 .ProductDetails button:hover::before,
 .ProductInformation button:hover::before,
 .ConfirmInfoContainer button:hover::before {
-    animation: rotate 1s;
-    transition: all .5s;
+  animation: rotate 1s;
+  transition: all 0.5s;
 }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotateY(180deg);
-    }
-  
-    100% {
-      transform: rotateY(360deg);
-    }
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(180deg);
   }
-.ProInfoMulti{
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+.ProInfoMulti {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 5%;
 }
-.ProductImage{
+.ProductImage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -124,14 +125,14 @@
   left: 60%;
   position: absolute;
 }
-.ProductImage input{
+.ProductImage input {
   margin-top: 25px;
 }
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
 .custom-file-input::before {
-  content: 'Select some files';
+  content: "Select some files";
   display: inline-block;
   background: linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -152,15 +153,15 @@
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
-.ConfirmInfoCont{
+.ConfirmInfoCont {
   display: flex;
 }
-.ConfirmInfo{
+.ConfirmInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.ConfirmImg img{
+.ConfirmImg img {
   width: 500px;
   height: 500px;
 }

@@ -13,15 +13,11 @@
   justify-content: center;
 }
 .passiveimage {
-  width: 100%;
-  height: 100%;
   display: flex;
   column-gap: 2px;
 }
 .passiveimage img {
   margin: 10px;
-  width: 110px;
-  height: 125px;
 }
 .infoProductLayout {
   width: 50%;
@@ -90,7 +86,8 @@
   justify-content: center;
 }
 .dimenProduct {
-  width: 50%;
+  width: 30%;
+  height: 100%;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -325,6 +322,20 @@
   padding: 20px;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; */
 }
+.popupProduct .postbutton {
+  margin-top: 30px;
+  margin-right: 50px;
+}
+.popupProduct .cancelbutton {
+  margin-top: 30px;
+  margin-right: 20px;
+}
+.popupProduct .cancelbutton button {
+  background-color: #fff;
+  color: red;
+  border: 1px solid red;
+  border-radius: 2px;
+}
 .topPopupProduct {
   display: flex;
   column-gap: 3rem;
@@ -417,14 +428,4 @@
   padding: 5px 25px;
   text-align: justify;
   line-height: 1.5em;
-}
-.reviewcCardbody {
-  padding: 5px 25px;
-  text-align: justify;
-  line-height: 1.5em;
-  font-size: 1.1rem;
-}
-.reviewCarddate h4 {
-  font-size: 0.9rem;
-  font-weight: 300;
 }

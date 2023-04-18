@@ -71,6 +71,7 @@ const Register = () => {
                 });
         }
     }, [location]);
+    console.log(credentials)
 
     return (
         <div className='RegisterDiv'>

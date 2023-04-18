@@ -16,7 +16,6 @@ const SingleProductPage = () => {
     const res = await axios.get(`/products/${productId}`)
     setData(res.data)
     setImages(res.data.photos)
-    console.log(res.data.photos)
   }
   React.useEffect(() => {
     fetching()
