@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Category.css';
 
 function CategoryBox(props) {
-    const abc = `/category/${props.title.toLowerCase()}`;
+    const abc = `/category/${props.title}`;
 
     return (
 

@@ -90,12 +90,12 @@ export const OfferData = [
 export const categoryData = [
     {
         id: 1,
-        title: "gardening",
+        title: "Gardening",
         content: "Go green or else we all will scream!",
     },
     {
         id: 2,
-        title: "plant",
+        title: "Plants",
         content: "He who plants a tree, plants a HOPE",
     },
     {
@@ -115,7 +115,7 @@ export const categoryData = [
     },
     {
         id: 6,
-        title: "soilandfertilizers",
+        title: "soil",
         content: "The best fertilizer was a gardener's hard work :)",
     },
     {

@@ -6,7 +6,7 @@ import "./GridCateg.css"
 import useFetch from '../../hooks/useFetch';
 
 const GridCateg = (props) => {
-  const category = props.gridheading.toLowerCase()
+  const category = props.gridheading
   const { data, loading } = useFetch(`/products?category=${category}`);
   const product = data?.map((item) =>
     <Product name={item.name} url={item.photos[0]} key={item._id} price={item.price} description={item.desc} idx={item._id} />

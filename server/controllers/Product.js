@@ -52,10 +52,8 @@ export const getProduct = async (req, res, next) => {
     try {
         let product;
         if (req.params.username) {
-            // Search by username if username is given in request parameters
             product = await Product.find({ name: req.params.username });
         } else if (req.params.id) {
-            // Search by ID if ID is given in request parameters
             product = await Product.findById(req.params.id);
         }
         if (product) {
@@ -80,21 +78,23 @@ export const getProducts = async (req, res, next) => {
         next(err);
     }
 };
+
 export const randomDisplay = async (req, res, next) => {
-    const category = req.query.category
+    const category = req.query.category;
     try {
-        const products = await Product.find({ category: category })
+        const products = await Product.find({ category: category });
         const indices = new Set();
-        while (indices.size < 1) {
+        while (indices.size < products.length) {
             const index = Math.floor(Math.random() * (products.length));
             indices.add(index);
         }
         const selectedProducts = Array.from(indices).map(index => products[index]);
-        res.status(200).json(selectedProducts)
+        res.status(200).json(selectedProducts);
     } catch (err) {
         next(err);
     }
 };
+
 export const trendingProducts = async (req, res, next) => {
     try {
         Product.aggregate([
