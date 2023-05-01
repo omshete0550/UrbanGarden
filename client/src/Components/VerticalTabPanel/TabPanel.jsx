@@ -96,6 +96,10 @@ export default function VerticalTabs(props) {
   };
   const { data, loading } = useFetch('/orders/find/' + user._id)
 
+  function calcTotal(x, y) {
+    return x * y;
+  }
+  let arr = ['Cash On Delivery', 'Online Payment'];
 
   const ProductOrder = ({ product }) => {
     const [res, setRes] = useState(null)
@@ -113,9 +117,11 @@ export default function VerticalTabs(props) {
           <img src={res.photos[0]} alt="" />
           <div className="orderproductdesc">
             <span>{res.name}</span>
-            <p>{res.price}*{product.quantity}</p>
+            <p>{res.desc.slice(0, 50).concat("...")}</p>
+            <p>Price: {res.price} <br></br> Quantity: {product.quantity} <br></br> TotalPrice: {calcTotal(res.price, product.quantity)}</p>
           </div>
-        </div></div>)
+        </div>
+      </div>)
   }
   const PrevHistCarts = () => {
     return (
@@ -125,20 +131,20 @@ export default function VerticalTabs(props) {
             <div className="orderhistory">
               <div className="orderhistoryheader">
                 <div className="OrderPlaced">
-                  <span>Order Placed</span>
+                  <span>Order Placed: </span>
                   <p>{order.createdAt}</p>
                 </div>
                 <div className="OrderTotal">
-                  <span>Total</span>
+                  <span>Total: </span>
                   <p>{order.amount}</p>
                 </div>
                 <div className="OrderShip">
-                  <span>Ship To</span>
+                  <span>Ship To: </span>
                   <p>{order.customerName}</p>
                 </div>
                 <div className="OrderPay">
-                  <span>Mode Of Payment</span>
-                  <p>Cash on delivery</p>
+                  <span>Mode Of Payment: </span>
+                  <p>{arr[order.method]}</p>
                 </div>
               </div>
             </div>

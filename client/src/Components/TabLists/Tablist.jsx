@@ -132,7 +132,7 @@ export default function Tablist(props) {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <div className='SingleNurReview'>
-          <h2>Gulabo Nursery Reviews</h2>
+          <h2>Reviews</h2>
 
           <div className="writeReviewPopupProduct">
             <button onClick={handleClickOpen}>WRITE A REVIEW</button>

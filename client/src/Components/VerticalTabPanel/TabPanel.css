@@ -390,7 +390,7 @@ html {
 /* Order History */
 
 .orderhistory {
-  width: 55vw;
+  width: 60vw;
   background: #f0f2f2;
 }
 .orderhistory .orderhistoryheader {
@@ -418,7 +418,7 @@ html {
   margin-right: 150px;
 }
 .OrderHistory .orderhistoryproduct {
-  width: 55vw;
+  width: 60vw;
   height: auto;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -430,11 +430,12 @@ html {
 }
 .orderhistoryproduct .orderproductcard img {
   width: 150px;
-  height: 130px;
+  height: 150px;
+  object-fit: contain;
   margin-top: 15px;
 }
 .orderhistoryproduct .orderproductcard .orderproductdesc {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 15px;
   width: 70%;
 }

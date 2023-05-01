@@ -206,9 +206,12 @@ export default function AddProductDetails() {
                       <option value="Select">Categories</option>
                       <option value="Gardening">Gardening</option>
                       <option value="Plants">Plants</option>
-                      <option value="Seeds">Seeds</option>
-                      <option value="Soil">Soil</option>
-                      <option value="Fertilizers">Fertilizers</option>
+                      <option value="pebble">Pebbles</option>
+                      <option value="seed">Seeds</option>
+                      <option value="soil">Soil & Fertilizer</option>
+                      <option value="accessory">Accesories</option>
+                      <option value="pot">Pots</option>
+                      <option value="bulb">Bulbs</option>
                     </select>
                   </div>
                 </div>
@@ -221,6 +224,7 @@ export default function AddProductDetails() {
                       <option value="Summer">Summer</option>
                       <option value="Winter">Winter</option>
                       <option value="Rainy">Rainy</option>
+                      <option value="Spring">Spring</option>
                       <option value="All Seasons">All Seasons</option>
                     </select>
                   </div>
@@ -287,14 +291,18 @@ export default function AddProductDetails() {
                     </div>
                     <div className="descFeature">
                       <h4>Water Frequency: </h4>
-                      <p>{inpVal.postedby}</p>
+                      <p>Twice a day</p>
                     </div>
                   </div>
 
                 </div>
               </div>
-              <button onClick={handleReset}>Reset</button>
-              <button onClick={handleSubmit}>Confirm</button>
+              <div className='resetproductaddpage'>
+                <button onClick={handleReset}>Reset</button>
+              </div>
+              <div className='confirmproductaddpage'>
+                <button onClick={handleSubmit}>Confirm</button>
+              </div>
             </div>}
 
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>

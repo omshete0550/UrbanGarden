@@ -3,6 +3,7 @@
   height: 100vh;
   padding: 50px;
   background-image: url(https://img.freepik.com/free-psd/tropical-foliage-background_53876-91352.jpg);
+  filter: brightness(85%);
 }
 .AddBxPro {
   /* margin: 50px; */
@@ -160,9 +161,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 5%;
 }
 .ConfirmImg img {
   width: 500px;
-  height: 500px;
+  height: 450px;
+  border-radius: 5px;
+  margin-top: 25px;
 }
 /*  */
+
+.resetproductaddpage {
+  position: absolute;
+  left: 4%;
+  top: 85%;
+}
+.confirmproductaddpage {
+  position: absolute;
+  right: 18%;
+  top: 85%;
+}
