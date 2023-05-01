@@ -5,13 +5,13 @@
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
 }
-.category_section{
+.category_section {
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.category_section h1{
+.category_section h1 {
   text-align: center;
   font-size: 40px;
   color: #41403e;
@@ -47,7 +47,9 @@
   color: whitesmoke;
   border-radius: 4px;
   background-color: whitesmoke;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 600px) {
   .CategoryCard {
@@ -75,30 +77,48 @@
   width: 100%;
   height: 200%;
   pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.009) 11.7%,
+    rgba(0, 0, 0, 0.034) 22.1%,
+    rgba(0, 0, 0, 0.072) 31.2%,
+    rgba(0, 0, 0, 0.123) 39.4%,
+    rgba(0, 0, 0, 0.182) 46.6%,
+    rgba(0, 0, 0, 0.249) 53.1%,
+    rgba(0, 0, 0, 0.32) 58.9%,
+    rgba(0, 0, 0, 0.394) 64.3%,
+    rgba(0, 0, 0, 0.468) 69.3%,
+    rgba(0, 0, 0, 0.54) 74.1%,
+    rgba(0, 0, 0, 0.607) 78.8%,
+    rgba(0, 0, 0, 0.668) 83.6%,
+    rgba(0, 0, 0, 0.721) 88.7%,
+    rgba(0, 0, 0, 0.762) 94.1%,
+    rgba(0, 0, 0, 0.79) 100%
+  );
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
 .CategoryCard:nth-child(1):before {
-  background-image: url(https://www.energy.gov/sites/default/files/styles/photo_gallery_509_x_678_/public/2022-04/gardening-shutterstock_1932729521-Thumbnail.jpg?itok=wnb17__n);
+  background-image: url(https://assets-news.housing.com/news/wp-content/uploads/2022/04/04230832/Gardening-tools-Must-have-tools-for-growing-a-home-garden.jpg);
 }
 .CategoryCard:nth-child(2):before {
-  background-image: url(https://res.cloudinary.com/patch-gardens/image/upload/c_fill,h_1000,q_auto:good,w_1000/v1/cms/Jan_23_Decorate-min.jpg);
+  background-image: url("https://www.thespruce.com/thmb/cEjt1PmGtXtQULR7lJrHZJdmOoo=/3000x0/filters:no_upscale():max_bytes(150000):strip_icc()/increase-humidity-for-houseplants-1902801-6-eadf73df8284421ca827c073d8a43fd2.jpg");
 }
 .CategoryCard:nth-child(3):before {
-  background-image: url(https://image.shutterstock.com/image-photo/farmers-hand-planting-seeds-soil-260nw-1653108823.jpg);
+  background-image: url(https://www.gardeningknowhow.com/wp-content/uploads/2020/07/seed-planting.jpg);
 }
 .CategoryCard:nth-child(4):before {
-  background-image: url(https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-bulbs-hyacinth-purple-sensation-bulbs-16968945664140_512x512.jpg?v=1634221990);
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/summer-bulbs-1622649274.jpg?crop=0.711xw:1.00xh;0.116xw,0&resize=1200:*);
 }
 .CategoryCard:nth-child(5):before {
-  background-image: url(https://hips.hearstapps.com/hmg-prod/images/petunia-flowers-growing-in-flower-pots-on-the-royalty-free-image-1584554126.jpg);
+  background-image: url(https://m.media-amazon.com/images/I/719lvSuzHKL.jpg);
 }
 .CategoryCard:nth-child(6):before {
   background-image: url(https://media.istockphoto.com/id/959697442/photo/farmer-giving-granulated-fertilizer-to-young-tomato-plants.jpg?s=612x612&w=0&k=20&c=4sewLXboXwTJY9kAXcyjw0GAwN33XzEGVjln597d_aE=);
 }
 .CategoryCard:nth-child(7):before {
-  background-image: url(https://media.istockphoto.com/id/1401978017/photo/tower-of-stones-on-sicilian-pebble-beach.jpg?b=1&s=170667a&w=0&k=20&c=VA6pGi-NdpHSVo0ggacOee7CaP_rSh8KKFru-UKM-0M=);
+  background-image: url(https://images.thdstatic.com/productImages/e8a05cd6-d0a2-4ca5-a975-e0cd793ab77c/svn/altman-plants-succulent-plants-0883241-1f_600.jpg);
 }
 .CategoryCard:nth-child(8):before {
   background-image: url(https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-gardening-tools-bonsai-set-no-1025-gardening-tools-16968648360076_600x600.jpg?v=1634214773);
@@ -117,7 +137,6 @@
 }
 .CategoryCard .Categorycontent > * + * {
   margin-top: 1rem;
- 
 }
 
 .title {
@@ -127,7 +146,6 @@
   margin-top: 1.6rem;
   width: 100%;
 }
-
 
 .copy {
   font-family: var(--font-serif);
@@ -177,7 +195,7 @@
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 100%;
   width: 0%;
@@ -204,37 +222,35 @@
     opacity: 0;
     transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
-   
   }
 
   .CategoryCard:hover,
-.CategoryCard:focus-within {
+  .CategoryCard:focus-within {
     align-items: center;
-   
   }
   .CategoryCard:hover:before,
-.CategoryCard:focus-within:before {
+  .CategoryCard:focus-within:before {
     transform: translateY(-4%);
   }
   .CategoryCard:hover:after,
-.CategoryCard:focus-within:after {
+  .CategoryCard:focus-within:after {
     transform: translateY(-50%);
   }
   .CategoryCard:hover .Categorycontent,
-.CategoryCard:focus-within .Categorycontent {
+  .CategoryCard:focus-within .Categorycontent {
     transform: translateY(0);
   }
   .CategoryCard:hover .Categorycontent > *:not(.title),
-.CategoryCard:focus-within .Categorycontent > *:not(.title) {
+  .CategoryCard:focus-within .Categorycontent > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
-   
   }
 
-  .CategoryCard:focus-within:before, .CategoryCard:focus-within:after,
-.CategoryCard:focus-within .Categorycontent,
-.CategoryCard:focus-within .Categorycontent > *:not(.title) {
+  .CategoryCard:focus-within:before,
+  .CategoryCard:focus-within:after,
+  .CategoryCard:focus-within .Categorycontent,
+  .CategoryCard:focus-within .Categorycontent > *:not(.title) {
     transition-duration: 0s;
-}
+  }
 }

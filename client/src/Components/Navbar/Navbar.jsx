@@ -25,7 +25,7 @@ const Navbar = () => {
                         <h1 style={{ color: "#00743c" }}>Urban <br></br> Garden</h1>
                     </div>
                     <div className="links" >
-                        {!!((user?.nursuries == null) & (user?.details.isAdmin)) &&
+                        {!!((user?.details.nursuries == null) & (user?.isAdmin)) &&
                             <Link to='/SetupNursery'>
                                 <div>Add a Nursery</div>
                             </Link>}

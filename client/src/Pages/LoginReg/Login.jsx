@@ -33,7 +33,7 @@ function Login() {
                     <div className="input">
                         <label htmlFor="">Password</label>
                         <input
-                            type="text"
+                            type="password"
                             placeholder="Enter your password"
                             onChange={(e) => setPassword(e.target.value)} />
                     </div>
@@ -51,7 +51,9 @@ function Login() {
                             <i><FaInstagram /></i>
                         </button>
                     </div>
-                    <span className="signup">Can’t log in? ∙<Link to={'/Register'}>Sign Up</Link></span>
+                    <Link to={'/Register'}>
+                        <span className="signup">Can’t log in? Sign Up</span>
+                    </Link>
                 </div>
             </div>
 

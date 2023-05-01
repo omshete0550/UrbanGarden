@@ -4,12 +4,12 @@
   column-gap: 30px;
 }
 .cartItems {
-  background-color: #a4be9e;
-  width: 70%;
   border-radius: 5px;
   height: 70vh;
   overflow-y: scroll;
+  width: 70%;
 }
+
 .cartItems::-webkit-scrollbar {
   display: none;
 }

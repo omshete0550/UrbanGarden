@@ -69,7 +69,7 @@ const SingleNurseryInfo = (props) => {
       <div className="SingleNurInfo">
 
         <div className="NameRev">
-          <h2>{data.address}</h2>
+          <h2>{data.name}</h2>
           <div className="cusRev">
             <span className='RevBx'>{data.rating}<i><FaStar /></i></span>
             <button className='EditProBtn' onClick={handleClickOpen}> Edit Profile </button>
@@ -124,8 +124,8 @@ const SingleNurseryInfo = (props) => {
         </div>
 
         <div className="NurInfo">
-          <span>{data.desc}</span>
-          <span>{data?.city}</span>
+          <span>Description: {data.desc}</span>
+          <span>Address: {data?.address}</span>
           <span>Open now 11am - 6pm</span>
         </div>
 
@@ -136,7 +136,10 @@ const SingleNurseryInfo = (props) => {
           <Link to='/AddProductControl'><button className='BOOKMARK'> Add Product </button></Link>
         </div>
 
-        <StandardImageList />
+        <div className="standardImage">
+          {data.photos && <img src={data.photos[0]} alt="" />}
+        </div>
+        {/* <StandardImageList /> */}
       </div>
 
       <Tablist data={data} />

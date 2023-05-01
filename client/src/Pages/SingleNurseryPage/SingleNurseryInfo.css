@@ -243,3 +243,12 @@
   filter: brightness(0.8);
 }
 /* Popup Ends */
+.standardImage {
+  margin-top: 35px;
+}
+.standardImage img {
+  width: 800px;
+  height: 300px;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

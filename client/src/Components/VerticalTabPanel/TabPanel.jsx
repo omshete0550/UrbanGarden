@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -9,7 +9,6 @@ import { FaAddressBook, FaBoxOpen, FaShoppingBag } from 'react-icons/fa';
 import './TabPanel.css';
 import { useDispatch } from 'react-redux';
 import { update } from '../../redux/apiCalls';
-import { cartHistory } from '../data'
 import useFetch from "../../hooks/useFetch"
 import axios from 'axios';
 
@@ -47,6 +46,7 @@ function a11yProps(index) {
 }
 
 export default function VerticalTabs(props) {
+
   const user = props.user
   const [value, setValue] = useState(0);
   const [popup, setPop] = useState(false);
@@ -94,48 +94,47 @@ export default function VerticalTabs(props) {
       closePopup()
     }
   };
-  const { data, loading, error } = useFetch('/orders/find/' + user._id)
+  const { data, loading } = useFetch('/orders/find/' + user._id)
 
-  const PrevHistCarts = () => {
 
-    const renderProducts = async (products) => {
-      const productsWithDetails = await Promise.all(
-        products.map(async (product) => {
-          const response = await axios.get(`/products/${product.productId}`);
-          const pro = response.data;
-          return pro;
-        })
-      );
-
-      return productsWithDetails.map((product) => (
-        <div className="orderproductcard" key={product._id}>
-          <img src={product.photos[0]} alt="" />
-          <div className="orderproductdesc">
-            <span>{product.name}</span>
-            <p>{product.desc}</p>
-            {/* <p>Additional Details: {product.additionalDetails}</p> */}
-          </div>
-        </div>
-      ));
-    };
-
+  const ProductOrder = ({ product }) => {
+    const [res, setRes] = useState(null)
+    useEffect(() => {
+      async function fetching(productId) {
+        const rest = await axios.get(`/products/${productId}`)
+        setRes(rest.data)
+      }
+      fetching(product.productId)
+    }, [])
+    if (!res) return null
     return (
       <div>
-        {data.map((item) => (
-          <div className="OrderHistory" key={item._id}>
+        <div className="orderproductcard" key={res._id}>
+          <img src={res.photos[0]} alt="" />
+          <div className="orderproductdesc">
+            <span>{res.name}</span>
+            <p>{res.price}*{product.quantity}</p>
+          </div>
+        </div></div>)
+  }
+  const PrevHistCarts = () => {
+    return (
+      <div>
+        {data.map((order) => (
+          <div className="OrderHistory" key={order._id}>
             <div className="orderhistory">
               <div className="orderhistoryheader">
                 <div className="OrderPlaced">
                   <span>Order Placed</span>
-                  <p>{item.createdAt}</p>
+                  <p>{order.createdAt}</p>
                 </div>
                 <div className="OrderTotal">
                   <span>Total</span>
-                  <p>{item.amount}</p>
+                  <p>{order.amount}</p>
                 </div>
                 <div className="OrderShip">
                   <span>Ship To</span>
-                  <p>{item.customerName}</p>
+                  <p>{order.customerName}</p>
                 </div>
                 <div className="OrderPay">
                   <span>Mode Of Payment</span>
@@ -144,8 +143,10 @@ export default function VerticalTabs(props) {
               </div>
             </div>
             <div className="orderhistoryproduct">
-              <h3>Delivered {item.updatedAt}</h3>
-              {renderProducts(item.products)}
+              <h3>Delivered {order.updatedAt}</h3>
+              {order.products.map((product) => (
+                <ProductOrder product={product} />
+              ))}
             </div>
           </div>
         ))}
@@ -207,7 +208,8 @@ export default function VerticalTabs(props) {
       <TabPanel value={value} index={1}>
         <div>
           <h1>Your Orders</h1>
-          {PrevHistCarts}
+          {console.log("hello")}
+          {PrevHistCarts()}
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>

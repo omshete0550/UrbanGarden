@@ -9,7 +9,7 @@ import cartsRoute from "./routes/Carts.js"
 import ordersRoute from "./routes/Orders.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
-const Port = 8800
+const Port = process.env.PORT || 8800;
 
 const app = express();
 dotenv.config();

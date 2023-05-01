@@ -5,6 +5,9 @@
   background-image: url(https://img.freepik.com/free-psd/tropical-foliage-background_53876-91352.jpg);
   filter: brightness(85%);
 }
+#image-upload {
+  display: block;
+}
 .AddNurBox {
   padding: 50px;
   width: 90%;
@@ -27,7 +30,6 @@
   font-size: 15px;
   margin-bottom: 15px;
   font-weight: 300;
-  
 }
 .NurseryInpAdd h6 {
   margin-left: 5px;
@@ -77,7 +79,7 @@
 }
 .NurseryDetails button,
 .ProductInformation button,
-.ConfirmInfoContainer button{
+.ConfirmInfoContainer button {
   margin-left: 90%;
   background: transparent;
   color: #000;
@@ -93,7 +95,7 @@
 .NurseryDetails button {
   margin-top: 45px;
 }
-.NurseryDetails .confirmBtnNursery{
+.NurseryDetails .confirmBtnNursery {
   margin-top: 5px;
 }
 .ConfirmInfoContainer button {
@@ -125,10 +127,10 @@
   animation: rotate 1s;
   transition: all 0.5s;
 }
-.NurseryImage{
+.NurseryImage {
   margin-top: -15px;
 }
-.NurseryImage h1{
+.NurseryImage h1 {
   margin-bottom: 12px;
 }
 
@@ -141,37 +143,37 @@
     transform: rotateY(360deg);
   }
 }
-.Confirminfo{
+.Confirminfo {
   margin-top: 7%;
   padding: 20px 80px;
   display: flex;
 }
-.Confirminfo .confirminfoImagePrev{
+.Confirminfo .confirminfoImagePrev {
   margin-right: 10%;
 }
-.Confirminfo .confirminfoImagePrev img{
+.Confirminfo .confirminfoImagePrev img {
   width: 350px;
   height: 300px;
 }
-.Confirminfo .confirminfoprev{
+.Confirminfo .confirminfoprev {
   display: flex;
   flex-direction: column;
 }
-.Confirminfo h1{
+.Confirminfo h1 {
   font-size: 45px;
   font-weight: 600;
   margin-bottom: 45px;
 }
-.Confirminfo span{
+.Confirminfo span {
   font-size: 18px;
   margin-bottom: 25px;
   font-weight: 400;
 }
-.resetbtnNurDiv{
+.resetbtnNurDiv {
   margin-top: 2%;
   margin-left: 5%;
 }
-.resetbtnNur{
+.resetbtnNur {
   margin-top: 45px;
   background: #048e4b;
   color: #fff;
@@ -186,14 +188,14 @@
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
-.resetbtnNur:hover{
+.resetbtnNur:hover {
   color: #000;
 }
-.PrevSubbtnDiv{
+.PrevSubbtnDiv {
   margin-left: 85%;
   margin-top: -4%;
 }
-.PrevSubbtn{
+.PrevSubbtn {
   font-size: 17px;
   text-transform: uppercase;
   font-weight: 600;
@@ -205,6 +207,6 @@
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.308);
 }
-.PrevSubbtn:hover{
+.PrevSubbtn:hover {
   color: #000;
 }

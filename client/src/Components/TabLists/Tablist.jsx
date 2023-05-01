@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Product from '../Carousel/Product'
 import { FaCheckCircle } from 'react-icons/fa';
-import { productData } from '../data';
 import { useState } from "react";
 import "../SingleCategLayout/GridCateg.css"
 import '../TabLists/Tablist.css'

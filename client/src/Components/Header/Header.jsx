@@ -67,19 +67,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
-        <div className="header-down">
-          <a href="#" className="">Gardening <FaCaretDown /></a>
-          <a href="#" className="">Plants <FaCaretDown /></a>
-          <a href="#" className="">Seeds <FaCaretDown /></a>
-          <a href="#" className="">Bulbs <FaCaretDown /></a>
-          <a href="#" className="">Pots <FaCaretDown /></a>
-          <a href="#" className="">Planters <FaCaretDown /></a>
-          <a href="#" className="">Soil & Fertilizer <FaCaretDown /></a>
-          <a href="#" className="">Pebbbles <FaCaretDown /></a>
-          <a href="#" className="">Accessories <FaCaretDown /></a>
-
-        </div>
       </div>
     </div>
   );

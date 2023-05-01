@@ -20,6 +20,11 @@ const Register = () => {
     const handleChange = (e) => {
         setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     };
+    const handleChange1 = (e) => {
+        const { id, value, checked } = e.target;
+        setCredentials((prev) => ({ ...prev, [id]: id === "isAdmin" ? checked : value }));
+    };
+
     const handleClick = (e) => {
         e.preventDefault();
         register(dispatch, credentials)
@@ -71,7 +76,6 @@ const Register = () => {
                 });
         }
     }, [location]);
-    console.log(credentials)
 
     return (
         <div className='RegisterDiv'>
@@ -95,14 +99,18 @@ const Register = () => {
                     </div>
                     <div className="input">
                         <label htmlFor="">Password</label>
-                        <input type="text" id='password' placeholder="Enter your password" onChange={handleChange} />
+                        <input type="password" id='password' placeholder="Enter your password" onChange={handleChange} />
                     </div>
                     <div className='NurseryOwnerChk'>
-                        <p><input type="checkbox" />Are You a Nursery Owner?</p>
+                        <p><input type="checkbox"
+                            id='isAdmin'
+                            onChange={handleChange1}
+                        />Are You a Nursery Owner?</p>
                     </div>
                     <button className="register-button" onClick={handleClick}>Sign Up</button>
-
-                    <span className="signup">Already have an account? <Link to={'/login'}>SignIn</Link></span>
+                    <Link to={'/login'}>
+                        <span className="signup">Already have an account? SignIn</span>
+                    </Link>
                 </div>
             </div>
         </div>

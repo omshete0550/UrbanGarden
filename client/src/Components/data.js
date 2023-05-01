@@ -134,39 +134,27 @@ export const reviewData = [
     {
         id: 1,
         url: "https://img.freepik.com/free-vector/gradient-h-logo-template_23-2149372721.jpg?w=2000",
-        name: "Hamza Ali",
+        name: "Tom Johnson",
         datepost: "22-04-2023",
-        review: "Goodbyeee!Goodbyeee!"
+        review: "I'm not much of a plant person, but these flowers are truly stunning. The colors are so vibrant and they add a nice pop of color to my outdoor space. Would highly recommend for anyone looking to add some life to their garden."
     },
     {
         id: 2,
-        name: "Mohib Abbas",
+        name: "Mike Davis",
         datepost: "22-04-2023",
-        review: "Goodbyeee!"
+        review: "I've been using these pots for my plants for years and they never disappoint. They are durable, affordable, and come in a variety of sizes and colors. Highly recommend for any plant enthusiast!"
     },
     {
         id: 3,
-        name: "Parth Puranik",
+        name: "Chris Lee",
         datepost: "22-04-2023",
-        review: "Goodbyeee!"
+        review: "I'm not the best at taking care of plants, but this low-maintenance succulent is perfect for me. It's easy to care for and looks great on my desk. Highly recommend for anyone who wants a little bit of green in their     workspace."
     },
     {
         id: 4,
-        name: "Om Shete",
+        name: "Emily Chen",
         datepost: "22-04-2023",
-        review: "Goodbyeee!"
-    },
-    {
-        id: 5,
-        name: "Jagjeet Singh",
-        datepost: "22-04-2023",
-        review: "Goodbyeee!"
-    },
-    {
-        id: 6,
-        name: "Abhishek Upadhay",
-        datepost: "22-04-2023",
-        review: "Goodbyeee!"
+        review: "I was hesitant to purchase this plant online, but it arrived in great condition and has grown so much since I got it. It's a beautiful addition to my home and I've already received so many compliments on it. Highly recommend!"
     },
 
 ]
