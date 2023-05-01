@@ -1,5 +1,5 @@
 import express from "express";
-import { createProduct, deleteProduct, getProduct, getProducts, randomDisplay, trendingProducts, updateProduct } from "../controllers/Product.js";
+import { createProduct, deleteProduct, getProduct, getProducts, getProductsByCity, randomDisplay, trendingProducts, updateProduct } from "../controllers/Product.js";
 const router = express.Router()
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -20,5 +20,6 @@ router.get('/username/:username', getProduct);
 
 //get all
 router.get("/", getProducts)
+router.get("/city/:city", getProductsByCity)
 
 export default router

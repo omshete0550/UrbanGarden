@@ -79,6 +79,25 @@ export const getProducts = async (req, res, next) => {
     }
 };
 
+export const getProductsByCity = async (req, res, next) => {
+    const userCity = req.params.city;
+    try {
+        const nurseries = await Nursery.find({ city: userCity })
+        const productList = await Promise.all(
+            nurseries.map(async (nursery) => {
+                const products = await Product.find({ _id: { $in: nursery.products } })
+                    .limit(3)
+                return products;
+            })
+        );
+        const flattenedProducts = productList.flat();
+        res.status(200).json(flattenedProducts);
+    } catch (err) {
+        next(err);
+    }
+};
+
+
 export const randomDisplay = async (req, res, next) => {
     const category = req.query.category;
     try {
