@@ -27,21 +27,20 @@ There are two interfaces:
 
 ## ETC - Estimated Time to Complete
 Duration: 2 months
-<br/>
+<br/><br/>
 
 ## Block Diagrams
 <div align="center">
-  <h3># LOGIN INTERFACE</h3>
-  <img src="block1.png"/>
+  <h3># CUSTOMER INTERFACE</h3>
+  <img src="blockug1.png"/>
 </div>
 <br/>
 <div align="center">
-  <h3># ADMIN INTERFACE</h3>
-  <img src="block3.png"/>
+  <h3># NURSERY VENDOR INTERFACE</h3>
+  <img src="blockug2.png"/>
 </div>
-<br/>
-<div align="center">
-  <h3># TEACHER INTERFACE</h3>
-  <img src="block2.png"/>
-</div>
-<br/>
+<br/><br/>
+
+## Snapshots
+# 
+
