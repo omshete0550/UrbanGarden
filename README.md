@@ -42,5 +42,91 @@ Duration: 2 months
 <br/><br/>
 
 ## Snapshots
-# 
+# Landing Page
+<div align="center">
+  <img src="homeug1.png"/><br/>
+  <i>Fig: Landing Page 1.1</i>
+  <br/>
+  <br/>
+  <img src="homeug2.png"/><br/>
+  <i>Fig: Landing Page 1.2</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Login Page
+<div align="center">
+  <img src="loginug1.png"/><br/>
+  <i>Fig: Login Page 1.1</i>
+  <br/>
+  <br/>
+  <img src="loginug2.png"/><br/>
+  <i>Fig: Login Page 1.2</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Home Page
+<div align="center">
+  <img src="homefeedug1.png"/><br/>
+  <i>Fig: Home Page 1.1</i>
+  <br/>
+  <br/>
+  <img src="homefeedug2.png"/><br/>
+  <i>Fig: Home Page 1.2</i>
+  <br/>
+  <br/>
+  <img src="footerug1.png"/><br/>
+  <i>Fig: Home Page 1.2</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Single Category Page
+<div align="center">
+  <img src="filterug1.png"/><br/>
+  <i>Fig: Single Category Page 1.1</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Single Product Page
+<div align="center">
+  <img src="singleitemug1.png"/><br/>
+  <i>Fig: Single Product Page 1.1</i>
+  <br/>
+  <br/>
+  <img src="singleitemug2.png"/><br/>
+  <i>Fig: Single Product Page 1.2</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Nursery Profile Page
+<div align="center">
+  <img src="nurseryprofug1.png"/><br/>
+  <i>Fig: Nursery Profile Page 1.1</i>
+  <br/>
+  <br/>
+  <img src="nurseryprofug2.png"/><br/>
+  <i>Fig: Nursery Profile Page 1.2</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Add to Cart Page
+<div align="center">
+  <img src="addcartug1.png"/><br/>
+  <i>Fig: Add to Cart Page 1.1</i>
+  <br/>
+</div>
+<br/><br/>
+
+# Add Nursery Items Page
+<div align="center">
+  <img src="additemug1.png"/><br/>
+  <i>Fig: Add Nursery Items Page 1.1</i>
+  <br/>
+</div>
+<br/><br/>
 
