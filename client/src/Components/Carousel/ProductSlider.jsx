@@ -35,7 +35,7 @@ const ProductSlider = () => {
     <div className='parent'>
       {/* <h2 className='parent-heading'>Treding Products</h2> */}
       <Carousel
-        responsive={responsive}
+        responsive={responsive}  
         slidesToSlide={2}
         draggable={true}
         swipeable={true}

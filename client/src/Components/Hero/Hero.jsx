@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
 
         <div className="right_hero" >
-          <img src="https://media.giphy.com/avatars/loopliving/MQvOG8fwVs3W.gif" alt="" />
+          <img src="https://media1.giphy.com/media/gbRv5aZzi8UJAL5VH6/giphy.gif?cid=6c09b952nztq328zz8cixurqel53kqubbr2vjo1iuq52iz92&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" />
         </div>
       </div>
     </>

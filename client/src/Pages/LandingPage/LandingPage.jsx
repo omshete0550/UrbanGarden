@@ -41,11 +41,11 @@ const Header = () => {
 
       <Timeline />
       <Service />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <h2 className="carouselheading">Some of Featured products <FaAngleDoubleRight style={{ paddingTop: "10px", fontSize: "35px" }} /></h2>
       <ProductSlider />
-      <UserSeller />
-      <TestimonialSeller />
+      {/* <UserSeller /> */}
+      {/* <TestimonialSeller /> */}
       <Footer />
     </>
   );
