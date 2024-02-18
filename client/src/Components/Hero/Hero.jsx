@@ -10,11 +10,13 @@ const Hero = () => {
         <div className="left_hero">
           <h3>#ORNAMENTAL PLANT</h3>
           <h1>
-            Various Indoor <br /> Plant Shop
+            Planting Success, <br /> One Click Away.
           </h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, iusto
-            molestias ducimus alias suscipit aspernatur.
+            Discover the Ultimate Convenience in Setting Up Your Online Nursery
+            Store. Empower Your Customers with Seamless Navigation, Detailed
+            Plant Information, and Effortless Purchases. Maximize Sales and
+            Satisfaction in the Growing Market of Plants and Gardening Supplies!
           </p>
           <div className="buttons">
             <Link to="/Home">
@@ -25,7 +27,10 @@ const Hero = () => {
         </div>
 
         <div className="right_hero">
-          <img src="https://media1.giphy.com/media/gbRv5aZzi8UJAL5VH6/giphy.gif?cid=6c09b952nztq328zz8cixurqel53kqubbr2vjo1iuq52iz92&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" />
+          <img
+            src="https://media1.giphy.com/media/gbRv5aZzi8UJAL5VH6/giphy.gif?cid=6c09b952nztq328zz8cixurqel53kqubbr2vjo1iuq52iz92&ep=v1_stickers_related&rid=giphy.gif&ct=s"
+            alt=""
+          />
           {/* <div class="flowercontainer">
             <div class="sun">
               <div class="sunrays"></div>

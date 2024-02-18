@@ -15,7 +15,7 @@ import "aos/dist/aos.css";
 import "./LandingPage.css";
 import "react-multi-carousel/lib/styles.css";
 import { categoryData } from "../../Components/data";
-
+import Reviews from "../../Components/Review/Review";
 const Header = () => {
   useEffect(() => {
     AOS.init({ duration: 3000 });
@@ -33,16 +33,16 @@ const Header = () => {
         <h1>CATEGORIES TO BAG</h1>
         <main className="page-content">{category}</main>
       </div>
-      <Timeline />
       <Service />
-      {/* <Testimonial /> */}
+      <Timeline />
+
+      <Reviews />
       <h2 className="carouselheading">
         Some of Featured products{" "}
         <FaAngleDoubleRight style={{ paddingTop: "10px", fontSize: "35px" }} />
       </h2>
       <ProductSlider />
-      {/* <UserSeller /> */}
-      {/* <TestimonialSeller /> */}
+      <UserSeller />
       <Footer />
     </>
   );
