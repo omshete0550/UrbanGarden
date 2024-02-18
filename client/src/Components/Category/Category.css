@@ -2,8 +2,6 @@
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: "Rubik", sans-serif;
-  --font-serif: "Cardo", serif;
 }
 .category_section {
   width: 100vw;
@@ -11,6 +9,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 .category_section h1 {
   text-align: center;
@@ -39,6 +38,11 @@
 @media (max-width: 840px) {
   .page-content {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .page-content {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 .CategoryCard {

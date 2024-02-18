@@ -14,11 +14,11 @@ const ProductSlider = () => {
       items: 5
     },
     desktop: {
-      breakpoint: { max: 1024, min: 800 },
+      breakpoint: { max: 1024, min: 900 },
       items: 4
     },
     tablet: {
-      breakpoint: { max: 800, min: 464 },
+      breakpoint: { max: 900, min: 464 },
       items: 2
     },
     mobile: {
