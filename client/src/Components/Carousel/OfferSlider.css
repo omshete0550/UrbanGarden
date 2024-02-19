@@ -1,12 +1,12 @@
 /* .parent{
     padding: 10px 15px;
  } */
-.product--image {
+/* .product--image {
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   object-fit: cover;
   border-radius: 4px;
-}
+} */
 .slider--image {
   width: 100%;
   height: 100%;
@@ -24,4 +24,10 @@
 .card:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .offercard {
+    height: 25vh;
+  }
 }
