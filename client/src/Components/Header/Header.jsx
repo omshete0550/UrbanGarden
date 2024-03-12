@@ -1,8 +1,13 @@
 import React, { useState } from "react";
-import { FaAddressBook, FaCaretDown, FaSearch, FaShoppingCart } from 'react-icons/fa'
-import './Header.css';
-import logo from '../../UGbg.png';
-import PopupBtn from '../../Components/PopupButton/PopoverPopupState'
+import {
+  FaAddressBook,
+  FaCaretDown,
+  FaSearch,
+  FaShoppingCart,
+} from "react-icons/fa";
+import "./Header.css";
+import logo from "../../UGbg.png";
+import PopupBtn from "../../Components/PopupButton/PopoverPopupState";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -18,18 +23,19 @@ const Header = () => {
     navigate("/Cart");
   }
   async function handleClick2() {
-    const res = await axios.get(`/products/username/${Search}`)
-    navigate(`Products/${res.data[0]._id}`)
+    const res = await axios.get(`/products/username/${Search}`);
+    navigate(`Products/${res.data[0]._id}`);
   }
 
   return (
     <div>
       <div className="header">
-
         <div className="header-up">
           <div className="logo-div" onClick={handleClick}>
             <img src={logo} width="80" height="80"></img>
-            <h1 style={{ color: "#00743c" }}>Urban <br></br> Garden</h1>
+            <h1 style={{ color: "#00743c" }}>
+              Urban <br></br> Garden
+            </h1>
           </div>
           <div className="search-div">
             <div className="all-categories">
@@ -43,11 +49,13 @@ const Header = () => {
               </select>
             </div>
             <div className="search-bar">
-              <input type="text"
+              <input
+                type="text"
                 className="searchbar"
                 placeholder="What are you looking for?"
                 onChange={(e) => setSearch(e.target.value)}
-                required></input>
+                required
+              ></input>
               <div className="searchicon" onClick={handleClick2}>
                 <FaSearch className="search-icon" />
               </div>
@@ -58,12 +66,19 @@ const Header = () => {
               <FaAddressBook className="techsupport-icon" />
               <div>Expert Support</div>
             </div>
-            <div className="techsupport" style={{ padding: "20px 20px", fontSize: "1rem" }}>
-              <div><PopupBtn /></div>
+            <div
+              className="techsupport"
+              style={{ padding: "20px 20px", fontSize: "1rem" }}
+            >
+              <div>
+                <PopupBtn />
+              </div>
             </div>
             <div className="techsupport" onClick={handleClick1}>
               <FaShoppingCart className="techsupport-icon" />
-              <p className="shoppingCartNumber"><span>{cart.quantity}</span></p>
+              <p className="shoppingCartNumber">
+                <span>{cart.quantity}</span>
+              </p>
             </div>
           </div>
         </div>

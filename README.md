@@ -25,7 +25,7 @@
 
 - [About the Project](#about-the-project)
 - [Architecture](#architecture)
-- [Demonstration & Features](#demonstration)
+<!-- - [Demonstration & Features](#demonstration) -->
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 <!-- - [License](#license) -->
@@ -51,7 +51,7 @@ The architecture and workflow was built using smartdraw.
 <br />
 <img src="./client/src/assets/architecture2.png" alt="architecture">
 
-## Demonstration
+<!-- ## Demonstration
 
 <br />
 
@@ -141,7 +141,7 @@ The architecture and workflow was built using smartdraw.
   <img src='./client/src/assets/singleitemug2.png' alt='Intro Screen' width="80%">
 </p>
 
-<br />
+<br /> -->
 
 <br />
 
