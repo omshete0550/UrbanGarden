@@ -1,3 +1,5 @@
+
+https://github.com/omshete0550/UrbanGarden/assets/95119784/3d430a8a-5af3-4f08-82d4-db82192890dd
 # UrbanGarden
 
 <br/>
@@ -20,6 +22,8 @@
   <a href="#contributing">Local Setup</a>
   <br />
 </p>
+
+https://github.com/omshete0550/UrbanGarden/assets/95119784/bfdc75c3-e1cd-4898-ab3e-308ff115cd1c
 
 ## Table Of Contents
 
