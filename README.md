@@ -1,5 +1,4 @@
 
-https://github.com/omshete0550/UrbanGarden/assets/95119784/3d430a8a-5af3-4f08-82d4-db82192890dd
 # UrbanGarden
 
 <br/>
