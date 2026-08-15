@@ -30,22 +30,18 @@ const PebbleSlider = () => {
       items: 1,
     },
   };
-  let product = [];
   const { data, loading } = useFetch("/products/categories?category=pebble");
-  if (data[0] == null) {
-    product = [];
-  } else {
-    product = data?.map((item) => (
-      <Product
-        name={item.name}
-        key={item._id}
-        url={item.photos[0]}
-        price={item.price}
-        description={item.desc}
-        idx={item._id}
-      />
-    ));
-  }
+  const products = Array.isArray(data) ? data : [];
+  const product = products.map((item) => (
+    <Product
+      name={item.name}
+      key={item._id}
+      url={item.photos?.[0]}
+      price={item.price}
+      description={item.description || item.desc}
+      idx={item._id}
+    />
+  ));
 
   return (
     <div className="parent">

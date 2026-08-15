@@ -31,14 +31,15 @@ const TrendingSlider = () => {
     },
   };
   const { data, loading } = useFetch("/products/trending");
-  const product = data?.map((item) => (
+  const products = Array.isArray(data) ? data : [];
+  const product = products.map((item) => (
     <Product
-      name={item._id.name}
-      idx={item._id.id}
-      key={item._id.id}
-      url={item._id.photos[0]}
-      price={item._id.price}
-      description={item._id.desc}
+      name={item._id?.name}
+      idx={item._id?.id}
+      key={item._id?.id || item._id}
+      url={item._id?.photos?.[0]}
+      price={item._id?.price}
+      description={item._id?.description || item._id?.desc}
     />
   ));
 

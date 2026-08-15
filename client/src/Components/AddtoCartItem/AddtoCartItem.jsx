@@ -20,7 +20,7 @@ const AddtoCartItem = ({ product }) => {
   return (
     <div className="cartCard">
       <div className="itemImage">
-        <img src={product.photos[0]} alt={product.name} />
+        <img src={product.photos?.[0]} alt={product.name} />
         <span className="itemBadge">Premium</span>
       </div>
 

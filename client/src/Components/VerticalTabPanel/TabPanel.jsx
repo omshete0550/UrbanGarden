@@ -230,7 +230,7 @@ export default function VerticalTabs(props) {
             </div>
             <div className="orderhistoryproduct">
               <h3>Updated {new Date(order.updatedAt).toLocaleDateString()}</h3>
-              {order.products.map((product) => (
+              {(Array.isArray(order.products) ? order.products : []).map((product) => (
                 <ProductOrder product={product} key={product.productId} />
               ))}
             </div>

@@ -8,7 +8,7 @@ import Footer from "../../Components/Footer/Footer";
 
 const AddtoCartPage = () => {
   const cart = useSelector((state) => state.cart);
-  const cartData = cart.products;
+  const cartData = Array.isArray(cart.products) ? cart.products : [];
 
   return (
     <div className="cartPage">

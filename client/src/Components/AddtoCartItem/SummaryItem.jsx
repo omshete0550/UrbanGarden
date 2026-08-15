@@ -15,6 +15,7 @@ import { API_BASE_URL } from "../../lib/apiBase";
 const SummaryItem = () => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.currentUser);
+  const products = Array.isArray(cart.products) ? cart.products : [];
 
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
@@ -82,7 +83,7 @@ const SummaryItem = () => {
             createOrder({
               customerName: shipping.name.full_name,
               customerId: user.details._id,
-              products: cart.products.map((item) => ({
+              products: products.map((item) => ({
                 productId: item._id,
                 nurseryId: item.nurseryId,
                 quantity: item.quantity,

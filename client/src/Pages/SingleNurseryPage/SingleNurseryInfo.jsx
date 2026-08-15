@@ -80,7 +80,7 @@ const SingleNurseryInfo = (props) => {
                     <div className="popup-header">
                       <img
                         className="userimgEditProf"
-                        src={data.photos[0]}
+                        src={data.photos?.[0]}
                         alt=""
                       />
                       <img
@@ -191,7 +191,7 @@ const SingleNurseryInfo = (props) => {
         </div>
 
         <div className="standardImage">
-          {data.photos && <img src={data.photos[0]} alt="" />}
+          {Array.isArray(data.photos) && <img src={data.photos?.[0]} alt="" />}
         </div>
         {/* <StandardImageList /> */}
       </div>

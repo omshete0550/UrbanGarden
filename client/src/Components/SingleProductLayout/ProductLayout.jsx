@@ -14,7 +14,10 @@ import TrendingSlider from "../../Components/Carousel/trendingSlider";
 
 const ProductLayout = (props) => {
   const user = useSelector((state) => state.user.currentUser);
-  const images = useMemo(() => props.image || [], [props.image]);
+  const images = useMemo(
+    () => (Array.isArray(props.image) ? props.image : []),
+    [props.image]
+  );
   const data = props.data;
   const [mainImgSrc, setMainImgSrc] = useState(null);
   const [buttonPopUp, setButtonPopUp] = useState(false);

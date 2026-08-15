@@ -30,22 +30,18 @@ const SoilFertSlider = () => {
       items: 1,
     },
   };
-  let product = [];
   const { data, loading } = useFetch("/products/categories?category=soil");
-  if (data[0] == null) {
-    product = [];
-  } else {
-    product = data?.map((item) => (
-      <Product
-        name={item.name}
-        key={item._id}
-        idx={item._id}
-        url={item.photos[0]}
-        price={item.price}
-        description={item.desc}
-      />
-    ));
-  }
+  const products = Array.isArray(data) ? data : [];
+  const product = products.map((item) => (
+    <Product
+      name={item.name}
+      key={item._id}
+      idx={item._id}
+      url={item.photos?.[0]}
+      price={item.price}
+      description={item.description || item.desc}
+    />
+  ));
 
   return (
     <div className="parent">

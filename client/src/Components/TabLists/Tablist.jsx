@@ -66,16 +66,16 @@ export default function Tablist(props) {
       const res = await axios.get(
         `${API_BASE_URL}/nurseries/${nurseryId}/products`
       );
-      setDataa(res.data);
+      setDataa(Array.isArray(res.data) ? res.data : []);
     };
 
     getprods();
   }, [nurseryId]);
 
-  const product = dataa?.map((item) => (
+  const product = dataa.map((item) => (
     <Product
       name={item.name}
-      url={item.photos[0]}
+      url={item.photos?.[0]}
       key={item._id}
       price={item.price}
       description={(item.description || item.desc)}

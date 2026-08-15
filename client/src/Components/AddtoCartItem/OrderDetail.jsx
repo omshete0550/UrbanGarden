@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const OrderDetail = ({ createOrder, onClose }) => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.currentUser);
+  const products = Array.isArray(cart.products) ? cart.products : [];
 
   const [customer, setCustomer] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,7 +15,7 @@ const OrderDetail = ({ createOrder, onClose }) => {
     createOrder({
       customerName: customer || user?.details?.username,
       customerId: user?.details?._id,
-      products: cart.products.map((item) => ({
+      products: products.map((item) => ({
         productId: item._id,
         nurseryId: item.nurseryId,
         quantity: item.quantity,

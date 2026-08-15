@@ -7,6 +7,7 @@ import useFetch from "../../hooks/useFetch";
 const GridCateg = (props) => {
   const category = props.gridheading;
   const { data, loading } = useFetch(`/products?category=${category}`);
+  const products = Array.isArray(data) ? data : [];
 
   return (
     <section className="gridCategSection">
@@ -31,9 +32,9 @@ const GridCateg = (props) => {
           <span></span>
           <span></span>
         </div>
-      ) : data?.length ? (
+      ) : products.length ? (
         <div className="parentGrid">
-          {data.map((item) => (
+          {products.map((item) => (
             <Product
               name={item.name}
               url={item.photos?.[0]}

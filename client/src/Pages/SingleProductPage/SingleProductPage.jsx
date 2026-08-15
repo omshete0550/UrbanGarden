@@ -22,7 +22,7 @@ const SingleProductPage = () => {
         `${API_BASE_URL}/products/${productId}`
       );
       setData(res.data);
-      setImages(res.data.photos);
+      setImages(Array.isArray(res.data.photos) ? res.data.photos : []);
     };
 
     fetching();
