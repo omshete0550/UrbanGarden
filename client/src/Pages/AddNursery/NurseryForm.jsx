@@ -7,14 +7,16 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './MultiStepForm.css'
 import axios from "axios";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../lib/apiBase';
-import { FaArrowRight, FaCheck, FaMapMarkerAlt, FaPhoneAlt, FaSeedling, FaStore, FaUpload } from 'react-icons/fa';
+import { updateUser } from '../../redux/slices/userSlice';
+import { FaArrowRight, FaCheck, FaMapMarkerAlt, FaPhoneAlt, FaRupeeSign, FaSeedling, FaStore, FaUpload } from 'react-icons/fa';
 const steps = ['Basic Information', 'Nursery Information', 'Confirm Information'];
 
 export default function NurseryForm() {
   const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
   const navigate = useNavigate()
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
@@ -32,7 +34,7 @@ export default function NurseryForm() {
   };
   const handleNext = (e) => {
     e.preventDefault();
-    const { name, description, city } = inpVal;
+    const { name, description, city, leastPrice } = inpVal;
 
     if (name === "") {
       alert("Please enter your name");
@@ -42,6 +44,9 @@ export default function NurseryForm() {
     }
     else if (city === "") {
       alert("Please enter your city");
+    }
+    else if (!leastPrice || Number(leastPrice) <= 0) {
+      alert("Please enter a starting price greater than 0");
     }
     else {
       let newSkipped = skipped;
@@ -131,11 +136,14 @@ export default function NurseryForm() {
         body: data,
       });
       const urlData = await res.json();
+      if (!res.ok || !urlData.url) {
+        throw new Error(urlData.error?.message || "Image upload failed. Please try again.");
+      }
       setUploadingImg(false);
       return urlData.url;
     } catch (error) {
       setUploadingImg(false);
-      console.log(error);
+      throw error;
     }
   }
   const handleSubmit = async () => {
@@ -143,16 +151,26 @@ export default function NurseryForm() {
       if (!image) return alert("Please upload your profile picture");
       setSubmitError("");
       setUploadingImg(true);
-      const photoUrl = await uploadImage(image);
+      const photoUrl = await uploadImage();
       setUploadingImg(false);
-      await axios.post(`${API_BASE_URL}/nurseries/${user.details._id}`, {
+      const nurseryRes = await axios.post(`${API_BASE_URL}/nurseries/${user.details._id}`, {
         ...inpVal,
+        leastPrice: Number(inpVal.leastPrice),
         photos: photoUrl,
       })
-      navigate("/")
+      const nurseryId = nurseryRes.data._id;
+      dispatch(updateUser({
+        ...user,
+        details: {
+          ...user.details,
+          nurseryId,
+          nursuries: nurseryId,
+        },
+      }));
+      navigate(`/nursery/${nurseryId}`)
     } catch (err) {
       setUploadingImg(false);
-      setSubmitError(err.response?.data?.message || "Unable to create nursery. Please try again.");
+      setSubmitError(err.response?.data?.message || err.message || "Unable to create nursery. Please try again.");
       console.log(err)
     }
   };
@@ -216,6 +234,13 @@ export default function NurseryForm() {
                       Nursery City
                     </label>
                     <input id="nursery-city" type="text" name="city" className="input" placeholder="Mumbai" onChange={getData}></input>
+                  </div>
+                  <div className='NurseryInp'>
+                    <label htmlFor="nursery-least-price">
+                      <FaRupeeSign />
+                      Starting Price
+                    </label>
+                    <input id="nursery-least-price" type="number" name="leastPrice" className="input" placeholder="199" min="1" onChange={getData}></input>
                   </div>
                   <button className="nurseryPrimaryBtn" onClick={handleNext}>
                     Next <FaArrowRight />
@@ -301,6 +326,7 @@ export default function NurseryForm() {
                   <div className="confirmList">
                     <span><FaMapMarkerAlt /> {inpVal.city}</span>
                     <span><FaPhoneAlt /> {inpVal.phone}</span>
+                    <span><FaRupeeSign /> Starting at Rs. {inpVal.leastPrice}</span>
                     <span><FaStore /> {inpVal.address}</span>
                   </div>
                 </div>
