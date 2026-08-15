@@ -1,0 +1,35 @@
+.bestPicks {
+  padding: 20px 40px;
+  margin-top: 2em;
+}
+.UseContainer {
+  background-color: #234567;
+  text-align: center;
+  margin-top: 5%;
+}
+.UseContainer h1 {
+  color: #fff;
+  font-size: 40px;
+  padding: 10px 20px;
+}
+.carouselheading {
+  font-size: 2.5em;
+  color: #61b76e;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.carouselheading img {
+  width: 1.5em;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  margin-right: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .carouselheading {
+    font-size: 1.5rem;
+  }
+  .bestPicks {
+    padding: 20px 20px;
+  }
+}

@@ -1,0 +1,35 @@
+.serviceHeading {
+  text-align: center;
+  font-size: 2.5em;
+  color: #61b76e;
+  font-weight: 600;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  margin-top: 2em;
+}
+.services_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #eff8f2;
+  margin-bottom: 5%;
+}
+.service {
+  padding: 25px;
+  text-align: center;
+}
+.service img {
+  width: 10em;
+  aspect-ratio: 3/2;
+  object-fit: contain;
+  margin-bottom: 2em;
+}
+.service_text h3 {
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .serviceHeading {
+    font-size: 1.5em;
+  }
+}

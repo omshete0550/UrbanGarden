@@ -1,0 +1,451 @@
+.MultiStepProduct {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  /* background:
+    linear-gradient(rgba(5, 22, 14, 0.62), rgba(5, 22, 14, 0.72)),
+    url("https://img.freepik.com/free-photo/close-up-textured-beautiful-natural-monstera-leaves_169016-11832.jpg"); */
+  background-size: cover;
+  background-position: center;
+}
+
+.AddBxPro {
+  width: min(1220px, 100%);
+  min-height: calc(100vh - 64px);
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.productFormHeader {
+  margin-bottom: 24px;
+}
+
+.formEyebrow {
+  color: var(--ug-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.productFormHeader h1 {
+  margin-top: 6px;
+  color: var(--ug-text);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.productFormHeader p {
+  max-width: 650px;
+  margin-top: 8px;
+  color: var(--ug-text-muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.productStepper {
+  margin-bottom: 30px;
+}
+
+.productStepper .MuiStepIcon-root.Mui-active,
+.productStepper .MuiStepIcon-root.Mui-completed {
+  color: var(--ug-primary);
+}
+
+.productStepper .MuiStepLabel-label {
+  color: var(--ug-text-muted);
+  font-weight: 600;
+}
+
+.productStepper .MuiStepLabel-label.Mui-active,
+.productStepper .MuiStepLabel-label.Mui-completed {
+  color: var(--ug-text);
+}
+
+.productNotice {
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border: 1px solid #f4c790;
+  border-radius: 10px;
+  background: #fff8ed;
+  color: #794b14;
+  font-weight: 600;
+}
+
+.productNotice a {
+  color: var(--ug-primary);
+  font-weight: 800;
+}
+
+.productFormGrid,
+.productConfirmGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 0.85fr);
+  align-items: stretch;
+  gap: 40px;
+}
+
+.productFormFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.productTwoCol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ProductInp {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ProductInp label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #34473b;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.ProductInp label svg {
+  color: var(--ug-primary);
+}
+
+.ProductInp .input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  border: 1px solid #d5e4d8;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ug-text);
+  font-size: 1rem;
+  box-shadow: 0 1px 2px rgba(31, 45, 36, 0.04);
+  outline: none;
+  transition:
+    border-color var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.ProductInp textarea.input {
+  min-height: 104px;
+  padding-block: 14px;
+  resize: vertical;
+}
+
+.ProductInp .input::placeholder {
+  color: #89998f;
+}
+
+.ProductInp .input:hover {
+  border-color: #aecdb8;
+}
+
+.ProductInp .input:focus {
+  border-color: var(--ug-primary);
+  box-shadow: 0 0 0 4px rgba(19, 122, 71, 0.12);
+}
+
+.productVisualCard,
+.productConfirmImage {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ug-surface-soft);
+  box-shadow: var(--ug-shadow-sm);
+}
+
+.productVisualCard img,
+.productConfirmImage img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  display: block;
+  object-fit: cover;
+}
+
+.productVisualCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.72));
+}
+
+.productVisualCard > div:not(.productEmptyPreview) {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+  color: #fff;
+}
+
+.productVisualCard span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(19, 122, 71, 0.78);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.productVisualCard h2 {
+  color: #fff;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.productVisualCard p {
+  max-width: 360px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.4;
+}
+
+.ProductImage input {
+  display: none;
+}
+
+.productUploadBox {
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px;
+  border: 1px dashed #9cc5aa;
+  border-radius: 12px;
+  background: #f7fbf6;
+  color: var(--ug-text);
+  cursor: pointer;
+  transition:
+    border-color var(--ug-transition),
+    background var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.productUploadBox svg {
+  color: var(--ug-primary);
+}
+
+.productUploadBox span {
+  font-weight: 700;
+}
+
+.productUploadBox small {
+  color: var(--ug-text-muted);
+}
+
+.productUploadBox:hover {
+  border-color: var(--ug-primary);
+  background: #eff8ef;
+  box-shadow: 0 10px 24px rgba(31, 45, 36, 0.06);
+}
+
+.productEmptyPreview {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--ug-text-muted);
+  background: #f3faf3;
+}
+
+.productEmptyPreview svg {
+  color: var(--ug-primary);
+  font-size: 2rem;
+}
+
+.productPrimaryBtn,
+.productSecondaryBtn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 750;
+  transition:
+    transform var(--ug-transition),
+    background var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.productPrimaryBtn {
+  width: min(220px, 100%);
+  margin-top: 8px;
+  background: var(--ug-primary);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(19, 122, 71, 0.2);
+}
+
+.productSecondaryBtn {
+  min-width: 126px;
+  padding: 0 18px;
+  background: #eaf3ea;
+  color: var(--ug-primary-strong);
+}
+
+.productPrimaryBtn:hover,
+.productSecondaryBtn:hover {
+  background: var(--ug-primary-strong);
+  color: #fff;
+  box-shadow: 0 18px 34px rgba(19, 122, 71, 0.26);
+  transform: translateY(-1px);
+}
+
+.productPrimaryBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.productActionRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.productActionRowLeft {
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+.productConfirmImage {
+  min-height: 360px;
+}
+
+.productConfirmImage img,
+.productConfirmImage .productEmptyPreview {
+  min-height: 360px;
+}
+
+.productConfirmInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.productConfirmInfo h1 {
+  margin-top: 6px;
+  color: var(--ug-text);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.productConfirmInfo strong {
+  margin-top: 8px;
+  color: var(--ug-primary);
+  font-size: 1.35rem;
+}
+
+.productConfirmInfo p {
+  margin-top: 12px;
+  color: var(--ug-text-muted);
+  line-height: 1.5;
+}
+
+.productConfirmList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.productConfirmList span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--ug-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ug-text);
+}
+
+.productConfirmList svg {
+  flex: 0 0 auto;
+  color: var(--ug-primary);
+}
+
+.productSubmitError {
+  margin-top: 12px;
+  color: #b42318;
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 1023px) {
+  .MultiStepProduct {
+    padding: 18px;
+  }
+
+  .AddBxPro {
+    min-height: calc(100vh - 36px);
+    padding: 22px;
+  }
+
+  .productFormGrid,
+  .productConfirmGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productVisualCard,
+  .productVisualCard img,
+  .productEmptyPreview {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .MultiStepProduct {
+    padding: 12px;
+  }
+
+  .AddBxPro {
+    min-height: calc(100vh - 24px);
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .productStepper {
+    margin-bottom: 24px;
+  }
+
+  .productTwoCol,
+  .productConfirmList {
+    grid-template-columns: 1fr;
+  }
+
+  .productPrimaryBtn,
+  .productSecondaryBtn {
+    width: 100%;
+  }
+
+  .productActionRow {
+    flex-direction: column;
+  }
+}

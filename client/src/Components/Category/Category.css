@@ -1,0 +1,245 @@
+:root {
+  --d: 700ms;
+  --e: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.category_section {
+  width: var(--ug-container);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+  padding: 20px 0 42px;
+}
+.category_section h1 {
+  text-align: center;
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  color: #61b76e;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+.page-content {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding: 0;
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 1100px) {
+  .page-content {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 840px) {
+  .page-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .page-content {
+    grid-template-columns: 1fr;
+  }
+}
+.CategoryCard {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 1rem 2rem 1.35rem;
+  height: 15em;
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  border-radius: 4px;
+  background-color: whitesmoke;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
+    0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+  .CategoryCard {
+    height: 20em;
+  }
+}
+.CategoryCard:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  background-size: cover;
+  background-position: 0 0;
+  transition: transform calc(var(--d) * 1.5) var(--e);
+  pointer-events: none;
+}
+.CategoryCard:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  pointer-events: none;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.36) 48%,
+    rgba(0, 0, 0, 0.82) 100%
+  );
+  transition: opacity var(--d) var(--e);
+}
+.CategoryCard:nth-child(1):before {
+  background-image: url("../../assets//category/gardening.png");
+}
+.CategoryCard:nth-child(2):before {
+  background-image: url("../../assets//category/plant.png");
+}
+.CategoryCard:nth-child(3):before {
+  background-image: url("../../assets//category/seed.jpg");
+}
+.CategoryCard:nth-child(4):before {
+  background-image: url("../../assets//category/bulb.jpg");
+}
+.CategoryCard:nth-child(5):before {
+  background-image: url("../../assets//category/pot.png");
+}
+.CategoryCard:nth-child(6):before {
+  background-image: url("../../assets//category/soil.jpg");
+}
+.CategoryCard:nth-child(7):before {
+  background-image: url("../../assets//category/pebbles.jpg");
+}
+.CategoryCard:nth-child(8):before {
+  background-image: url("../../assets//category/accesory.jpg");
+}
+
+.CategoryCard .Categorycontent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: transform var(--d) var(--e);
+  z-index: 1;
+  color: #fff;
+}
+.CategoryCard .Categorycontent > * + * {
+  margin-top: 1rem;
+}
+
+.CategoryCard .title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 0;
+  width: 100%;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.copy {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.35;
+  padding: 0 1rem;
+}
+
+.btn {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid white;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  transition: all 1s;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  left: -40px;
+  transform: skewX(45deg);
+  background-color: #03a634;
+  z-index: -1;
+  transition: all 1s;
+}
+
+.btn:hover::before {
+  width: 160%;
+}
+@media (max-width: 1024px) {
+  .CategoryCard {
+    padding: 1rem 1rem;
+  }
+  .copy {
+    padding: 0rem;
+  }
+}
+@media (hover: hover) and (min-width: 600px) {
+  .CategoryCard:after {
+    opacity: 1;
+  }
+
+  .Categorycontent {
+    transform: translateY(calc(100% - 4.5rem));
+  }
+  .Categorycontent > *:not(.title) {
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+  }
+
+  .CategoryCard:hover,
+  .CategoryCard:focus-within {
+    align-items: center;
+  }
+  .CategoryCard:hover:before,
+  .CategoryCard:focus-within:before {
+    transform: translateY(-4%);
+  }
+  .CategoryCard:hover:after,
+  .CategoryCard:focus-within:after {
+    opacity: 0.95;
+  }
+  .CategoryCard:hover .Categorycontent,
+  .CategoryCard:focus-within .Categorycontent {
+    transform: translateY(0);
+  }
+  .CategoryCard:hover .Categorycontent > *:not(.title),
+  .CategoryCard:focus-within .Categorycontent > *:not(.title) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) / 8);
+  }
+
+  .CategoryCard:focus-within:before,
+  .CategoryCard:focus-within:after,
+  .CategoryCard:focus-within .Categorycontent,
+  .CategoryCard:focus-within .Categorycontent > *:not(.title) {
+    transition-duration: 0s;
+  }
+}
+
+@media (max-width: 767px) {
+  .category_section h1 {
+    font-size: 1.5em;
+  }
+}

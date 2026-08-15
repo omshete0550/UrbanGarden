@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap");
+:root {
+  --ug-bg: #f7faf4;
+  --ug-surface: #ffffff;
+  --ug-surface-soft: #eef7ed;
+  --ug-primary: #137a47;
+  --ug-primary-strong: #0c5f36;
+  --ug-primary-soft: #dff2e2;
+  --ug-accent: #e5843f;
+  --ug-text: #1f2d24;
+  --ug-text-muted: #66756c;
+  --ug-border: #dce7dc;
+  --ug-shadow-sm: 0 8px 22px rgba(31, 45, 36, 0.08);
+  --ug-shadow-md: 0 18px 45px rgba(31, 45, 36, 0.12);
+  --ug-radius-sm: 8px;
+  --ug-radius-md: 14px;
+  --ug-radius-lg: 22px;
+  --ug-container: min(1300px, calc(100vw - 40px));
+  --ug-transition: 180ms ease;
+}
+
+* {
+  font-family: "Assistant", Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: var(--ug-bg);
+  color: var(--ug-text);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+.ug-container {
+  width: var(--ug-container);
+  margin-inline: auto;
+}
+.ug-section {
+  padding: 36px 0;
+}
+.ug-section-heading {
+  color: var(--ug-text);
+  font-size: clamp(1.45rem, 2vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.ug-button {
+  border: 0;
+  border-radius: var(--ug-radius-sm);
+  background: var(--ug-primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 18px;
+  font-weight: 800;
+  transition:
+    transform var(--ug-transition),
+    background var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+.ug-button:hover,
+.ug-button:focus-visible {
+  background: var(--ug-primary-strong);
+  box-shadow: var(--ug-shadow-sm);
+  transform: translateY(-1px);
+}
+.ug-button-secondary {
+  background: var(--ug-primary-soft);
+  color: var(--ug-primary-strong);
+}
+.ug-card {
+  background: var(--ug-surface);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-md);
+  box-shadow: var(--ug-shadow-sm);
+}
+*:focus-visible {
+  outline: 3px solid rgba(19, 122, 71, 0.25);
+  outline-offset: 3px;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d8d8d8;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--ug-primary);
+  border-radius: 10px;
+}

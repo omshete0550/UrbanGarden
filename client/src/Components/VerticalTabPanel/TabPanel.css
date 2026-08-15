@@ -1,0 +1,745 @@
+.profile-tabs-layout {
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-lg);
+  box-shadow: var(--ug-shadow-md);
+  gap: 26px;
+  padding: 18px;
+}
+
+.profile-tabs {
+  background: #fbfdf8;
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-md);
+  display: flex;
+  flex: 0 0 250px;
+  flex-direction: column;
+  padding: 14px;
+}
+
+.profile-sidebar-card {
+  align-items: center;
+  border-bottom: 1px solid var(--ug-border);
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 6px 6px 18px;
+}
+
+.profile-sidebar-card img {
+  aspect-ratio: 1;
+  border: 3px solid var(--ug-primary-soft);
+  border-radius: 50%;
+  object-fit: cover;
+  width: 58px;
+}
+
+.profile-sidebar-card span {
+  color: var(--ug-text-muted);
+  display: block;
+  font-size: 0.86rem;
+  line-height: 1.2;
+}
+
+.profile-sidebar-card strong {
+  color: var(--ug-text);
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: capitalize;
+}
+
+.profile-tab-label {
+  align-items: center;
+  display: inline-flex;
+  gap: 12px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.profile-tab-label svg {
+  color: var(--ug-text-muted);
+  font-size: 1rem;
+}
+
+.profile-tabs-list {
+  width: 100%;
+}
+
+.profile-tabs-list .MuiTab-root {
+  border-radius: var(--ug-radius-sm);
+  color: var(--ug-text-muted);
+  font-size: 0.95rem;
+  font-weight: 800;
+  justify-content: flex-center;
+  margin-top: 6px;
+  padding: 0 14px;
+  transition:
+    background var(--ug-transition),
+    color var(--ug-transition);
+}
+
+.profile-tabs-list .MuiTab-root:hover {
+  background: var(--ug-primary-soft);
+  color: var(--ug-primary-strong);
+}
+
+.profile-tabs-list .MuiTab-root:hover svg {
+  color: var(--ug-primary-strong);
+}
+
+.profile-tabs-list .Mui-selected,
+.profile-tabs-list .Mui-selected:hover {
+  background: var(--ug-primary);
+  color: #fff !important;
+}
+
+.profile-tabs-list .Mui-selected svg,
+.profile-tabs-list .Mui-selected:hover svg {
+  color: #fff;
+}
+
+.profile-tab-panel {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 4px 10px 0;
+}
+
+.UserOverview {
+  background:
+    linear-gradient(135deg, rgba(19, 122, 71, 0.92), rgba(12, 95, 54, 0.82)),
+    url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80");
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--ug-radius-md);
+  color: #fff;
+  overflow: hidden;
+  padding: 34px;
+}
+
+.UserOverview .UserInfo {
+  align-items: center;
+  display: flex;
+  gap: 22px;
+}
+
+.UserOverview .UserInfo img {
+  aspect-ratio: 1;
+  border: 4px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+  object-fit: cover;
+  width: 116px;
+}
+
+.UserOverview .UserInfo span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.UserOverview .UserInfo h3 {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.05;
+  text-transform: capitalize;
+}
+
+.UserOverview .UserInfo p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1rem;
+  line-height: 1.45;
+  margin-top: 8px;
+  max-width: 480px;
+}
+
+.UserOverviewGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  margin-top: 18px;
+}
+
+.OverviewGirdBox {
+  background: var(--ug-surface);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-md);
+  box-shadow: var(--ug-shadow-sm);
+  min-height: 170px;
+  padding: 22px;
+  position: relative;
+  transition:
+    border-color var(--ug-transition),
+    box-shadow var(--ug-transition),
+    transform var(--ug-transition);
+}
+
+.OverviewGirdBox:hover {
+  border-color: rgba(19, 122, 71, 0.35);
+  box-shadow: var(--ug-shadow-md);
+  transform: translateY(-2px);
+}
+
+.OverviewGirdBox i {
+  align-items: center;
+  background: var(--ug-primary-soft);
+  border-radius: 50%;
+  color: var(--ug-primary);
+  display: inline-flex;
+  font-size: 1.35rem;
+  height: 46px;
+  justify-content: center;
+  margin-bottom: 18px;
+  width: 46px;
+}
+
+.OverviewGirdBox h3 {
+  color: var(--ug-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.OverviewGirdBox span {
+  color: var(--ug-text-muted);
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.profile-section-title {
+  color: var(--ug-text);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.UserProfile {
+  background: var(--ug-surface);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-md);
+  box-shadow: var(--ug-shadow-sm);
+  overflow: hidden;
+}
+
+.profile-card-header {
+  align-items: center;
+  border-bottom: 1px solid var(--ug-border);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 24px 28px;
+}
+
+.profile-card-header span {
+  color: var(--ug-text-muted);
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.profile-card-header h1 {
+  color: var(--ug-text);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.profile-edit-link {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--ug-primary);
+  display: inline-flex;
+  gap: 8px;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 0;
+}
+
+.profile-edit-link:hover {
+  color: var(--ug-primary-strong);
+}
+
+.ProfileInfo {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  padding: 30px 28px 34px;
+}
+
+.profile-avatar-wrap {
+  height: 148px;
+  position: relative;
+  width: 148px;
+}
+
+.profile-avatar-wrap img {
+  aspect-ratio: 1;
+  border: 5px solid var(--ug-primary-soft);
+  border-radius: 50%;
+  box-shadow: var(--ug-shadow-sm);
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.profile-avatar-wrap button {
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--ug-primary-soft);
+  border-radius: 50%;
+  bottom: 8px;
+  color: var(--ug-primary);
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  position: absolute;
+  right: 2px;
+  width: 38px;
+}
+
+.profile-info-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.Profile {
+  align-items: flex-start;
+  background: #fbfdf8;
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-sm);
+  display: flex;
+  gap: 13px;
+  min-height: 88px;
+  padding: 16px;
+}
+
+.Profile i {
+  align-items: center;
+  background: var(--ug-primary-soft);
+  border-radius: 50%;
+  color: var(--ug-primary);
+  display: flex;
+  flex: 0 0 36px;
+  height: 36px;
+  justify-content: center;
+  margin-top: 2px;
+  width: 36px;
+}
+
+.Profile h3 {
+  color: var(--ug-text-muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.Profile span {
+  color: var(--ug-text);
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.UserAddress .AddressHeading {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.UserAddress .AddressHeading h3 {
+  color: var(--ug-text);
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+.UserAddress .AddressHeading button,
+.addnewaddressSubBtn,
+.EditProfBtn {
+  background: var(--ug-primary);
+  border: 0;
+  border-radius: var(--ug-radius-sm);
+  color: #fff;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 10px 18px;
+}
+
+.UserAddress .AddressHeading button:hover,
+.addnewaddressSubBtn:hover,
+.EditProfBtn:hover {
+  background: var(--ug-primary-strong);
+}
+
+.addnewaddress-main {
+  align-items: center;
+  background: rgba(31, 45, 36, 0.68);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999999;
+}
+
+.addnewaddress {
+  background: var(--ug-surface);
+  border-radius: var(--ug-radius-md);
+  box-shadow: var(--ug-shadow-md);
+  max-height: min(760px, calc(100vh - 40px));
+  max-width: 520px;
+  overflow: auto;
+  padding-bottom: 26px;
+  position: relative;
+  width: min(100%, 520px);
+}
+
+.addnewaddress-header {
+  align-items: center;
+  border-bottom: 1px solid var(--ug-border);
+  display: flex;
+  gap: 14px;
+  padding: 20px 56px 18px 22px;
+}
+
+.addnewaddress-header img {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 68px;
+}
+
+.addnewaddress-header h1 {
+  color: var(--ug-text);
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.addnewaddress-header div,
+.closecircleXmarkprof {
+  cursor: pointer;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.addnewaddress-header div {
+  color: var(--ug-text-muted);
+  font-size: 1.1rem;
+}
+
+.closecircleXmarkprof {
+  height: 24px !important;
+  width: 24px !important;
+}
+
+.editheadderprofimg {
+  border: 3px solid var(--ug-primary-soft);
+  height: 78px !important;
+  width: 78px !important;
+}
+
+.addnewaddress-content-container {
+  display: grid;
+  gap: 16px;
+  padding: 24px 28px 20px;
+}
+
+.addnewaddress-content .label {
+  color: var(--ug-text);
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.addnewaddress-content .input {
+  background: #fbfdf8;
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-sm);
+  color: var(--ug-text);
+  height: 46px;
+  padding: 0 14px;
+  transition:
+    border-color var(--ug-transition),
+    box-shadow var(--ug-transition);
+  width: 100%;
+}
+
+.addnewaddress-content .input:focus {
+  border-color: var(--ug-primary);
+  box-shadow: 0 0 0 4px rgba(19, 122, 71, 0.12);
+  outline: 0;
+}
+
+.addnewaddressSubBtn,
+.EditProfBtn {
+  margin-left: 28px;
+  width: calc(100% - 56px);
+}
+
+.orderhistory {
+  background: var(--ug-primary);
+  border-radius: var(--ug-radius-sm) var(--ug-radius-sm) 0 0;
+  color: #fff;
+}
+
+.orderhistoryheader {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 16px 18px;
+}
+
+.orderhistoryheader span {
+  color: rgba(255, 255, 255, 0.78);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.orderhistoryheader p {
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.OrderHistory {
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-sm);
+  box-shadow: var(--ug-shadow-sm);
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.OrderHistory .orderhistoryproduct {
+  background: var(--ug-surface);
+  padding: 20px;
+}
+
+.OrderHistory .orderhistoryproduct h3 {
+  color: var(--ug-text);
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.orderproductcard {
+  align-items: center;
+  border-top: 1px solid var(--ug-border);
+  display: flex;
+  gap: 18px;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.orderproductcard img {
+  aspect-ratio: 1;
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-sm);
+  object-fit: contain;
+  width: 92px;
+}
+
+.orderproductdesc span {
+  color: var(--ug-text);
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.orderproductdesc p {
+  color: var(--ug-text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 1050px) {
+  .profile-tabs-layout {
+    flex-direction: column;
+  }
+
+  .profile-tabs {
+    flex: none;
+    width: 100%;
+  }
+
+  .profile-tabs-list .MuiTabs-flexContainer {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .profile-sidebar-card {
+    grid-column: 1 / -1;
+  }
+
+  .profile-tab-panel {
+    padding: 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .UserOverviewGrid,
+  .profile-info-grid,
+  .orderhistoryheader {
+    grid-template-columns: 1fr;
+  }
+
+  .ProfileInfo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .profile-tabs-layout {
+    border-radius: var(--ug-radius-md);
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .profile-tabs-list .MuiTabs-flexContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .UserOverview {
+    padding: 24px;
+  }
+
+  .UserOverview .UserInfo,
+  .profile-card-header,
+  .UserAddress .AddressHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .profile-card-header,
+  .ProfileInfo {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .orderproductcard {
+    align-items: flex-start;
+  }
+}
+
+.OverviewGirdBox small {
+  color: var(--ug-primary);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+.owner-action-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.owner-action-row a {
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(19, 122, 71, 0.24);
+  border-radius: var(--ug-radius-sm);
+  box-shadow: var(--ug-shadow-sm);
+  color: var(--ug-primary);
+  display: inline-flex;
+  gap: 9px;
+  font-weight: 800;
+  min-height: 46px;
+  padding: 0 16px;
+  text-decoration: none;
+  transition:
+    background var(--ug-transition),
+    border-color var(--ug-transition),
+    box-shadow var(--ug-transition),
+    transform var(--ug-transition);
+}
+
+.owner-action-row a:first-child {
+  background: var(--ug-primary);
+  border-color: var(--ug-primary);
+  color: #fff;
+}
+
+.owner-action-row a:hover {
+  border-color: var(--ug-primary);
+  box-shadow: var(--ug-shadow-md);
+  transform: translateY(-1px);
+}
+
+.empty-profile-state {
+  align-items: center;
+  background: #fbfdf8;
+  border: 1px dashed rgba(19, 122, 71, 0.35);
+  border-radius: var(--ug-radius-md);
+  color: var(--ug-text-muted);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 260px;
+  padding: 34px 20px;
+  text-align: center;
+}
+
+.empty-profile-state svg {
+  background: var(--ug-primary-soft);
+  border-radius: 50%;
+  color: var(--ug-primary);
+  font-size: 3.4rem;
+  margin-bottom: 16px;
+  padding: 14px;
+}
+
+.empty-profile-state h3 {
+  color: var(--ug-text);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.empty-profile-state p {
+  font-size: 0.96rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.orderproductcard-loading {
+  min-height: 112px;
+}
+
+.order-product-img-placeholder {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #eef6ee, #dbeadb);
+  border-radius: var(--ug-radius-sm);
+  flex: 0 0 92px;
+  width: 92px;
+}
+
+.UserAddress .AddressHeading button {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+@media (max-width: 620px) {
+  .owner-action-row a {
+    justify-content: center;
+    width: 100%;
+  }
+}

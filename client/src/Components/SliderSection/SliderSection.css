@@ -1,0 +1,27 @@
+.slider-section {
+  width: min(1200px, 96%);
+  margin: 3rem auto;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+  color: #61b76e;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  letter-spacing: 0.06em;
+}
+
+.section-icon {
+  width: 2.2rem;
+  height: auto;
+}
+
+.slider-body {
+  width: 100%;
+}

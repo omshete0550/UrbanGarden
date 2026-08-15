@@ -1,0 +1,21 @@
+.SingleCateg {
+  width: var(--ug-container);
+  display: grid;
+  grid-template-columns: minmax(230px, 280px) minmax(0, 1fr);
+  gap: 28px;
+  padding: 30px 0 48px;
+  margin: 0 auto;
+}
+
+.filter,
+.grid {
+  min-width: 0;
+}
+
+@media (max-width: 1023px) {
+  .SingleCateg {
+    width: min(100% - 28px, 760px);
+    grid-template-columns: 1fr;
+    padding: 24px 0 40px;
+  }
+}

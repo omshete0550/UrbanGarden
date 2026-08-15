@@ -1,0 +1,100 @@
+.gridCategSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gridHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 0 6px;
+}
+
+.gridHeader p {
+  color: var(--ug-text-muted);
+  font-weight: 800;
+}
+
+.gridheading {
+  color: var(--ug-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  text-transform: capitalize;
+}
+
+.gridheading svg {
+  color: var(--ug-primary);
+}
+
+.gridHeader select {
+  min-height: 42px;
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-sm);
+  background: var(--ug-surface);
+  color: var(--ug-text);
+  padding: 0 12px;
+  font-weight: 800;
+}
+
+.parentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.parentGrid .card {
+  width: 100%;
+  margin: 0;
+}
+
+.grid-loading {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid-loading span,
+.emptyGrid {
+  min-height: 320px;
+  border-radius: var(--ug-radius-md);
+  background: linear-gradient(90deg, #eef7ed, #ffffff, #eef7ed);
+  border: 1px solid var(--ug-border);
+}
+
+.emptyGrid {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px;
+  background: var(--ug-surface);
+}
+
+.emptyGrid h2 {
+  color: var(--ug-text);
+  font-size: 1.5rem;
+}
+
+.emptyGrid p {
+  color: var(--ug-text-muted);
+  margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+  .gridHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .grid-loading {
+    grid-template-columns: 1fr;
+  }
+}

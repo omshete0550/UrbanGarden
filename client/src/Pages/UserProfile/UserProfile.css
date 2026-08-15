@@ -1,0 +1,70 @@
+.user-profile-page {
+  background:
+    radial-gradient(circle at top left, rgba(229, 132, 63, 0.1), transparent 28%),
+    linear-gradient(180deg, #f7faf4 0%, #eef7ed 100%);
+  min-height: 80vh;
+  padding: 42px 0 64px;
+}
+
+.profile-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.TabHeading {
+  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.profile-kicker {
+  color: var(--ug-primary);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.TabHeading h1 {
+  color: var(--ug-text);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.TabHeading p {
+  color: var(--ug-text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 430px;
+}
+
+.profile-loading {
+  align-items: center;
+  background: var(--ug-surface);
+  border: 1px solid var(--ug-border);
+  border-radius: var(--ug-radius-md);
+  box-shadow: var(--ug-shadow-sm);
+  color: var(--ug-text-muted);
+  display: flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 260px;
+}
+
+@media (max-width: 760px) {
+  .user-profile-page {
+    padding: 28px 0 44px;
+  }
+
+  .TabHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

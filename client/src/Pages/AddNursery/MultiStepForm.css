@@ -1,0 +1,458 @@
+.AddNurseryForm {
+  min-height: 100vh;
+  padding: 32px;
+  /* background:
+    linear-gradient(rgba(5, 22, 14, 0.62), rgba(5, 22, 14, 0.7)),
+    url("https://img.freepik.com/free-psd/tropical-foliage-background_53876-91352.jpg"); */
+  background-size: cover;
+  background-position: center;
+}
+
+.AddNurBox {
+  width: min(1220px, 100%);
+  min-height: calc(100vh - 64px);
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+}
+
+.nurseryFormShell {
+  height: 100%;
+}
+
+.nurseryFormHeader {
+  margin-bottom: 24px;
+}
+
+.formEyebrow {
+  color: var(--ug-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nurseryFormHeader h1 {
+  margin-top: 6px;
+  color: var(--ug-text);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.nurseryFormHeader p {
+  max-width: 620px;
+  margin-top: 8px;
+  color: var(--ug-text-muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.nurseryStepper {
+  margin-bottom: 34px;
+}
+
+.nurseryStepper .MuiStepIcon-root.Mui-active,
+.nurseryStepper .MuiStepIcon-root.Mui-completed {
+  color: var(--ug-primary);
+}
+
+.nurseryStepper .MuiStepLabel-label {
+  color: var(--ug-text-muted);
+  font-weight: 600;
+}
+
+.nurseryStepper .MuiStepLabel-label.Mui-active,
+.nurseryStepper .MuiStepLabel-label.Mui-completed {
+  color: var(--ug-text);
+}
+
+.nurseryFormGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(320px, 0.85fr);
+  align-items: stretch;
+  gap: 40px;
+}
+
+.nurseryFormFields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.NurseryInp,
+.NurseryInpAdd {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.NurseryInp label,
+.NurseryInpAdd label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #34473b;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.NurseryInp label svg,
+.NurseryInpAdd label svg {
+  color: var(--ug-primary);
+}
+
+.NurseryInp .input,
+.NurseryInpAdd .input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid #d5e4d8;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ug-text);
+  font-size: 1rem;
+  box-shadow: 0 1px 2px rgba(31, 45, 36, 0.04);
+  outline: none;
+  transition:
+    border-color var(--ug-transition),
+    box-shadow var(--ug-transition),
+    transform var(--ug-transition);
+}
+
+.NurseryInp textarea.input,
+.NurseryInpAdd textarea.input {
+  min-height: 104px;
+  padding-block: 14px;
+  resize: vertical;
+}
+
+.NurseryInp .input::placeholder,
+.NurseryInpAdd .input::placeholder {
+  color: #89998f;
+}
+
+.NurseryInp .input:hover,
+.NurseryInpAdd .input:hover {
+  border-color: #aecdb8;
+}
+
+.NurseryInp .input:focus,
+.NurseryInpAdd .input:focus {
+  border-color: var(--ug-primary);
+  box-shadow: 0 0 0 4px rgba(19, 122, 71, 0.12);
+}
+
+.nurseryVisualCard {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ug-surface-soft);
+  box-shadow: var(--ug-shadow-sm);
+}
+
+.nurseryVisualCard img {
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  display: block;
+  object-fit: cover;
+}
+
+.nurseryVisualCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.7));
+}
+
+.nurseryVisualCard > div {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+  color: #fff;
+}
+
+.nurseryVisualCard span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(19, 122, 71, 0.78);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.nurseryVisualCard h2 {
+  color: #fff;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.nurseryVisualCard p {
+  max-width: 360px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.4;
+}
+
+.NurImgUp {
+  margin-top: 2px;
+}
+
+#image-upload {
+  display: none;
+}
+
+.uploadBox {
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  padding: 16px;
+  border: 1px dashed #9cc5aa;
+  border-radius: 12px;
+  background: #f7fbf6;
+  color: var(--ug-text);
+  cursor: pointer;
+  transition:
+    border-color var(--ug-transition),
+    background var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.uploadBox svg {
+  color: var(--ug-primary);
+  font-size: 1.15rem;
+}
+
+.uploadBox span {
+  font-weight: 700;
+}
+
+.uploadBox small {
+  color: var(--ug-text-muted);
+}
+
+.uploadBox:hover {
+  border-color: var(--ug-primary);
+  background: #eff8ef;
+  box-shadow: 0 10px 24px rgba(31, 45, 36, 0.06);
+}
+
+.nurseryPrimaryBtn,
+.resetbtnNur,
+.PrevSubbtn {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--ug-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 750;
+  box-shadow: 0 14px 28px rgba(19, 122, 71, 0.2);
+  transition:
+    transform var(--ug-transition),
+    background var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.nurseryPrimaryBtn {
+  width: min(220px, 100%);
+  margin-top: 8px;
+}
+
+.nurseryPrimaryBtn:hover,
+.resetbtnNur:hover,
+.PrevSubbtn:hover {
+  background: var(--ug-primary-strong);
+  box-shadow: 0 18px 34px rgba(19, 122, 71, 0.26);
+  transform: translateY(-1px);
+}
+
+.nurseryPrimaryBtn:disabled,
+.PrevSubbtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.Confirminfo {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1fr);
+  align-items: center;
+  gap: 34px;
+  padding: 10px 0 0;
+}
+
+.confirminfoImagePrev {
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ug-surface-soft);
+  box-shadow: var(--ug-shadow-sm);
+}
+
+.confirminfoImagePrev img,
+.emptyPreview {
+  width: 100%;
+  height: 360px;
+}
+
+.confirminfoImagePrev img {
+  display: block;
+  object-fit: cover;
+}
+
+.emptyPreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ug-text-muted);
+}
+
+.confirminfoprev {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirminfoprev h1 {
+  margin-top: 6px;
+  color: var(--ug-text);
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.confirminfoprev p {
+  margin-top: 12px;
+  color: var(--ug-text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.confirmList {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.confirmList span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--ug-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ug-text);
+}
+
+.confirmList svg {
+  flex: 0 0 auto;
+  color: var(--ug-primary);
+}
+
+.nurseryActionRow {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.nurserySubmitError {
+  margin-top: 12px;
+  color: #b42318;
+  font-weight: 600;
+  text-align: right;
+}
+
+.resetbtnNur {
+  min-width: 126px;
+  background: #eaf3ea;
+  color: var(--ug-primary-strong);
+  box-shadow: none;
+}
+
+.resetbtnNur:hover {
+  color: #fff;
+}
+
+.PrevSubbtn {
+  min-width: 150px;
+}
+
+@media (max-width: 1023px) {
+  .AddNurseryForm {
+    padding: 18px;
+  }
+
+  .AddNurBox {
+    min-height: calc(100vh - 36px);
+    padding: 22px;
+  }
+
+  .nurseryFormGrid,
+  .Confirminfo {
+    grid-template-columns: 1fr;
+  }
+
+  .nurseryVisualCard,
+  .nurseryVisualCard img {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .AddNurseryForm {
+    padding: 12px;
+  }
+
+  .AddNurBox {
+    min-height: calc(100vh - 24px);
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .nurseryFormHeader {
+    margin-bottom: 18px;
+  }
+
+  .nurseryStepper {
+    margin-bottom: 24px;
+  }
+
+  .nurseryFormGrid {
+    gap: 22px;
+  }
+
+  .nurseryVisualCard,
+  .nurseryVisualCard img,
+  .confirminfoImagePrev,
+  .confirminfoImagePrev img,
+  .emptyPreview {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .nurseryPrimaryBtn {
+    width: 100%;
+  }
+
+  .nurseryActionRow {
+    flex-direction: column;
+  }
+}

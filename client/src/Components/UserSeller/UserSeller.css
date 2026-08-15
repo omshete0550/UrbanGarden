@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
+
+.UserSeller {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 1em;
+}
+.userSellerheading {
+  font-size: 2.5em;
+  color: #61b76e;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2em;
+}
+.UserSeller .container {
+  position: relative;
+  width: 90vw;
+  height: 80vh;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  overflow: hidden;
+  border-radius: 1em;
+}
+
+.UserSeller .container .user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.UserSeller .container .user .imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #ff0;
+  transition: 0.5s;
+}
+
+.UserSeller .container .user .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.UserSeller .container .user .formBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
+}
+.UserSeller .container .user .formBx form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.UserSeller .container .user .formBx form h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.UserSeller .container .user .formBx form input {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 8px 0;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.UserSeller .container .user .formBx form input[type="submit"] {
+  max-width: 100px;
+  background: #61b76e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.UserSeller .container .user .formBx form .signup {
+  position: relative;
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.UserSeller .container .user .formBx form .signup a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #61b76e;
+}
+
+.UserSeller .container .signupBx {
+  pointer-events: none;
+}
+
+.UserSeller .container.active .signupBx {
+  pointer-events: initial;
+}
+
+.UserSeller .container .signupBx .formBx {
+  left: 100%;
+}
+
+.UserSeller .container.active .signupBx .formBx {
+  left: 0;
+}
+
+.UserSeller .container .signupBx .imgBx {
+  left: -100%;
+}
+
+.UserSeller .container.active .signupBx .imgBx {
+  left: 0%;
+}
+
+.UserSeller .container .signinBx .formBx {
+  left: 0%;
+}
+
+.UserSeller .container.active .signinBx .formBx {
+  left: 100%;
+}
+
+.UserSeller .container .signinBx .imgBx {
+  left: 0%;
+}
+
+.UserSeller .container.active .signinBx .imgBx {
+  left: -100%;
+}
+
+@media (max-width: 991px) {
+  .UserSeller {
+    min-height: 40vh;
+    margin-top: 2em;
+  }
+  .UserSeller .container {
+    height: 35vh;
+  }
+
+  .UserSeller .container .imgBx {
+    display: none;
+  }
+
+  .UserSeller .container .user .formBx {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .userSellerheading {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,228 @@
+.Bestsellers {
+  width: var(--ug-container);
+  margin: 0 auto;
+  padding: 34px 0;
+}
+
+.Bestsellers h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 900;
+  color: var(--ug-text) !important;
+  margin-bottom: 18px;
+}
+
+.parent-heading {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 900;
+  color: var(--ug-text);
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.card {
+  margin: 12px;
+  min-height: 440px;
+  width: min(100%, 282px);
+  border-radius: var(--ug-radius-md);
+  border: 1px solid var(--ug-border);
+  background: var(--ug-surface);
+  box-shadow: var(--ug-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    transform var(--ug-transition),
+    box-shadow var(--ug-transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ug-shadow-md);
+}
+
+.product-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  color: inherit;
+}
+
+.product-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--ug-surface-soft);
+  overflow: hidden;
+}
+
+.product--image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.card:hover .product--image {
+  transform: scale(1.04);
+}
+
+.product-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ug-primary-strong);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 6px 10px;
+}
+
+.wishlist-button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ug-accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail {
+  padding: 16px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.detail h2 {
+  color: var(--ug-text);
+  font-size: 1.15rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.product-p {
+  min-height: 44px;
+  color: var(--ug-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px 12px;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f6b90f;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.rating-value {
+  color: var(--ug-text);
+  font-weight: 900;
+}
+
+.rating-label {
+  color: var(--ug-text-muted);
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.price {
+  color: var(--ug-primary);
+  font-size: 1.22rem;
+  font-weight: 900;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr minmax(120px, 1fr);
+  gap: 10px;
+  padding: 0 16px 16px;
+}
+
+.details-button,
+.add-card-button {
+  border: 0;
+  min-height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  transition:
+    background var(--ug-transition),
+    color var(--ug-transition);
+}
+
+.details-button {
+  background: transparent;
+  color: var(--ug-text);
+  border: 1px solid var(--ug-border);
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.details-button:hover,
+.details-button:focus-visible {
+  background: rgba(97, 183, 110, 0.08);
+  color: var(--ug-primary);
+}
+
+.add-card-button {
+  width: 100%;
+  color: #fff;
+  background: var(--ug-primary);
+  border-radius: 8px;
+}
+
+.add-card-button:hover {
+  background: var(--ug-primary-strong);
+}
+
+@media (max-width: 600px) {
+  .card-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.add-card-button:hover {
+  background: var(--ug-primary-strong);
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px) !important;
+}
+
+.react-multiple-carousel__arrow--right {
+  right: calc(1% + 1px) !important;
+}
+
+@media (max-width: 600px) {
+  .Bestsellers {
+    width: min(100% - 28px, 560px);
+    padding: 28px 0;
+  }
+
+  .card {
+    width: min(100% - 12px, 300px);
+    margin: 8px auto 16px;
+  }
+}
