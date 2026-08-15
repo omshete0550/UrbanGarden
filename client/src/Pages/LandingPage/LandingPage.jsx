@@ -1,4 +1,5 @@
 import React from "react";
+
 import Navbar from "../../Components/Navbar/Navbar";
 import Hero from "../../Components/Hero/Hero";
 import Service from "../../Components/Service/Service";
@@ -7,48 +8,77 @@ import Footer from "../../Components/Footer/Footer";
 import TrendingSlider from "../../Components/Carousel/trendingSlider";
 import Timeline from "../../Components/Timeline/Timeline";
 import UserSeller from "../../Components/UserSeller/UserSeller";
+import Review from "../../Components/Review/Review";
+
 import "./LandingPage.css";
 import "react-multi-carousel/lib/styles.css";
+
 import { categoryData } from "../../Components/data";
-import Review from "../../Components/Review/Review";
-import { bestseller_small } from "../../assets";
-import ContactUs from "../../Components/ContactUs/ContactUs";
 
 const Header = () => {
   const category = categoryData.map((item) => (
     <CategoryBox title={item.title} key={item.id} content={item.content} />
   ));
+
   return (
     <>
       <Navbar />
 
+      {/* Hero */}
       <Hero />
 
-      <div className="category_section" id="categories">
-        <h1>CATEGORIES TO BAG</h1>
+      {/* Categories */}
+      <section className="category_section" id="categories">
+        <div className="sectionIntro">
+          <span>EXPLORE OUR GARDEN</span>
+
+          <h2>
+            Find Something to <strong>Grow</strong>
+          </h2>
+
+          <p>
+            Explore plants, gardening essentials and everything you need to
+            create your perfect green space.
+          </p>
+        </div>
+
         <main className="page-content">{category}</main>
-      </div>
+      </section>
 
-      <div className="bestPicks">
-        <h2 className="carouselheading">
-          <img src={bestseller_small} alt="" />
-          Your Best Picks
-        </h2>
+      {/* Best Picks */}
+      <section className="bestPicks" id="bestpicks">
+        <div className="bestPicksHeader">
+          <div>
+            <span>HANDPICKED FOR YOU</span>
+
+            <h2>
+              Picked for Your <strong>Garden</strong>
+            </h2>
+          </div>
+
+          <button className="viewAllButton">
+            View All <span>→</span>
+          </button>
+        </div>
+
         <TrendingSlider />
-      </div>
+      </section>
 
-      <Timeline />
-
+      {/* Why UrbanGarden */}
       <div id="whyug">
         <Service />
       </div>
 
+      {/* How UrbanGarden Works */}
+      <Timeline />
+
+      {/* Reviews */}
       <Review />
 
+      {/* Customers & Nursery Sellers */}
       <UserSeller />
 
-      <ContactUs />
-
+      {/* Footer */}
       <Footer />
     </>
   );

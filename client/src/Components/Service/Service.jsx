@@ -1,46 +1,65 @@
 import React from "react";
 import "./Service.css";
-import { service1, service2, service3, service4 } from "../../assets";
+import { FaRecycle, FaShieldAlt, FaTags, FaTint } from "react-icons/fa";
+
+const services = [
+  {
+    icon: <FaRecycle />,
+    title: "Sustainable Packaging",
+    description:
+      "Your plants are carefully packed using secure and recyclable materials.",
+  },
+  {
+    icon: <FaShieldAlt />,
+    title: "Damage Protection",
+    description:
+      "Received a damaged plant? We provide free replacements so you can shop worry-free.",
+  },
+  {
+    icon: <FaTags />,
+    title: "Exclusive Offers",
+    description:
+      "Enjoy seasonal deals, special discounts and exciting offers on your favourite products.",
+  },
+  {
+    icon: <FaTint />,
+    title: "Self-Watering Pots",
+    description:
+      "Selected plants come with self-watering pots to make plant care easier.",
+  },
+];
 
 const Service = () => {
   return (
-    <>
-      <h1 className="serviceHeading">Why Urban Garden?</h1>
-      <div className="services_container">
-        <div className="service">
-          <div className="service_icon">
-            <img src={service1} alt="" />
-          </div>
-          <div className="service_text">
-            <h3>Secure and Recyclable Packaging</h3>
-          </div>
-        </div>
-        <div className="service">
-          <div className="service_icon">
-            <img src={service2} alt="" />
-          </div>
-          <div className="service_text">
-            <h3>Free Replacements if Damaged</h3>
-          </div>
-        </div>
-        <div className="service">
-          <div className="service_icon">
-            <img src={service3} alt="" />
-          </div>
-          <div className="service_text">
-            <h3>Offers</h3>
-          </div>
-        </div>
-        <div className="service">
-          <div className="service_icon">
-           <img src={service4} alt="" />
-          </div>
-          <div className="service_text">
-            <h3>Self-Watering Pots with Every Plant</h3>
-          </div>
-        </div>
+    <section className="serviceSection">
+      <div className="serviceHeader">
+        <span className="serviceTag">WHY CHOOSE US</span>
+
+        <h1>
+          Why <span>UrbanGarden?</span>
+        </h1>
+
+        <p>
+          We make bringing nature into your space simple, convenient and
+          enjoyable.
+        </p>
       </div>
-    </>
+
+      <div className="services_container">
+        {services.map((service, index) => (
+          <div className="service" key={index}>
+            <div className="serviceNumber">0{index + 1}</div>
+
+            <div className="service_icon">{service.icon}</div>
+
+            <div className="service_text">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

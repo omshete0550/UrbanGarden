@@ -1,56 +1,94 @@
 .hero {
   display: flex;
   font-family: "Montserrat", sans-serif;
+
   margin: 20px;
-  height: 80vh;
+  min-height: 80vh;
+
   border-radius: 1.5em;
+
   align-items: center;
   justify-content: space-between;
+
   padding: 20px 80px;
+
+  box-sizing: border-box;
 }
+
+/* =========================
+   LEFT HERO
+========================= */
+
 .left_hero {
   width: 50%;
+
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: flex-start;
 }
+
 .left_hero h3 {
   font-size: 1.5em;
   font-weight: 600;
-  margin-bottom: 25px;
+
+  margin: 0 0 25px;
+
   text-transform: capitalize;
-  text-align: center;
+  text-align: left;
+
   color: #61b76e;
 }
+
 .left_hero h1 {
   font-size: 3rem;
+  line-height: 1.15;
   font-weight: 600;
-  margin-bottom: 40px;
+
+  margin: 0 0 35px;
+
   color: #0d3824;
 }
+
 .left_hero p {
   font-size: 15px;
-  margin-bottom: 25px;
   line-height: 1.5rem;
+
+  margin: 0 0 25px;
+
   color: #a3a3a3;
 }
 
 .hero-note {
-  font-size: 0.98rem;
-  margin-bottom: 20px;
+  font-size: 0.98rem !important;
+  line-height: 1.5rem;
+
+  margin-bottom: 20px !important;
+
   max-width: 28rem;
-  color: #8f9b88;
+
+  color: #8f9b88 !important;
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 .buttons {
   display: flex;
   gap: 20px;
+
+  align-items: center;
 }
+
 .button-91 {
   color: #fff;
+
   padding: 15px 25px;
+
   background-color: #0d9a58;
+
   background-image:
     radial-gradient(
       93% 87% at 87% 89%,
@@ -63,6 +101,7 @@
       rgba(255, 255, 255, 0) 69.79%,
       rgba(255, 255, 255, 0) 100%
     );
+
   box-shadow:
     inset -3px -3px 9px rgba(255, 255, 255, 0.25),
     inset 0px 3px 9px rgba(255, 255, 255, 0.3),
@@ -70,226 +109,571 @@
     inset 0px -8px 36px rgba(0, 0, 0, 0.3),
     inset 0px 1px 5px rgba(255, 255, 255, 0.6),
     2px 19px 31px rgba(0, 0, 0, 0.2);
+
   font-weight: bold;
   font-size: 16px;
+
   border: 0;
+
   user-select: none;
   -webkit-user-select: none;
+
   touch-action: manipulation;
   cursor: pointer;
+
   border-top-right-radius: 1em;
   border-bottom-left-radius: 1em;
+
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
 }
 
 .button-91:hover,
 .button-91:focus {
   border-color: rgba(0, 0, 0, 0.15);
+
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+
   color: rgba(0, 0, 0, 0.65);
 }
 
+/* =========================
+   RIGHT HERO IMAGE
+========================= */
+
 .right_hero {
-  width: 30vw;
+  width: 40%;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  flex-shrink: 0;
 }
+
 .right_hero img {
+  width: 100%;
+  max-width: 600px;
+
   height: 60vh;
-  width: 40vw;
-  aspect-ratio: 3/2;
+
+  aspect-ratio: 3 / 2;
+
   object-fit: contain;
 }
+
+/* =========================
+   FLOATING HERO IMAGE
+========================= */
+
 .FloatingHero {
   position: absolute;
+
   bottom: 8vh;
   right: 1vw;
+
+  z-index: 2;
 }
+
 .FloatingHero img {
   width: 12em;
-  aspect-ratio: 3/2;
+
+  aspect-ratio: 3 / 2;
+
   object-fit: contain;
 }
+
+/* =========================
+   FLOATING PRODUCT CARD
+========================= */
+
 .FloatingHeroProductCard {
   position: absolute;
+
   bottom: 10vh;
   right: 30vw;
+
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
+  gap: 10px;
+
   background-color: rgb(0 0 0 / 45%);
+
   border-radius: 1.5em;
-  padding: 10px 10px;
+
+  padding: 10px;
+
+  z-index: 3;
 }
+
 .FloatingHeroProductCard img {
   width: 8em;
-  aspect-ratio: 3/2;
+
+  aspect-ratio: 3 / 2;
+
   object-fit: contain;
 }
+
 .FloatingHeroProductCard h3 {
   color: #fff;
-  margin-bottom: 0.5em;
+
+  margin: 0 0 0.5em;
 }
+
 .FloatingHeroProductCard p {
   color: #fff;
+
+  margin: 0;
 }
+
 .priceDiv {
   display: flex;
+
   gap: 1em;
+
   align-items: center;
 }
+
 .priceDiv i {
+  width: 30px;
+  height: 30px;
+
   background-color: #0d9a58;
+
   border-radius: 50%;
+
   cursor: pointer;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* hero Ends */
 
-/* media queries */
+/* =========================
+   LARGE DESKTOP
+========================= */
 
 @media screen and (max-width: 1280px) {
-  .links {
-    padding-left: 5%;
-    padding-top: 35px;
-  }
-  .left_hero {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .left_hero h1 {
-    font-size: 50px;
-    line-height: 2.5rem;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .links {
-    padding-left: 5%;
-    padding-top: 35px;
-  }
-  .links a {
-    padding: 5px 20px;
-    font-size: 15px;
-    font-weight: 500;
-    z-index: 99999999;
-  }
-  .left_hero {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 80px 80px;
-  }
-  .left_hero h1 {
-    font-size: 40px;
-  }
-  .right_hero img {
-    width: 60vw;
-    height: 40vh;
-  }
-  .right_hero {
-    width: 60vw;
-    height: 45vh;
-    border-top-left-radius: 13em;
-    border-top-right-radius: 13em;
-    border-bottom-left-radius: 13em;
-    border-bottom-right-radius: 13em;
-  }
-  .FloatingHero {
-    top: 48vh;
-    right: 15vw;
-  }
-  .FloatingHeroProductCard {
-    bottom: 40vh;
-    right: 55vw;
-  }
-}
-@media screen and (max-width: 912px) {
-  .left_hero {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    margin-top: 1em;
+  .hero {
+    padding: 20px 60px;
   }
 
-  .hero {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    height: 85vh;
+  .left_hero {
+    width: 50%;
   }
+
   .left_hero h1 {
-    text-align: center;
+    font-size: 2.7rem;
+    line-height: 1.15;
   }
-  .left_hero p {
-    width: 90%;
-    text-align: center;
+
+  .right_hero {
+    width: 42%;
+  }
+
+  .right_hero img {
+    height: 55vh;
   }
 }
-@media (max-width: 600px) {
+
+/* =========================
+   TABLET / LAPTOP
+========================= */
+
+@media screen and (max-width: 1024px) {
+  .hero {
+    min-height: 75vh;
+
+    padding: 30px 50px;
+  }
+
+  .left_hero {
+    width: 50%;
+
+    padding: 0;
+  }
+
+  .left_hero h3 {
+    font-size: 1.3rem;
+
+    margin-bottom: 20px;
+  }
+
+  .left_hero h1 {
+    font-size: 2.4rem;
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+  }
+
+  .left_hero p {
+    font-size: 14px;
+    line-height: 1.45rem;
+  }
+
+  .hero-note {
+    font-size: 0.9rem !important;
+  }
+
+  .right_hero {
+    width: 45%;
+    height: auto;
+
+    border-radius: 0;
+  }
+
+  .right_hero img {
+    width: 100%;
+    height: 45vh;
+
+    object-fit: contain;
+  }
+
+  .FloatingHero {
+    top: 48vh;
+    right: 10vw;
+  }
+
+  .FloatingHero img {
+    width: 9em;
+  }
+
+  .FloatingHeroProductCard {
+    bottom: 35vh;
+    right: 50vw;
+
+    transform: scale(0.9);
+  }
+}
+
+/* =========================
+   SMALL TABLET
+========================= */
+
+@media screen and (max-width: 912px) {
   .hero {
     display: flex;
     flex-direction: column-reverse;
+
     justify-content: center;
     align-items: center;
-    height: 85vh;
-    margin-bottom: 1em;
-    padding: 20px 20px;
+
+    min-height: auto;
+    height: auto;
+
+    margin: 20px;
+
+    padding: 35px 30px;
+
+    gap: 20px;
+  }
+
+  .left_hero {
+    width: 100%;
+
+    padding: 0;
     margin: 0;
+
+    align-items: center;
+
+    text-align: center;
   }
+
+  .left_hero h3 {
+    text-align: center;
+  }
+
   .left_hero h1 {
-    font-size: 2rem;
-    margin-bottom: 1em;
+    text-align: center;
+
+    max-width: 650px;
   }
+
+  .left_hero p {
+    width: 90%;
+    max-width: 650px;
+
+    text-align: center;
+  }
+
+  .hero-note {
+    max-width: 550px;
+
+    text-align: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
   .right_hero {
-    width: 50vw;
-    height: 35vh;
+    width: 70%;
+
+    height: 300px;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
-    border-top-left-radius: 13em;
-    border-top-right-radius: 13em;
-    border-bottom-left-radius: 13em;
-    border-bottom-right-radius: 13em;
+
+    border-radius: 0;
   }
+
   .right_hero img {
-    width: 60vw;
-  }
-  .FloatingHero img {
-    width: 6em;
-    aspect-ratio: 3/2;
+    width: 100%;
+    height: 300px;
+
     object-fit: contain;
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-  }
-  .right_hero img {
-    height: 35vh;
-  }
-  .right_hero {
-    border-top-left-radius: 6em;
-    border-top-right-radius: 6em;
-    border-bottom-left-radius: 6em;
-    border-bottom-right-radius: 6em;
-  }
+
   .FloatingHero {
     display: none;
   }
+
   .FloatingHeroProductCard {
     display: none;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 600px) {
+  .hero {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    height: auto;
+    min-height: auto;
+
+    margin: 0;
+
+    padding: 25px 20px 35px;
+
+    border-radius: 0;
+
+    gap: 15px;
+  }
+
+  /* =========================
+     MOBILE TEXT
+  ========================= */
+
+  .left_hero {
+    width: 100%;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+  }
+
+  .left_hero h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    margin: 5px 0 10px;
+
+    text-align: center;
+  }
+
+  .left_hero h1 {
+    width: 100%;
+
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 600;
+
+    margin: 0 0 18px;
+
+    text-align: center;
+
+    color: #0d3824;
+  }
+
+  .left_hero p {
+    width: 100%;
+    max-width: 360px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    margin: 0 0 15px;
+
+    text-align: center;
+  }
+
+  .hero-note {
+    width: 100%;
+    max-width: 340px;
+
+    font-size: 13px !important;
+    line-height: 1.5;
+
+    margin: 0 0 20px !important;
+
+    text-align: center;
+  }
+
+  /* =========================
+     MOBILE BUTTONS
+  ========================= */
+
+  .buttons {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    gap: 12px;
+
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .buttons a {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .button-91 {
+    width: 100%;
+
+    min-height: 58px;
+
+    padding: 10px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    border-top-right-radius: 0.9em;
+    border-bottom-left-radius: 0.9em;
+  }
+
+  /* =========================
+     MOBILE HERO IMAGE
+  ========================= */
+
+  .right_hero {
+    width: 100%;
+
+    height: 220px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0;
+
+    flex-shrink: 0;
+  }
+
+  .right_hero img {
+    width: 100%;
+    max-width: 380px;
+
+    height: 220px;
+
+    object-fit: contain;
+  }
+
+  /* =========================
+     HIDE FLOATING ELEMENTS
+  ========================= */
+
+  .FloatingHero {
+    display: none;
+  }
+
+  .FloatingHeroProductCard {
+    display: none;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media screen and (max-width: 380px) {
+  .hero {
+    padding: 20px 15px 30px;
+
+    gap: 10px;
+  }
+
+  .left_hero h3 {
+    font-size: 1rem;
+
+    margin-bottom: 8px;
+  }
+
+  .left_hero h1 {
+    font-size: 1.7rem;
+
+    margin-bottom: 15px;
+  }
+
+  .left_hero p {
+    font-size: 12px;
+    line-height: 1.4;
+
+    max-width: 330px;
+  }
+
+  .hero-note {
+    font-size: 12px !important;
+
+    max-width: 310px;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .button-91 {
+    min-height: 55px;
+
+    padding: 8px 6px;
+
+    font-size: 13px;
+  }
+
+  .right_hero {
+    height: 190px;
+  }
+
+  .right_hero img {
+    height: 190px;
   }
 }

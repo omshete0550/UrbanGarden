@@ -1,35 +1,229 @@
-.serviceHeading {
+.serviceSection {
+  padding: 90px 6% 100px;
+  background: #f7faf5;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.serviceHeader {
+  max-width: 700px;
+  margin: 0 auto 60px;
   text-align: center;
-  font-size: 2.5em;
+}
+
+.serviceTag {
+  display: inline-block;
+  margin-bottom: 12px;
+
   color: #61b76e;
-  font-weight: 600;
-  margin-bottom: 1em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin-top: 2em;
 }
+
+.serviceHeader h1 {
+  margin: 0;
+
+  color: #0d3824;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.serviceHeader h1 span {
+  color: #61b76e;
+}
+
+.serviceHeader p {
+  margin: 18px auto 0;
+  max-width: 580px;
+
+  color: #718078;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
 .services_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-  background: #eff8f2;
-  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  max-width: 1250px;
+  margin: 0 auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e4eee6;
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 45px rgba(13, 56, 36, 0.06);
 }
+
+/* =========================
+   SERVICE CARD
+========================= */
+
 .service {
-  padding: 25px;
+  position: relative;
+
+  padding: 45px 30px;
+
   text-align: center;
+
+  border-right: 1px solid #e4eee6;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
-.service img {
-  width: 10em;
-  aspect-ratio: 3/2;
-  object-fit: contain;
-  margin-bottom: 2em;
+
+.service:last-child {
+  border-right: none;
 }
+
+.service:hover {
+  background: #f0f8f2;
+}
+
+/* =========================
+   NUMBER
+========================= */
+
+.serviceNumber {
+  position: absolute;
+
+  top: 20px;
+  right: 22px;
+
+  color: #c9dfce;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   ICON
+========================= */
+
+.service_icon {
+  width: 72px;
+  height: 72px;
+
+  margin: 5px auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e2f4e6;
+
+  color: #159447;
+
+  font-size: 1.7rem;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+
+  box-shadow: 0 8px 20px rgba(21, 148, 71, 0.08);
+}
+
+.service:hover .service_icon {
+  transform: translateY(-5px) scale(1.05);
+
+  background: #61b76e;
+  color: #ffffff;
+}
+
+/* =========================
+   TEXT
+========================= */
+
 .service_text h3 {
-  font-weight: 300;
+  margin: 0 0 12px;
+
+  color: #173d29;
+
+  font-size: 1.05rem;
+  font-weight: 650;
+
+  line-height: 1.4;
 }
-@media (max-width: 768px) {
-  .serviceHeading {
-    font-size: 1.5em;
+
+.service_text p {
+  margin: 0;
+
+  color: #7b8880;
+
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .services_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service:nth-child(2) {
+    border-right: none;
+  }
+
+  .service:nth-child(-n + 2) {
+    border-bottom: 1px solid #e4eee6;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .serviceSection {
+    padding: 65px 20px 75px;
+  }
+
+  .serviceHeader {
+    margin-bottom: 40px;
+  }
+
+  .serviceHeader h1 {
+    font-size: 2rem;
+  }
+
+  .serviceHeader p {
+    font-size: 0.9rem;
+  }
+
+  .services_container {
+    grid-template-columns: 1fr;
+
+    border-radius: 18px;
+  }
+
+  .service {
+    padding: 35px 25px;
+
+    border-right: none;
+    border-bottom: 1px solid #e4eee6;
+  }
+
+  .service:last-child {
+    border-bottom: none;
   }
 }

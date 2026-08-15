@@ -1,73 +1,98 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+import { FaArrowLeft, FaArrowRight, FaQuoteLeft } from "react-icons/fa";
+
 import { testimonials } from "../../data/reviewData";
+
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import "./review.css";
-import { quote } from "../../assets";
 
 const Reviews = () => {
   return (
-    <>
-      <Fade duration="2000" direction="up" triggerOnce>
-        <section className="testimony_content_homepage">
-          <div className="testimony_container">
-            <div className="testimony_info">
-              <div className="testimony_title">
-                <h1>WHAT OUR CLIENTS SAY</h1>
-              </div>
-              <img src={quote} alt="quote"></img>
+    <Fade duration={1200} direction="up" triggerOnce>
+      <section className="reviewsSection">
+        <div className="reviewsDecor reviewsDecorOne"></div>
+        <div className="reviewsDecor reviewsDecorTwo"></div>
 
-              <div className="testimony_map">
-                <Swiper
-                  modules={[Navigation]}
-                  slidesPerView={1}
-                  spaceBetween={20}
-                  navigation={{
-                    prevEl: " .leftarrowimg",
-                    nextEl: " .rightarrowimg",
-                  }}
-                  autoHeight={true}
-                  loop={true}
-                  autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                  }}
-                >
-                  {testimonials.map((data, i) => (
-                    <SwiperSlide key={i}>
-                      <div className="testimony_data">
-                        <div className="text">
-                          <div className="testimony_description">
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html: data.description,
-                              }}
-                            ></p>
-                          </div>
-                        </div>
+        <div className="reviewsHeader">
+          <span className="reviewsTag">FROM OUR COMMUNITY</span>
 
-                        <div className="seperator">
-                          <div className="horizontal_line"></div>
-                        </div>
+          <h1>
+            What Our <span>Gardeners</span> Say
+          </h1>
 
-                        <div className="client_name">
-                          <h6>{data.clientname}</h6>
-                          <p>{data.role}</p>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
+          <p>
+            Real experiences from people growing their little green spaces with
+            UrbanGarden.
+          </p>
+        </div>
+
+        <div className="reviewsContainer">
+          <div className="quoteIcon">
+            <FaQuoteLeft />
           </div>
-        </section>
-      </Fade>
-    </>
+
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            slidesPerView={1}
+            spaceBetween={30}
+            loop={true}
+            autoHeight={true}
+            autoplay={{
+              delay: 4500,
+              disableOnInteraction: false,
+            }}
+            navigation={{
+              prevEl: ".reviewPrev",
+              nextEl: ".reviewNext",
+            }}
+            className="reviewsSwiper"
+          >
+            {testimonials.map((data, index) => (
+              <SwiperSlide key={index}>
+                <div className="reviewCard">
+                  <div className="reviewDescription">
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: data.description,
+                      }}
+                    />
+                  </div>
+
+                  <div className="reviewDivider"></div>
+
+                  <div className="reviewClient">
+                    <div className="clientAvatar">
+                      {data.clientname?.charAt(0)}
+                    </div>
+
+                    <div>
+                      <h3>{data.clientname}</h3>
+                      {data.role && <p>{data.role}</p>}
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className="reviewNavigation">
+            <button className="reviewPrev" aria-label="Previous testimonial">
+              <FaArrowLeft />
+            </button>
+
+            <div className="reviewLine"></div>
+
+            <button className="reviewNext" aria-label="Next testimonial">
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
+      </section>
+    </Fade>
   );
 };
 

@@ -1,22 +1,27 @@
 export const testimonials = [
     {
-        "description": "I transformed my local nursery into a thriving online store with this platform! The setup was a breeze, and my customers love the easy navigation and detailed plant info.",
-        "clientname": "Yamuna Baug",
+        description:
+            "UrbanGarden made it much easier for us to showcase our plants online. Customers can browse different varieties, check the details, and place orders without having to visit the nursery.",
+        clientname: "Yamuna Baug",
     },
     {
-        "description": "As a customer, I've never had such a seamless shopping experience for plants and gardening supplies. The website is user-friendly, and the variety of products is impressive!",
-        "clientname": "Rahul Sharma",
+        description:
+            "The platform makes finding plants and gardening products really simple. I especially liked how easy it was to explore different products and compare what was available.",
+        clientname: "Rahul Sharma",
     },
     {
-        "description": "This platform revolutionized how I run my nursery business. The features make it simple for customers to explore, order, and enjoy a hassle-free shopping journey. Highly recommended!",
-        "clientname": "Hari Om Plant Nursery",
+        description:
+            "Managing our nursery online has become much more convenient. The product listings and ordering features give us a simple way to reach customers beyond our local area.",
+        clientname: "Hari Om Plant Nursery",
     },
     {
-        "description": "Finally found a platform that understands the unique needs of plant nurseries. The setup nursery feature is a game-changer, and the customer support is top-notch!",
-        "clientname": "Rohit Kumar",
+        description:
+            "I liked how straightforward the platform is. Setting up a nursery profile and adding products was simple, and customers can quickly find what they are looking for.",
+        clientname: "Rohit Kumar",
     },
     {
-        "description": "I've been a loyal customer since the launch, and I've seen continuous improvements. The website is always up-to-date, and the ordering process is quick and efficient. Love it!",
-        "clientname": "Abhay",
+        description:
+            "The shopping experience is clean and easy to understand. It is convenient to discover new plants and gardening supplies without spending too much time searching.",
+        clientname: "Abhay",
     },
 ];

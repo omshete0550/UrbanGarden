@@ -1,272 +1,419 @@
-.testimony_content_homepage {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("../../assets/Landing/testimony_background.jpg");
-  background-size: cover;
-  margin-top: 5em;
-}
-
-.testimony_content_homepage .testimony_container {
-  width: 100%;
-  padding: 3em 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e1e1ee3;
-}
-
-.testimony_content_homepage .testimony_container .testimony_info {
+.reviewsSection {
   position: relative;
-  width: 100%;
-  max-height: 100%;
+  overflow: hidden;
+
+  padding: 100px 6%;
+
+  background: #f7faf5;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.reviewsHeader {
+  position: relative;
+  z-index: 2;
+
+  max-width: 700px;
+
+  margin: 0 auto 55px;
+
   text-align: center;
-  color: white;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_title {
-  font-family: Baskerville, Regular;
-  margin: 2.5em 0;
-  width: 100%;
-}
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_title
-  h1 {
-  font-size: 2.5em;
-  font-weight: 600;
+.reviewsTag {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: #61b76e;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 3px;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map {
-  width: 100%;
-  max-height: 100%;
+.reviewsHeader h1 {
+  margin: 0;
+
+  color: #0d3824;
+
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+
+  font-weight: 700;
+
+  line-height: 1.15;
+}
+
+.reviewsHeader h1 span {
+  color: #61b76e;
+}
+
+.reviewsHeader p {
+  max-width: 570px;
+
+  margin: 18px auto 0;
+
+  color: #718078;
+
+  font-size: 1rem;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.reviewsContainer {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 65px 80px 55px;
+
+  background: #ffffff;
+
+  border: 1px solid #e3eee5;
+
+  border-radius: 28px;
+
+  box-shadow: 0 20px 60px rgba(13, 56, 36, 0.07);
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quoteIcon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 30px;
+
   display: flex;
-  overflow-y: auto;
-}
-
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .testimony_data
-  .text {
-  margin: 1.5em 2em;
-  display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .testimony_data
-  .text
-  .testimony_description {
-  width: 65em;
-  margin: 0 8em;
-}
-
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .testimony_data
-  .text
-  .testimony_description
-  p {
-  font-size: 1.2em;
-  line-height: 25px;
-  color: rgba(211, 211, 211, 0.8);
-}
-
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .seperator {
-  margin: 1.5em 0;
-  width: 100%;
-  display: flex;
   justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e1f3e5;
+
+  color: #61b76e;
+
+  font-size: 1.4rem;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .seperator
-  .horizontal_line {
-  width: 50px;
-  height: 1px;
-  background-color: #dc7236;
-}
+/* =========================
+   SWIPER
+========================= */
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .client_name {
+.reviewsSwiper {
   width: 100%;
+}
+
+.reviewCard {
   text-align: center;
+
+  padding: 0 25px;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .client_name
-  h6 {
-  font-size: 1.12em;
+.reviewDescription {
+  max-width: 780px;
+
+  margin: 0 auto;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map
-  .client_name
-  p {
-  margin: 0.3em 0;
-  font-size: 0.9em;
+.reviewDescription p {
+  margin: 0;
+
+  color: #274936;
+
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+
+  font-weight: 400;
+
+  line-height: 1.8;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .testimony_map::-webkit-scrollbar {
-  display: none;
+/* =========================
+   DIVIDER
+========================= */
+
+.reviewDivider {
+  width: 45px;
+  height: 3px;
+
+  margin: 32px auto 25px;
+
+  border-radius: 10px;
+
+  background: #61b76e;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_container {
-  width: 100%;
-  position: absolute;
-  top: 48%;
-  z-index: 100;
+/* =========================
+   CLIENT
+========================= */
+
+.reviewClient {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_container
-  .arrows_wrapper {
-  width: 100%;
-  margin-bottom: 1em;
+.clientAvatar {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #0d3824;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_container
-  .arrow_desktop
-  img {
-  width: 100%;
-  max-width: 3.5em;
+.reviewClient div:last-child {
+  text-align: left;
+}
+
+.reviewClient h3 {
+  margin: 0;
+
+  color: #0d3824;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+}
+
+.reviewClient p {
+  margin: 3px 0 0;
+
+  color: #829087;
+
+  font-size: 0.78rem;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.reviewNavigation {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 45px;
+}
+
+.reviewNavigation button {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d9e8dc;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #0d3824;
+
+  font-size: 0.8rem;
+
   cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_container
-  .arrow_desktop
-  .leftarrowimg {
-  margin-right: 75%;
+.reviewNavigation button:hover {
+  background: #61b76e;
+
+  border-color: #61b76e;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_mobile
-  img {
-  margin-top: 4%;
-  width: 100%;
-  max-width: 4em;
+.reviewNavigation button:active {
+  transform: translateY(0);
 }
 
-.testimony_content_homepage
-  .testimony_container
-  .testimony_info
-  .arrow_mobile
-  .leftarrowimg {
-  margin-right: 5%;
+.reviewLine {
+  width: 55px;
+  height: 1px;
+
+  background: #d6e5d9;
 }
 
-@media (max-width: 600px) {
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .testimony_title
-    h1 {
-    font-size: 1.5em;
-    font-weight: 600;
-  }
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .testimony_map
-    .testimony_data
-    .text
-    .testimony_description
-    p {
-    font-size: 1em;
-    line-height: 25px;
-    color: rgba(211, 211, 211, 0.8);
-  }
-  .testimony_content_homepage {
-    height: auto;
-    margin-top: 5em;
+/* =========================
+   DECORATIVE ELEMENTS
+========================= */
+
+.reviewsDecor {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.reviewsDecorOne {
+  width: 280px;
+  height: 280px;
+
+  top: -130px;
+  left: -100px;
+
+  background: #e7f4e9;
+
+  opacity: 0.7;
+}
+
+.reviewsDecorTwo {
+  width: 220px;
+  height: 220px;
+
+  right: -90px;
+  bottom: -100px;
+
+  background: #e3f2e5;
+
+  opacity: 0.8;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .reviewsSection {
+    padding: 75px 20px;
   }
 
-  .testimony_content_homepage .testimony_container {
-    padding-top: 2.5em;
+  .reviewsHeader {
+    margin-bottom: 40px;
   }
 
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .testimony_map
-    .client_name
-    h6 {
-    font-size: 1.3em;
-    opacity: 0.8;
-    margin-bottom: 0.625em;
+  .reviewsContainer {
+    padding: 50px 35px 40px;
+
+    border-radius: 22px;
   }
 
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .testimony_map
-    .client_name
-    p {
-    font-size: 1.4em;
-    opacity: 0.7;
+  .reviewDescription p {
+    font-size: 1.05rem;
+
+    line-height: 1.75;
   }
 
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .testimony_map
-    .testimony_data
-    .text
-    .testimony_description {
-    margin: 0;
+  .quoteIcon {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 25px;
   }
 
-  .testimony_content_homepage
-    .testimony_container
-    .testimony_info
-    .arrows_wrapper {
-    margin: 3em 0 2em;
+  .reviewNavigation {
+    margin-top: 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .reviewsSection {
+    padding: 60px 15px;
+  }
+
+  .reviewsTag {
+    font-size: 0.68rem;
+
+    letter-spacing: 2px;
+  }
+
+  .reviewsHeader h1 {
+    font-size: 1.9rem;
+  }
+
+  .reviewsHeader p {
+    font-size: 0.88rem;
+  }
+
+  .reviewsContainer {
+    padding: 40px 20px 30px;
+
+    border-radius: 18px;
+  }
+
+  .reviewCard {
+    padding: 0 5px;
+  }
+
+  .reviewDescription p {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .reviewDivider {
+    margin: 25px auto 20px;
+  }
+
+  .reviewNavigation {
+    margin-top: 30px;
+  }
+
+  .reviewNavigation button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .reviewsDecorOne {
+    width: 180px;
+    height: 180px;
+
+    top: -90px;
+    left: -90px;
+  }
+
+  .reviewsDecorTwo {
+    width: 150px;
+    height: 150px;
+
+    right: -70px;
+    bottom: -70px;
   }
 }

@@ -1,65 +1,82 @@
-import React, { useState } from "react";
-import "./UserSeller.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import "./UserSeller.css";
 import { userSeller1, userSeller2 } from "../../assets";
 
 const UserSeller = () => {
-  const [isSignIn, setIsSignIn] = useState(true);
-
-  const toggleForm = () => {
-    setIsSignIn((prevIsSignIn) => !prevIsSignIn);
-  };
   return (
-    <>
-      <h1 className="userSellerheading">Join Us</h1>
-      <section className="UserSeller" id="userSeller">
-        <div className="container">
-          <div className={`user ${isSignIn ? "signinBx" : "signupBx"}`}>
-            <div className="imgBx">
-              <img src={userSeller1} alt="" />
-            </div>
-            <div className="formBx">
-              <form action="" onSubmit={() => false}>
-                <h2>
-                  {isSignIn ? "Are You a Nursery Owner" : "Create an account"}
-                </h2>
+    <section className="growSection" id="userSeller">
+      <div className="growHeader">
+        <span className="growTag">BE PART OF THE JOURNEY</span>
 
-                <Link to="/register">
-                  <input
-                    type="submit"
-                    name=""
-                    value={isSignIn ? "Sign Up" : "Sign Up"}
-                  />
-                </Link>
-                <p className="signup">
-                  {isSignIn ? "Are you a User?" : "Already have an account ?"}
-                  <Link to="/" onClick={toggleForm}>
-                    {isSignIn ? "Click Here" : "Sign in."}
-                  </Link>
-                </p>
-              </form>
+        <h1>
+          Grow With <span>UrbanGarden</span>
+        </h1>
+
+        <p>
+          Whether you're looking for your next plant or growing a nursery
+          business, UrbanGarden has a place for you.
+        </p>
+      </div>
+
+      <div className="growCards">
+        {/* CUSTOMER */}
+        <div className="growCard">
+          <div className="growImage">
+            <img src={userSeller1} alt="UrbanGarden customer" />
+
+            <div className="growImageOverlay"></div>
+
+            <div className="growCardLabel">
+              <span>01</span>
+              <p>FOR GARDENERS</p>
             </div>
           </div>
-          <div className={`user ${isSignIn ? "signupBx" : "signinBx"}`}>
-            <div className="formBx">
-              <form action="" onSubmit={() => false}>
-                <h2>Are You a User?</h2>
-                <input type="submit" name="" value="Sign Up" />
-                <p className="signup">
-                  Are You a Nursery Owner ?
-                  <Link to="/" onClick={toggleForm}>
-                    Click Here
-                  </Link>
-                </p>
-              </form>
-            </div>
-            <div className="imgBx">
-              <img src={userSeller2} alt="" />
-            </div>
+
+          <div className="growContent">
+            <h2>Find Your Next Plant</h2>
+
+            <p>
+              Explore beautiful plants, gardening essentials, trending products
+              and everything you need to create your own green space.
+            </p>
+
+            <Link to="/home" className="growButton">
+              Start Shopping
+              <span>→</span>
+            </Link>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* NURSERY SELLER */}
+        <div className="growCard">
+          <div className="growImage">
+            <img src={userSeller2} alt="UrbanGarden nursery seller" />
+
+            <div className="growImageOverlay"></div>
+
+            <div className="growCardLabel">
+              <span>02</span>
+              <p>FOR NURSERIES</p>
+            </div>
+          </div>
+
+          <div className="growContent">
+            <h2>Grow Your Nursery</h2>
+
+            <p>
+              Showcase your plants, connect with new customers and take your
+              nursery business online with UrbanGarden.
+            </p>
+
+            <Link to="/register" className="growButton">
+              Add Your Nursery
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

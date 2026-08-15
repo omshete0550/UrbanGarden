@@ -1,187 +1,313 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
-
-.UserSeller {
+.growSection {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin-top: 1em;
-}
-.userSellerheading {
-  font-size: 2.5em;
-  color: #61b76e;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 2em;
-}
-.UserSeller .container {
-  position: relative;
-  width: 90vw;
-  height: 80vh;
-  background: #fff;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  padding: 100px 6%;
+  background: #f7faf5;
   overflow: hidden;
-  border-radius: 1em;
 }
 
-.UserSeller .container .user {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
+/* =========================
+   HEADER
+========================= */
 
-.UserSeller .container .user .imgBx {
-  position: relative;
-  width: 50%;
-  height: 100%;
-  background: #ff0;
-  transition: 0.5s;
-}
-
-.UserSeller .container .user .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.UserSeller .container .user .formBx {
-  position: relative;
-  width: 50%;
-  height: 100%;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  transition: 0.5s;
-}
-.UserSeller .container .user .formBx form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.UserSeller .container .user .formBx form h2 {
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.growHeader {
+  max-width: 720px;
+  margin: 0 auto 55px;
   text-align: center;
-  width: 100%;
-  margin-bottom: 10px;
-  color: #555;
 }
 
-.UserSeller .container .user .formBx form input {
-  position: relative;
-  width: 100%;
-  padding: 10px;
-  background: #f5f5f5;
-  color: #333;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  margin: 8px 0;
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-weight: 300;
+.growTag {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #61b76e;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
-.UserSeller .container .user .formBx form input[type="submit"] {
-  max-width: 100px;
-  background: #61b76e;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  transition: 0.5s;
+.growHeader h1 {
+  margin: 0;
+
+  color: #0d3824;
+
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+
+  line-height: 1.15;
 }
 
-.UserSeller .container .user .formBx form .signup {
-  position: relative;
-  margin-top: 20px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #555;
-  text-transform: uppercase;
-  font-weight: 300;
-}
-
-.UserSeller .container .user .formBx form .signup a {
-  font-weight: 600;
-  text-decoration: none;
+.growHeader h1 span {
   color: #61b76e;
 }
 
-.UserSeller .container .signupBx {
-  pointer-events: none;
+.growHeader p {
+  max-width: 600px;
+
+  margin: 18px auto 0;
+
+  color: #718078;
+
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-.UserSeller .container.active .signupBx {
-  pointer-events: initial;
+/* =========================
+   CARDS
+========================= */
+
+.growCards {
+  max-width: 1150px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 30px;
 }
 
-.UserSeller .container .signupBx .formBx {
-  left: 100%;
+.growCard {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e3eee5;
+
+  border-radius: 24px;
+
+  box-shadow: 0 15px 45px rgba(13, 56, 36, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.UserSeller .container.active .signupBx .formBx {
-  left: 0;
+.growCard:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 25px 55px rgba(13, 56, 36, 0.12);
 }
 
-.UserSeller .container .signupBx .imgBx {
-  left: -100%;
+/* =========================
+   IMAGE
+========================= */
+
+.growImage {
+  position: relative;
+
+  height: 300px;
+
+  overflow: hidden;
 }
 
-.UserSeller .container.active .signupBx .imgBx {
-  left: 0%;
+.growImage img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
 }
 
-.UserSeller .container .signinBx .formBx {
-  left: 0%;
+.growCard:hover .growImage img {
+  transform: scale(1.04);
 }
 
-.UserSeller .container.active .signinBx .formBx {
-  left: 100%;
+.growImageOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(13, 56, 36, 0.75),
+    rgba(13, 56, 36, 0.05) 65%
+  );
 }
 
-.UserSeller .container .signinBx .imgBx {
-  left: 0%;
+/* =========================
+   IMAGE LABEL
+========================= */
+
+.growCardLabel {
+  position: absolute;
+
+  left: 25px;
+  bottom: 22px;
+
+  color: white;
 }
 
-.UserSeller .container.active .signinBx .imgBx {
-  left: -100%;
+.growCardLabel span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #8bdd96;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
 }
 
-@media (max-width: 991px) {
-  .UserSeller {
-    min-height: 40vh;
-    margin-top: 2em;
+.growCardLabel p {
+  margin: 0;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.growContent {
+  padding: 30px 32px 32px;
+}
+
+.growContent h2 {
+  margin: 0 0 12px;
+
+  color: #0d3824;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.growContent p {
+  min-height: 75px;
+
+  margin: 0 0 25px;
+
+  color: #718078;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.growButton {
+  width: fit-content;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 12px 20px;
+
+  border-radius: 30px;
+
+  background: #0d3824;
+
+  color: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    gap 0.25s ease;
+}
+
+.growButton:hover {
+  background: #61b76e;
+
+  gap: 20px;
+
+  color: #ffffff;
+}
+
+.growButton span {
+  font-size: 1.1rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 768px) {
+  .growSection {
+    padding: 75px 20px;
   }
-  .UserSeller .container {
-    height: 35vh;
+
+  .growHeader {
+    margin-bottom: 40px;
   }
 
-  .UserSeller .container .imgBx {
-    display: none;
+  .growCards {
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
   }
 
-  .UserSeller .container .user .formBx {
+  .growImage {
+    height: 280px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .growSection {
+    padding: 60px 15px;
+  }
+
+  .growTag {
+    font-size: 0.68rem;
+
+    letter-spacing: 2px;
+  }
+
+  .growHeader h1 {
+    font-size: 1.9rem;
+  }
+
+  .growHeader p {
+    font-size: 0.9rem;
+  }
+
+  .growCards {
+    gap: 20px;
+  }
+
+  .growImage {
+    height: 230px;
+  }
+
+  .growContent {
+    padding: 25px 22px;
+  }
+
+  .growContent h2 {
+    font-size: 1.3rem;
+  }
+
+  .growContent p {
+    min-height: auto;
+
+    font-size: 0.9rem;
+  }
+
+  .growButton {
     width: 100%;
-  }
-}
 
-@media (max-width: 600px) {
-  .userSellerheading {
-    font-size: 1.5em;
+    justify-content: center;
   }
 }

@@ -1,112 +1,90 @@
 import React from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import "./Timeline.css";
-import { FaHome } from "react-icons/fa";
+import {
+  FaUserPlus,
+  FaSeedling,
+  FaShoppingCart,
+  FaCreditCard,
+  FaTruck,
+} from "react-icons/fa";
+
+const steps = [
+  {
+    number: "01",
+    icon: <FaUserPlus />,
+    title: "Create Your Account",
+    description:
+      "Sign up as a customer and start exploring UrbanGarden. Nursery sellers can register their nursery and showcase their products.",
+  },
+  {
+    number: "02",
+    icon: <FaSeedling />,
+    title: "Explore & Shop",
+    description:
+      "Discover plants, gardening supplies, trending products, new arrivals and exciting offers across multiple categories.",
+  },
+  {
+    number: "03",
+    icon: <FaShoppingCart />,
+    title: "Build Your Cart",
+    description:
+      "Choose your favourite plants and gardening products, add them to your cart and review your order before checkout.",
+  },
+  {
+    number: "04",
+    icon: <FaCreditCard />,
+    title: "Checkout Securely",
+    description:
+      "Enter your delivery address, choose your preferred payment method and securely complete your purchase.",
+  },
+  {
+    number: "05",
+    icon: <FaTruck />,
+    title: "Grow at Home",
+    description:
+      "Your plants arrive at your doorstep. Follow the provided care guidelines and start creating your own green space.",
+  },
+];
 
 const Timeline = () => {
   return (
-    <>
-      <div className="timeCont" id="howtouse">
-        <h1>How to Use?</h1>
+    <section className="plantJourney" id="howtouse">
+      <div className="plantJourneyHeader">
+        <span className="sectionTag">SIMPLE. GREEN. CONVENIENT.</span>
 
-        <VerticalTimeline animate={true} lineColor="#0d3824">
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "none",
-              color: "#fff",
-              boxShadow: "none",
-            }}
-            contentArrowStyle={{ borderRight: "7px solid  #61b76e" }}
-            iconStyle={{ background: "none", color: "#fff" }}
-            icon={<FaHome />}
-          >
-            <p>
-              UrbanGarden offers Customer and Nursery seller interface. Customer
-              can login or signup using the tabs given at the top of this
-              webpage. Nursery seller has to click on 'Add a Nursery' from the
-              TABs of this webpage.
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "none",
-              color: "#fff",
-              boxShadow: "none",
-            }}
-            contentArrowStyle={{ borderRight: "7px solid  #61b76e" }}
-            iconStyle={{ background: "none", color: "#fff" }}
-            icon={<FaHome />}
-          >
-            <p>
-              Customer can click on 'Shop Now' button to have a look on variety
-              of products from 8 different cateegories. Customer can also have a
-              look on Trending products, New Arriavls, Offers prevailing at the
-              moment.
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "none",
-              color: "#fff",
-              boxShadow: "none",
-            }}
-            contentArrowStyle={{ borderRight: "7px solid  #61b76e" }}
-            iconStyle={{ background: "none", color: "#fff" }}
-            icon={<FaHome />}
-          >
-            <p>
-              Customer has to click on the 'Cart' icon in order to place his/her
-              desired items in the UGCART, and have a look on the final invoice
-              generated. SetUp the delivery address, mode of payment and proceed
-              to checkout.
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "none",
-              color: "#fff",
-              boxShadow: "none",
-            }}
-            contentArrowStyle={{ borderRight: "7px solid  #61b76e" }}
-            iconStyle={{ background: "none", color: "#fff" }}
-            icon={<FaHome />}
-          >
-            <p>
-              Customer has to enter card credentials in case of UPI, Netbanking,
-              etc. Complete the process and then click on Confirm.
-            </p>
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "none",
-              color: "#fff",
-              boxShadow: "none",
-            }}
-            contentArrowStyle={{ borderRight: "7px solid  #61b76e" }}
-            iconStyle={{ background: "none", color: "#fff" }}
-            icon={<FaHome />}
-          >
-            <p>
-              After the payment is processed, you should receive a confirmation
-              email that your order has been received and message having a set
-              of guidelines on how to handle the plants/items in order to set up
-              a healthy environment for plant and yourself. Finally, you will
-              receive your plants at your doorstep as per the delivery timeline
-              mentioned in the confirmation email.
-            </p>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
+        <h1>
+          Your Journey from
+          <span> Nursery to Home</span>
+        </h1>
+
+        <p>
+          Getting your favourite plants delivered to your doorstep is easier
+          than ever.
+        </p>
       </div>
-    </>
+
+      <div className="journeySteps">
+        {steps.map((step, index) => (
+          <React.Fragment key={step.number}>
+            <div className="journeyStep">
+              <div className="stepNumber">{step.number}</div>
+
+              <div className="stepIcon">{step.icon}</div>
+
+              <h3>{step.title}</h3>
+
+              <p>{step.description}</p>
+            </div>
+
+            {index !== steps.length - 1 && (
+              <div className="journeyConnector">
+                <span>→</span>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </section>
   );
 };
 
