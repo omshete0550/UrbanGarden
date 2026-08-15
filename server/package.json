@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "Nursery",
     "E-commerce"
   ],
-  "author": "Hamza Sayyed",
+  "author": "Om Shete",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
