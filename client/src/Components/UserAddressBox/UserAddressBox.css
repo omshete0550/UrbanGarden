@@ -1,170 +1,235 @@
-.address-card {
+.ug-address-card {
   width: 100%;
-  background: #ffffff;
-  border: 1px solid #e9ecef;
-  border-radius: 14px;
+
   overflow: hidden;
-  margin-bottom: 22px;
-  transition: all 0.25s ease;
+
+  border: 1px solid var(--ug-border);
+  border-radius: 16px;
+
+  background: #fff;
+
+  box-shadow: var(--ug-shadow-sm);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.address-card:hover {
-  border-color: #dce2e7;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+.ug-address-card:hover {
+  border-color: rgba(19, 122, 71, 0.25);
+
+  box-shadow: var(--ug-shadow-md);
+
   transform: translateY(-2px);
 }
 
 /* Header */
 
-.address-card-header {
+.ug-address-top {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #fafbfc;
-  border-bottom: 1px solid #edf0f2;
+  gap: 15px;
+
+  padding: 16px 18px;
+
+  border-bottom: 1px solid var(--ug-border);
+
+  background: #fbfdf8;
 }
 
-.address-type {
+.ug-address-type {
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  color: #3ab757;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
+  gap: 10px;
 }
 
-.edit-btn {
-  border: none;
+.ug-address-type-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: var(--ug-primary-soft);
+  color: var(--ug-primary);
+}
+
+.ug-address-type div span,
+.ug-address-type div strong {
+  display: block;
+}
+
+.ug-address-type div span {
+  color: var(--ug-text-muted);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  margin-bottom: 2px;
+}
+
+.ug-address-type div strong {
+  color: var(--ug-text);
+
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.ug-address-edit {
+  appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  border: 0;
   background: transparent;
-  color: #555;
-  font-size: 13px;
-  font-weight: 600;
+
+  color: var(--ug-primary);
+
   cursor: pointer;
-  padding: 5px 8px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  padding: 7px 8px;
+
+  border-radius: 8px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.edit-btn:hover {
-  background: #eef9f1;
-  color: #2f9c4a;
+.ug-address-edit:hover {
+  background: var(--ug-primary-soft);
+  color: var(--ug-primary-strong);
 }
 
 /* Content */
 
-.address-card-content {
+.ug-address-content {
   padding: 20px;
 }
 
-.address-card-content h4 {
-  margin: 0 0 10px;
-  color: #202124;
-  font-size: 17px;
-  font-weight: 700;
+.ug-address-content h3 {
+  color: var(--ug-text);
+
+  font-size: 1.05rem;
+  font-weight: 850;
+
+  margin-bottom: 13px;
 }
 
-.address-text {
+.ug-address-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.ug-address-location svg {
+  flex: 0 0 auto;
+
+  color: var(--ug-primary);
+
+  margin-top: 2px;
+}
+
+.ug-address-location p {
+  color: var(--ug-text-muted);
+
+  font-size: 0.84rem;
+  line-height: 1.65;
+
   margin: 0;
-  color: #626970;
-  font-size: 14px;
-  line-height: 1.7;
 }
 
-/* Phone */
-
-.phone-number {
+.ug-address-phone {
   display: flex;
   align-items: center;
   gap: 8px;
 
-  margin-top: 16px;
-  padding-top: 15px;
+  margin-top: 17px;
+  padding-top: 14px;
 
-  border-top: 1px solid #f0f1f2;
+  border-top: 1px solid var(--ug-border);
 
-  color: #343a40;
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--ug-text);
+
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
-.phone-number svg {
-  color: #3ab757;
+.ug-address-phone svg {
+  color: var(--ug-primary);
 }
 
 /* Footer */
 
-.address-card-footer {
-  padding: 0 20px;
-  border-top: 1px solid #edf0f2;
+.ug-address-footer {
+  border-top: 1px solid var(--ug-border);
+
+  padding: 0 18px;
 }
 
-.remove-btn {
+.ug-address-remove {
+  appearance: none;
+
   width: 100%;
-  height: 48px;
+  min-height: 45px;
 
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
 
-  border: none;
+  border: 0;
   background: transparent;
 
-  color: #e05252;
-  font-size: 13px;
-  font-weight: 600;
+  color: #d34e4e;
 
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.remove-btn:hover {
-  color: #c93636;
+.ug-address-remove:hover {
   background: #fff7f7;
+  color: #b93434;
 }
 
-.remove-btn svg {
+.ug-address-remove svg {
   transition: transform 0.2s ease;
 }
 
-.remove-btn:hover svg {
-  transform: scale(1.1);
+.ug-address-remove:hover svg {
+  transform: translateY(-1px);
 }
 
 /* Responsive */
 
-@media (max-width: 1023px) {
-  .address-card {
-    width: 60vw;
-  }
-}
-
 @media (max-width: 600px) {
-  .address-card {
-    width: 100%;
-    border-radius: 12px;
+  .ug-address-top {
+    padding: 14px;
   }
 
-  .address-card-header {
-    padding: 14px 16px;
+  .ug-address-content {
+    padding: 17px 15px;
   }
 
-  .address-card-content {
-    padding: 18px 16px;
-  }
-
-  .address-card-footer {
-    padding: 0 16px;
-  }
-
-  .address-card-content h4 {
-    font-size: 16px;
-  }
-
-  .address-text {
-    font-size: 13px;
+  .ug-address-footer {
+    padding: 0 15px;
   }
 }

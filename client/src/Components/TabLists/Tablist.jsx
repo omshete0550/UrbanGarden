@@ -1,239 +1,81 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import React, { useEffect, useState } from "react";
+import { FaCheckCircle, FaStar, FaTimes } from "react-icons/fa";
 import Product from "../Carousel/Product";
-import { FaCheckCircle } from "react-icons/fa";
-import { useState } from "react";
-// import "../SingleCategLayout/GridCateg.css";
-import "../TabLists/Tablist.css";
+import "./Tablist.css";
 import CustomImageList from "../ImageList/CustomImageList";
 import SingleNurRevBox from "../SingleNurRevBox/SingleNurRevBox";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import Rating from "@mui/material/Rating";
 import { API_BASE_URL } from "../../lib/apiBase";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+const tabs = ["Overview", "Other Products", "Reviews", "Photos"];
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-export default function Tablist(props) {
-  const data = props.data;
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
+export default function Tablist({ data = {} }) {
+  const [value, setValue] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [popup, setPopup] = useState(false);
+  const [reviewRating, setReviewRating] = useState(0);
   const location = useLocation();
   const nurseryId = location.pathname.split("/")[2];
-  const [dataa, setDataa] = useState([]);
 
-  React.useEffect(() => {
-    const getprods = async () => {
-      const res = await axios.get(
-        `${API_BASE_URL}/nurseries/${nurseryId}/products`
-      );
-      setDataa(Array.isArray(res.data) ? res.data : []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(`${API_BASE_URL}/nurseries/${nurseryId}/products`);
+        setProducts(Array.isArray(res.data) ? res.data : []);
+      } catch { setProducts([]); }
     };
-
-    getprods();
+    if (nurseryId) getProducts();
   }, [nurseryId]);
 
-  const product = dataa.map((item) => (
-    <Product
-      name={item.name}
-      url={item.photos?.[0]}
-      key={item._id}
-      price={item.price}
-      description={(item.description || item.desc)}
-      idx={item._id}
-    />
-  ));
-
-  const [popup, setPop] = useState(false);
-  const handleClickOpen = () => {
-    setPop(!popup);
-  };
-
-  const closePopup = () => {
-    setPop(false);
-  };
-
   return (
-    <>
-      <div className="horzTablistcont">
-        <Box
-          sx={{
-            width: "100%",
-          }}
-        >
-          <Box sx={{ borderBottom: 1, width: "100%", borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              <Tab label="Overview" {...a11yProps(0)} />
-              <Tab label="Other Products" {...a11yProps(1)} />
-              <Tab label="Reviews" {...a11yProps(2)} />
-              <Tab label="Photos" {...a11yProps(3)} />
-            </Tabs>
-          </Box>
+    <section className="horzTablistcont">
+      <div className="nurseryTabs">
+        <div className="tabNav" role="tablist" aria-label="Nursery sections">
+          {tabs.map((tab, index) => (
+            <button key={tab} role="tab" aria-selected={value === index}
+              className={`tabButton ${value === index ? "active" : ""}`} onClick={() => setValue(index)}>
+              {tab}
+            </button>
+          ))}
+        </div>
 
-          <TabPanel value={value} index={0}>
-            <div className="SingleNurOverview">
-              <h2>About this nursery</h2>
-              <div className="SingleNurCateg">
-                <h3>Categories</h3>
-                <div className="SpeCategBtn">
-                  <button>Gardening</button>
-                  <button>Pebbbles</button>
-                  <button>Pots</button>
-                </div>
-
-                <div className="AvgCost">
-                  <h3>Minimum Cost</h3>
-                  <span>
-                    Starts from ₹{data.leastPrice || 100} per Plant (approx.)
-                  </span>
-                  <p>Exclusive of applicable taxes and charges, if any</p>
-                </div>
-
-                <div className="moreInfo">
-                  <h3>More Info</h3>
-                  <div className="Info">
-                    <i>
-                      <FaCheckCircle />
-                      Home Delivery
-                    </i>
-                    <i>
-                      <FaCheckCircle />
-                      Home Delivery
-                    </i>
-                    <i>
-                      <FaCheckCircle />
-                      Home Delivery
-                    </i>
-                    <i>
-                      <FaCheckCircle />
-                      Home Delivery
-                    </i>
-                  </div>
-                </div>
-              </div>
+        <div className="tabPanel">
+          {value === 0 && <div className="SingleNurOverview">
+            <div className="sectionHeading"><span>01</span><div><p>Inside the nursery</p><h2>About this nursery</h2></div></div>
+            <div className="overviewGrid">
+              <div className="overviewCard"><h3>Categories</h3><div className="SpeCategBtn"><button>Gardening</button><button>Pebbbles</button><button>Pots</button></div></div>
+              <div className="overviewCard priceCard"><h3>Minimum Cost</h3><strong>Rs. {data.leastPrice || 100}</strong><span>per plant (approx.)</span><p>Exclusive of applicable taxes and charges, if any.</p></div>
             </div>
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            <div className="SingleNurOrder">
-              <h2>Our Products</h2>
-              <div className="parentGrid1">{product}</div>
+            <div className="moreInfo"><div className="sectionHeading compact"><span>02</span><div><p>What we offer</p><h2>More Info</h2></div></div>
+              <div className="Info">{["Home Delivery","Quality Plants","Garden Supplies","Easy Ordering"].map(item => <div className="infoPill" key={item}><FaCheckCircle />{item}</div>)}</div>
             </div>
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            <div className="SingleNurReview">
-              <h2>Reviews</h2>
+          </div>}
 
-              <div className="writeReviewPopupProduct">
-                <button onClick={handleClickOpen}>WRITE A REVIEW</button>
-                <div>
-                  {popup ? (
-                    <div className="popup-main">
-                      <div className="popup">
-                        <img
-                          className="closecircleXmark"
-                          src="https://www.svgrepo.com/show/378998/circle-xmark.svg"
-                          onClick={closePopup}
-                          alt=""
-                        />
+          {value === 1 && <div className="SingleNurOrder">
+            <div className="sectionHeading"><span>01</span><div><p>Browse our collection</p><h2>Our Products</h2></div></div>
+            <div className="parentGrid1">{products.length ? products.map(item => <Product key={item._id} name={item.name} url={item.photos?.[0]} price={item.price} description={item.description || item.desc} idx={item._id} />) : <div className="emptyState">No products available yet.</div>}</div>
+          </div>}
 
-                        <div className="topwrite">
-                          <h1>UrbanGarden</h1>
-                        </div>
+          {value === 2 && <div className="SingleNurReview">
+            <div className="reviewHeader"><div className="sectionHeading"><span>01</span><div><p>Customer feedback</p><h2>Reviews</h2></div></div><button className="writeReviewBtn" onClick={() => setPopup(true)}>WRITE A REVIEW</button></div>
+            {popup && <div className="popup-main"><div className="reviewPopup">
+              <button className="closecircleXmark" onClick={() => setPopup(false)} aria-label="Close"><FaTimes /></button>
+              <div className="topwrite"><span>Share your experience</span><h2>{data.name || "Nursery"}</h2></div>
+              <div className="identitylabel"><div className="identityicon">IC</div><div className="identitydetails"><h3>Hamza Ali Sayed</h3><p>Post Publicly</p></div></div>
+              <div className="reviewStars">{[1,2,3,4,5].map(star => <button type="button" key={star} className={star <= reviewRating ? "selected" : ""} onClick={() => setReviewRating(star)} aria-label={`${star} star`}><FaStar /></button>)}</div>
+              <textarea className="typereview" placeholder="Tell us about your experience..." rows="6" />
+              <div className="writereviewbuttons"><button className="cancelReviewBtn" onClick={() => setPopup(false)}>Cancel</button><button className="postReviewBtn" onClick={() => setPopup(false)}>POST</button></div>
+            </div></div>}
+            <div className="reviewsList"><SingleNurRevBox /><SingleNurRevBox /><SingleNurRevBox /></div>
+          </div>}
 
-                        <div className="identitylabel">
-                          <div className="identityicon">
-                            <p>IC</p>
-                          </div>
-                          <div className="identitydetails">
-                            <h3>Hamza Ali Sayed</h3>
-                            <p>Post Publicly</p>
-                          </div>
-                        </div>
-                        <div className="doreview">
-                          <Box
-                            sx={{
-                              "& > legend": { mt: 2 },
-                            }}
-                          >
-                            <Rating name="read-only" value={value} readOnly />
-                          </Box>
-                        </div>
-                        <div className="typereview">
-                          <textarea name="" id="" cols="45" rows="7"></textarea>
-                        </div>
-                        <div className="writereviewbuttons">
-                          <div className="postbutton">
-                            <button>POST</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
-              {/* <WriteReviewPopUp trigger={buttonPopUp} setTrigger={setButtonPopUp}>
-        </WriteReviewPopUp> */}
-
-              <SingleNurRevBox />
-              <SingleNurRevBox />
-              <SingleNurRevBox />
-              <SingleNurRevBox />
-            </div>
-          </TabPanel>
-          <TabPanel value={value} index={3}>
-            <div className="SingleNurPhoto">
-              <h2>{data.name} Photos</h2>
-              <CustomImageList />
-            </div>
-          </TabPanel>
-        </Box>
+          {value === 3 && <div className="SingleNurPhoto">
+            <div className="sectionHeading"><span>01</span><div><p>Explore the space</p><h2>{data.name || "Nursery"} Photos</h2></div></div>
+            <CustomImageList photos={data.photos} />
+          </div>}
+        </div>
       </div>
-    </>
+    </section>
   );
 }
-

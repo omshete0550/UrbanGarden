@@ -4,10 +4,19 @@ import { API_BASE_URL } from "../lib/apiBase";
 
 export const login = async (dispatch, user) => {
     dispatch(loginStart());
+
     try {
-        const res = await axios.post(`${API_BASE_URL}/auth/login`, user);
+        const res = await axios.post(
+            `${API_BASE_URL}/auth/login`,
+            user,
+            {
+                withCredentials: true,
+            }
+        );
+
         dispatch(loginSuccess(res.data));
     } catch (err) {
+        console.error("Login failed:", err);
         dispatch(loginFailure());
     }
 };

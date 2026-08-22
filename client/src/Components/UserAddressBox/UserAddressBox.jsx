@@ -1,61 +1,73 @@
 import React from "react";
-import { MapPin, Phone, Trash2 } from "lucide-react";
+import { MapPin, Phone, Trash2, Pencil, Home } from "lucide-react";
 import "./UserAddressBox.css";
 
-const addressData = {
-  id: "addr_001",
-  type: "Home Address",
-  name: "John Doe",
-  address: {
-    line1: "123, Green Street",
-    area: "Sector 5",
-    locality: "Andheri West",
-    city: "Mumbai",
-    pincode: "421503",
-    state: "Maharashtra",
-  },
-  mobile: "9874563231",
-};
-
-const UserAddressBox = () => {
-  const address = addressData;
+const UserAddressBox = ({ user }) => {
+  const address = {
+    type: "Home",
+    name: user?.username || "Garden User",
+    line1: user?.address || "123, Green Street",
+    area: user?.area || "Sector 5",
+    locality: user?.locality || "Andheri West",
+    city: user?.city || "Mumbai",
+    pincode: user?.pincode || "421503",
+    state: user?.state || "Maharashtra",
+    mobile: user?.phone || "Not added",
+  };
 
   return (
-    <div className="address-card">
-      <div className="address-card-header">
-        <div className="address-type">
-          <MapPin size={17} />
-          <span>{address.type}</span>
+    <div className="ug-address-card">
+      <div className="ug-address-top">
+        <div className="ug-address-type">
+          <span className="ug-address-type-icon">
+            <Home size={16} />
+          </span>
+
+          <div>
+            <span>Saved address</span>
+            <strong>{address.type}</strong>
+          </div>
         </div>
 
-        <button className="edit-btn">Edit</button>
+        <button
+          type="button"
+          className="ug-address-edit"
+          aria-label="Edit address"
+        >
+          <Pencil size={15} />
+          Edit
+        </button>
       </div>
 
-      <div className="address-card-content">
-        <h4>{address.name}</h4>
+      <div className="ug-address-content">
+        <h3>{address.name}</h3>
 
-        <p className="address-text">
-          {address.address.line1}
-          <br />
-          {address.address.area}
-          <br />
-          {address.address.locality}
-          <br />
-          {address.address.city} - {address.address.pincode}
-          <br />
-          {address.address.state}
-        </p>
+        <div className="ug-address-location">
+          <MapPin size={17} />
 
-        <div className="phone-number">
+          <p>
+            {address.line1}
+            <br />
+            {address.area}
+            <br />
+            {address.locality}
+            <br />
+            {address.city} - {address.pincode}
+            <br />
+            {address.state}
+          </p>
+        </div>
+
+        <div className="ug-address-phone">
           <Phone size={16} />
           <span>{address.mobile}</span>
         </div>
       </div>
 
-      <div className="address-card-footer">
-        <button className="remove-btn">
-          <Trash2 size={16} />
-          Remove Address
+      <div className="ug-address-footer">
+        <button type="button" className="ug-address-remove">
+          <Trash2 size={15} />
+          Remove address
         </button>
       </div>
     </div>

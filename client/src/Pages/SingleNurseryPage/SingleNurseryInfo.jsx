@@ -1,13 +1,23 @@
 import React, { useState } from "react";
 import "./SingleNurseryInfo.css";
-import { FaStar } from "react-icons/fa";
+import {
+  FaBookmark,
+  FaClock,
+  FaDirections,
+  FaMapMarkerAlt,
+  FaPen,
+  FaPlus,
+  FaShareAlt,
+  FaStar,
+  FaTimes,
+} from "react-icons/fa";
 import Tablist from "../../Components/TabLists/Tablist";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 
 const SingleNurseryInfo = (props) => {
   const nurseryId = props.nursery;
-  const { data } = useFetch(`/nurseries/${nurseryId}`);
+  const { data, loading, error } = useFetch(`/nurseries/${nurseryId}`);
   const [popup, setPop] = useState(false);
   const handleClickOpen = () => {
     setPop(!popup);
@@ -57,143 +67,191 @@ const SingleNurseryInfo = (props) => {
     }
   };
 
+  if (loading) {
+    return <div className="SingleNurInfo">Loading nursery...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="SingleNurInfo">
+        Unable to load this nursery. Please check that the API server is running
+        and the nursery id is valid.
+      </div>
+    );
+  }
+
+  if (!data) {
+    return <div className="SingleNurInfoState">Nursery not found.</div>;
+  }
+
+  const nurseryImage = Array.isArray(data.photos) ? data.photos[0] : "";
+  const description = data.description || data.desc || "No description available yet.";
+  const rating = data.rating || 0;
+
   return (
     <>
       <div className="SingleNurInfo">
-        <div className="NameRev">
-          <h2>{data.name}</h2>
-          <div className="cusRev">
-            <span className="RevBx">
-              {data.rating}
-              <i>
-                <FaStar />
-              </i>
-            </span>
-            <button className="EditProBtn" onClick={handleClickOpen}>
-              {" "}
-              Edit Profile{" "}
-            </button>
-            <div>
-              {popup ? (
-                <div className="popup-main">
-                  <div className="popup">
-                    <div className="popup-header">
-                      <img
-                        className="userimgEditProf"
-                        src={data.photos?.[0]}
-                        alt=""
-                      />
-                      <img
-                        className="pencilEditProf"
-                        src="https://cdn-icons-png.flaticon.com/512/61/61456.png"
-                        alt=""
-                      />
+        <section className="nurseryHero">
+          <div className="nurseryHeroContent">
+            <div className="nurseryEyebrow">
+              <span className="statusDot" />
+              Nursery profile
+            </div>
 
-                      <div>
-                        <h1>Edit Nursery Profile</h1>
-                        <p>Fill this form to Edit your Profile!</p>
-                      </div>
-
-                      <img
-                        className="closecircleXmark"
-                        src="https://www.svgrepo.com/show/378998/circle-xmark.svg"
-                        onClick={closePopup}
-                        alt=""
-                      />
-                    </div>
-                    <div className="popup-content-container">
-                      <div className="popup-content">
-                        <div className="form__group field">
-                          <input
-                            required=""
-                            placeholder="Name"
-                            name="name"
-                            className="form__field"
-                            type="input"
-                            onChange={getData}
-                          />
-                          <label className="form__label" for="name">
-                            Name
-                          </label>
-                        </div>
-                      </div>
-                      <div className="popup-content">
-                        <div className="form__group field">
-                          <input
-                            required=""
-                            placeholder="Name"
-                            name="time"
-                            className="form__field"
-                            type="number"
-                            onChange={getData}
-                          />
-                          <label className="form__label" for="name">
-                            Time
-                          </label>
-                        </div>
-                      </div>
-                      <div className="popup-content">
-                        <div className="form__group field">
-                          <input
-                            required=""
-                            placeholder="Name"
-                            name="city"
-                            className="form__field"
-                            type="input"
-                            onChange={getData}
-                          />
-                          <label className="form__label" for="name">
-                            City
-                          </label>
-                        </div>
-                      </div>
-                      <div className="popup-content">
-                        <div className="form__group field">
-                          <input
-                            required=""
-                            placeholder="Name"
-                            name="address"
-                            className="form__field"
-                            type="input"
-                            onChange={getData}
-                          />
-                          <label className="form__label" for="name">
-                            Address
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <button className="popupSubBtn" onClick={addData}>
-                      Submit
-                    </button>
-                  </div>
+            <div className="NameRev">
+              <div>
+                <h1>{data.name}</h1>
+                <div className="ratingSummary">
+                  <span className="ratingBadge">
+                    {rating}
+                    <FaStar />
+                  </span>
+                  <span className="ratingText">Customer rating</span>
                 </div>
-              ) : (
-                ""
-              )}
+              </div>
+
+              <button className="EditProBtn" onClick={handleClickOpen}>
+                <FaPen />
+                Edit Profile
+              </button>
+            </div>
+
+            <div className="NurInfo">
+              <p>{description}</p>
+              <div className="infoMeta">
+                <span>
+                  <FaMapMarkerAlt />
+                  {data.address || data.city || "Address not added"}
+                </span>
+                <span>
+                  <FaClock />
+                  Open now 11am - 6pm
+                </span>
+              </div>
+            </div>
+
+            <div className="ThreeBtn">
+              <button>
+                <FaDirections />
+                Direction
+              </button>
+              <button>
+                <FaBookmark />
+                Bookmark
+              </button>
+              <button>
+                <FaShareAlt />
+                Share
+              </button>
+              <Link to="/AddProductControl">
+                <button>
+                  <FaPlus />
+                  Add Product
+                </button>
+              </Link>
             </div>
           </div>
-        </div>
 
-        <div className="NurInfo">
-          <span>Description: {(data.description || data.desc)}</span>
-          <span>Address: {data?.address}</span>
-          <span>Open now 11am - 6pm</span>
-        </div>
+          <div className="heroImageWrap">
+            {nurseryImage ? (
+              <img src={nurseryImage} alt={data.name} />
+            ) : (
+              <div className="heroImageFallback">No nursery photo</div>
+            )}
+            <div className="heroImageOverlay" />
+          </div>
+        </section>
 
-        <div className="ThreeBtn">
-          <button className="BOOKMARK"> Direction </button>
-          <button className="BOOKMARK"> Bookmark </button>
-          <button className="BOOKMARK"> Share </button>
-          <Link to="/AddProductControl">
-            <button className="BOOKMARK"> Add Product </button>
-          </Link>
-        </div>
+        {popup && (
+          <div className="popup-main">
+            <div className="popup editProfilePopup">
+              <div className="popup-header">
+                <div className="popup-avatar">
+                  {nurseryImage ? (
+                    <img
+                      className="userimgEditProf"
+                      src={nurseryImage}
+                      alt={data.name}
+                    />
+                  ) : (
+                    <div className="avatarFallback">UG</div>
+                  )}
+                  <span>
+                    <FaPen />
+                  </span>
+                </div>
 
-        <div className="standardImage">
-          {Array.isArray(data.photos) && <img src={data.photos?.[0]} alt="" />}
-        </div>
-        {/* <StandardImageList /> */}
+                <div className="popup-title">
+                  <span className="popup-kicker">Nursery settings</span>
+                  <h2>Edit Nursery Profile</h2>
+                  <p>Update the details customers see on your nursery page.</p>
+                </div>
+
+                <button
+                  className="editCloseBtn"
+                  onClick={closePopup}
+                  aria-label="Close edit profile"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+
+              <div className="popup-content-container">
+                <div className="formGrid">
+                  <div className="form__group">
+                    <span>Name</span>
+                    <input
+                      required
+                      placeholder={data.name || "Nursery name"}
+                      name="name"
+                      type="text"
+                      onChange={getData}
+                    />
+                  </div>
+                  <div className="form__group">
+                    <span>Time</span>
+                    <input
+                      required
+                      placeholder="11am - 6pm"
+                      name="time"
+                      type="text"
+                      onChange={getData}
+                    />
+                  </div>
+                  <div className="form__group">
+                    <span>City</span>
+                    <input
+                      required
+                      placeholder={data.city || "City"}
+                      name="city"
+                      type="text"
+                      onChange={getData}
+                    />
+                  </div>
+                  <div className="form__group">
+                    <span>Address</span>
+                    <input
+                      required
+                      placeholder={data.address || "Address"}
+                      name="address"
+                      type="text"
+                      onChange={getData}
+                    />
+                  </div>
+                </div>
+
+                <div className="popup-actions">
+                  <button className="popupCancelBtn" onClick={closePopup}>
+                    Cancel
+                  </button>
+                  <button className="popupSubBtn" onClick={addData}>
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <Tablist data={data} />
