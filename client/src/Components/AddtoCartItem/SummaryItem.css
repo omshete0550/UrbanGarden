@@ -88,6 +88,11 @@
   color: #1a8f4a;
 }
 
+/* The fourth summary row is the platform fee. It only applies to a non-empty cart. */
+.emptyCart .row:nth-of-type(4) {
+  display: none;
+}
+
 /* TOTAL HERO */
 .grandTotal {
   display: flex;
@@ -139,6 +144,14 @@
 
 .payButton:hover {
   background: #eaf7ec;
+}
+
+.paymentHint {
+  margin: 0;
+  color: var(--ug-text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
 /* MOBILE */

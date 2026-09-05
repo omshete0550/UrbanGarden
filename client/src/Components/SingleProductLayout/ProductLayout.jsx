@@ -20,6 +20,7 @@ const ProductLayout = (props) => {
   );
   const data = props.data;
   const [mainImgSrc, setMainImgSrc] = useState(null);
+  const [imageUnavailable, setImageUnavailable] = useState(false);
   const [buttonPopUp, setButtonPopUp] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
@@ -28,6 +29,10 @@ const ProductLayout = (props) => {
   useEffect(() => {
     if (images.length > 0) {
       setMainImgSrc(images[0]);
+      setImageUnavailable(false);
+    } else {
+      setMainImgSrc(null);
+      setImageUnavailable(true);
     }
   }, [images]);
 
@@ -54,14 +59,26 @@ const ProductLayout = (props) => {
       <div className="outerLayout">
         <div className="imageProductLayout">
           <div className="currentimage">
-            <img id="MainImg" src={mainImgSrc} alt={data.name} />
+            {mainImgSrc && !imageUnavailable ? (
+              <img
+                id="MainImg"
+                src={mainImgSrc}
+                alt={data.name || "Product image"}
+                onError={() => setImageUnavailable(true)}
+              />
+            ) : (
+              <div className="imageFallback">Product image unavailable</div>
+            )}
           </div>
           <div className="passiveimage">
             {images.map((item, i) => (
               <button
                 className={mainImgSrc === item ? "thumb active" : "thumb"}
                 key={item}
-                onClick={() => setMainImgSrc(item)}
+                onClick={() => {
+                  setMainImgSrc(item);
+                  setImageUnavailable(false);
+                }}
                 type="button"
               >
                 <img src={item} alt={`${data.name} view ${i + 1}`} />

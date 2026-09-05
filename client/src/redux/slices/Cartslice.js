@@ -1,5 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const updateCartTotals = (state) => {
+  state.quantity = state.products.reduce(
+    (quantity, product) => quantity + (Number(product.quantity) || 0),
+    0
+  );
+  state.total = state.products.reduce(
+    (total, product) =>
+      total + (Number(product.price) || 0) * (Number(product.quantity) || 0),
+    0
+  );
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
@@ -9,16 +21,36 @@ const cartSlice = createSlice({
   },
   reducers: {
     addProduct: (state, action) => {
-      state.products.push(action.payload);
-      state.quantity += 1;
-      state.total += action.payload.price * action.payload.quantity;
+      const product = action.payload;
+      const existingProduct = state.products.find(
+        (item) => String(item._id) === String(product._id)
+      );
+
+      if (existingProduct) {
+        existingProduct.quantity += Number(product.quantity) || 1;
+      } else {
+        state.products.push({ ...product, quantity: Number(product.quantity) || 1 });
+      }
+
+      updateCartTotals(state);
+    },
+    updateProductQuantity: (state, action) => {
+      const { productId, quantity } = action.payload;
+      const product = state.products.find(
+        (item) => String(item._id) === String(productId)
+      );
+
+      if (product) {
+        product.quantity = Math.max(1, Number(quantity) || 1);
+        updateCartTotals(state);
+      }
     },
     removeProduct: (state, action) => {
       const productId = action.payload;
-      const removedProduct = state.products.find(product => String(product._id) === String(productId));
-      state.products = state.products.filter(product => product._id !== productId);
-      state.total = state.total - (removedProduct.price * removedProduct.quantity);
-      state.quantity -= 1;
+      state.products = state.products.filter(
+        (product) => String(product._id) !== String(productId)
+      );
+      updateCartTotals(state);
     },
     reset: (state) => {
       state.products = [];
@@ -28,5 +60,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addProduct, removeProduct, reset } = cartSlice.actions;
+export const { addProduct, updateProductQuantity, removeProduct, reset } = cartSlice.actions;
 export default cartSlice.reducer;

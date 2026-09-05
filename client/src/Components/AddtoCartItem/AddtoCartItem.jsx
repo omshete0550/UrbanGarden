@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "./AddtoCartItem.css";
 import { useDispatch } from "react-redux";
-import { removeProduct } from "../../redux/slices/Cartslice";
+import {
+  removeProduct,
+  updateProductQuantity,
+} from "../../redux/slices/Cartslice";
 import { MdDelete } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 
 const AddtoCartItem = ({ product }) => {
   const dispatch = useDispatch();
-  const [count, setCount] = useState(product.quantity || 1);
+  const count = Number(product.quantity) || 1;
 
-  const incrementCount = () => setCount((prev) => prev + 1);
+  const incrementCount = () => {
+    dispatch(updateProductQuantity({ productId: product._id, quantity: count + 1 }));
+  };
 
-  const decrementCount = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
+  const decrementCount = () => {
+    if (count > 1) {
+      dispatch(updateProductQuantity({ productId: product._id, quantity: count - 1 }));
+    }
+  };
 
   const handleremove = () => {
     dispatch(removeProduct(product._id));

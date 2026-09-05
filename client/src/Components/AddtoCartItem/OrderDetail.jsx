@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./OrderDetail.css";
 import { useSelector } from "react-redux";
 
-const OrderDetail = ({ createOrder, onClose }) => {
+const OrderDetail = ({ createOrder, onClose, total }) => {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user.currentUser);
   const products = Array.isArray(cart.products) ? cart.products : [];
@@ -22,7 +22,7 @@ const OrderDetail = ({ createOrder, onClose }) => {
       })),
       address,
       phone,
-      amount: cart.total,
+      amount: total,
       method: 0,
     });
   };

@@ -1,101 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SummaryItem.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  PayPalScriptProvider,
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
 import axios from "axios";
 import { reset } from "../../redux/slices/Cartslice";
+import { logOut } from "../../redux/slices/userSlice";
 import OrderDetail from "./OrderDetail";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../lib/apiBase";
 
 const SummaryItem = () => {
-  const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user.currentUser);
-  const products = Array.isArray(cart.products) ? cart.products : [];
+  const storedCart = useSelector((state) => state.cart);
+  const products = Array.isArray(storedCart.products) ? storedCart.products : [];
 
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
 
-  const amount = cart.total;
-  const currency = "USD";
+  const subtotal = products.reduce(
+    (total, product) =>
+      total + (Number(product.price) || 0) * (Number(product.quantity) || 0),
+    0
+  );
+  const cart = { ...storedCart, total: subtotal };
+  const platformFee = products.length > 0 ? 20 : 0;
+  const totalPayable = subtotal + platformFee;
+  const totalAmtWithPlatformFee = totalPayable;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const platformFee = 20;
-  const totalAmtWithPlatformFee = cart.total + platformFee;
 
   const createOrder = async (data) => {
     try {
       const res = await axios.post(
         `${API_BASE_URL}/orders`,
         data,
+        { withCredentials: true }
       );
 
       if (res.status === 201) {
         dispatch(reset());
         navigate("/Home");
+        return true;
       }
     } catch (err) {
-      console.log(err);
+      const status = err.response?.status;
+
+      if (status === 401 || status === 403) {
+        dispatch(logOut());
+        navigate("/Login", {
+          state: { message: "Your session has expired. Please sign in again to place your order." },
+        });
+        return false;
+      }
+
+      console.error("Unable to create order:", err);
+      return false;
     }
-  };
-
-  const ButtonWrapper = ({ currency, showSpinner }) => {
-    const [{ options, isPending }, paypalDispatch] = usePayPalScriptReducer();
-
-    useEffect(() => {
-      paypalDispatch({
-        type: "resetOptions",
-        value: {
-          ...options,
-          currency,
-        },
-      });
-    }, [currency, options, paypalDispatch]);
-
-    return (
-      <>
-        {showSpinner && isPending && <div className="spinner" />}
-
-        <PayPalButtons
-          forceReRender={[amount, currency]}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    currency_code: currency,
-                    value: amount,
-                  },
-                },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            const details = await actions.order.capture();
-            const shipping = details.purchase_units[0].shipping;
-
-            createOrder({
-              customerName: shipping.name.full_name,
-              customerId: user.details._id,
-              products: products.map((item) => ({
-                productId: item._id,
-                nurseryId: item.nurseryId,
-                quantity: item.quantity,
-              })),
-              address: shipping.address.address_line_1,
-              amount: cart.total,
-              method: 1,
-            });
-          }}
-        />
-      </>
-    );
   };
 
   return (
@@ -115,7 +74,7 @@ const SummaryItem = () => {
         </p>
 
         {/* PRICE BREAKDOWN */}
-        <div className="priceCard">
+        <div className={`priceCard ${products.length === 0 ? "emptyCart" : ""}`}>
           <div className="row">
             <span>Total MRP</span>
             <strong>₹ {cart.total}</strong>
@@ -152,20 +111,19 @@ const SummaryItem = () => {
         <div className="actions">
           {open ? (
             <div className="paymentMethods">
-              <button className="payButton" onClick={() => setCash(true)}>
+              <button
+                className="payButton"
+                onClick={() => {
+                  setOpen(false);
+                  setCash(true);
+                }}
+              >
                 Cash on Delivery
               </button>
 
-              <PayPalScriptProvider
-                options={{
-                  "client-id": "YOUR_PAYPAL_CLIENT_ID",
-                  components: "buttons",
-                  currency: "USD",
-                  "disable-funding": "credit,card,p24",
-                }}
-              >
-                <ButtonWrapper currency={currency} showSpinner={false} />
-              </PayPalScriptProvider>
+              <p className="paymentHint">
+                Online payments are currently unavailable.
+              </p>
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className="button">
@@ -175,7 +133,13 @@ const SummaryItem = () => {
         </div>
       </div>
 
-      {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
+      {cash && (
+        <OrderDetail
+          total={totalPayable}
+          createOrder={createOrder}
+          onClose={() => setCash(false)}
+        />
+      )}
     </div>
   );
 };
