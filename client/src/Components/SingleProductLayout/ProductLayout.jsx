@@ -8,11 +8,7 @@ import {
   FaSun,
 } from "react-icons/fa";
 import Footer from "../Footer/Footer";
-import WriteReviewPopUp from "./WriteReviewPopUp";
 import ReviewBox from "./ReviewBox";
-import Box from "@mui/material/Box";
-import Rating from "@mui/material/Rating";
-import { reviewData } from "../data";
 import { addProduct } from "../../redux/slices/Cartslice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -27,7 +23,6 @@ const ProductLayout = (props) => {
   const data = props.data;
   const [mainImgSrc, setMainImgSrc] = useState(null);
   const [imageUnavailable, setImageUnavailable] = useState(false);
-  const [buttonPopUp, setButtonPopUp] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
   const addFeedbackTimeout = useRef(null);
@@ -49,12 +44,13 @@ const ProductLayout = (props) => {
     [],
   );
 
-  const review = reviewData.map((item) => (
+  const rating = Number(data.rating) || 0;
+  const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+  const review = reviews.map((item, index) => (
     <ReviewBox
-      key={item.id}
-      url={item.url}
-      name={item.name}
-      datepost={item.datepost}
+      key={item._id || `${item.reviewBy || item.reviewby || "review"}-${index}`}
+      name={item.reviewBy || item.reviewby || "Customer"}
+      rating={item.rated}
       review={item.review}
     />
   ));
@@ -108,19 +104,21 @@ const ProductLayout = (props) => {
 
         <div className="infoProductLayout">
           <div className="headingProduct">
-            <p className="product-eyebrow">Urban Garden pick</p>
+            <p className="product-eyebrow">Product details</p>
             <h1>{data.name}</h1>
             <p>Sold by {data.nurseryId}</p>
           </div>
 
           <div className="reviewsOfProduct">
-            <button onClick={() => setButtonPopUp(true)} type="button">
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <span>4.0 rating</span>
-            </button>
+            {rating > 0 ? (
+              <div className="ratingStatus" aria-label={`Rated ${rating.toFixed(1)} out of 5`}>
+                <FaStar aria-hidden="true" />
+                <span>{rating.toFixed(1)} rating</span>
+                <small>{reviews.length} {reviews.length === 1 ? "review" : "reviews"}</small>
+              </div>
+            ) : (
+              <span className="noRating">No customer ratings yet</span>
+            )}
           </div>
 
           <div className="priceProduct">
@@ -128,7 +126,7 @@ const ProductLayout = (props) => {
           </div>
 
           <div className="descProduct">
-            <p>{(data.description || data.desc)}</p>
+            <p>{data.description || data.desc || "Product details are not available for this listing."}</p>
           </div>
 
           <div className="careGrid">
@@ -136,28 +134,28 @@ const ProductLayout = (props) => {
               <FaRuler />
               <div>
                 <h4>Season</h4>
-                <p>{data.season || "All seasons"}</p>
+                <p>{data.season || "Not specified"}</p>
               </div>
             </div>
             <div className="careCard">
               <FaSun />
               <div>
                 <h4>Sunlight</h4>
-                <p>Indirect light</p>
+                <p>{data.sunlight || "Not specified"}</p>
               </div>
             </div>
             <div className="careCard">
               <FaHandHoldingWater />
               <div>
                 <h4>Water</h4>
-                <p>Moderate watering</p>
+                <p>{data.water || "Not specified"}</p>
               </div>
             </div>
           </div>
 
           <div className="purchase-note">
-            <strong>Fresh nursery dispatch</strong>
-            <span>Care-packed delivery with support after purchase.</span>
+            <strong>{data.nurseryId ? `Listed by ${data.nurseryId}` : "Nursery information unavailable"}</strong>
+            <span>Contact the nursery for availability and delivery information.</span>
           </div>
 
           <div className="buttonsProduct">
@@ -203,38 +201,25 @@ const ProductLayout = (props) => {
         <TrendingSlider />
       </div>
 
-      <section className="popupProduct">
+      <section className="popupProduct" aria-labelledby="product-reviews-title">
         <div className="ratingPopUpProduct">
           <div className="decimalratingPopupProduct">
-            <h3>4.0</h3>
-          </div>
-          <div className="starratingPopupProduct">
-            <Box sx={{ "& > legend": { mt: 2 } }}>
-              <Rating name="read-only" value={4} readOnly />
-            </Box>
+            <h3>{rating > 0 ? rating.toFixed(1) : "—"}</h3>
           </div>
           <div className="noOfreviewPopupProduct">
-            <h3>146 reviews</h3>
+            <h3 id="product-reviews-title">
+              {reviews.length
+                ? `${reviews.length} customer ${reviews.length === 1 ? "review" : "reviews"}`
+                : "No customer reviews yet"}
+            </h3>
           </div>
         </div>
         <div className="reviewsPopupProduct">
-          <div className="filterbuttonsPopupProduct">
-            <p>Sort by</p>
-            <div className="filterbuttonsPopup">
-              <button type="button">Most Relevant</button>
-              <button type="button">Newest</button>
-              <button type="button">Highest</button>
-              <button type="button">Lowest</button>
-            </div>
+          <div className="reviewsProduct">
+            {review.length ? review : <p className="reviewsEmpty">Reviews from customers will appear here.</p>}
           </div>
-          <div className="reviewsProduct">{review}</div>
         </div>
       </section>
-
-      <WriteReviewPopUp
-        trigger={buttonPopUp}
-        setTrigger={setButtonPopUp}
-      ></WriteReviewPopUp>
       <Footer />
     </div>
   );

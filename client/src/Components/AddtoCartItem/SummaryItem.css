@@ -45,6 +45,9 @@
 }
 
 .summaryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   background: rgba(40, 120, 60, 0.12);
   color: #1e4d2b;
   padding: 10px 14px;

@@ -126,6 +126,41 @@
   margin-left: 6px;
 }
 
+.ratingStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 8px 12px;
+
+  border-radius: 999px;
+  background: var(--ug-primary-soft);
+  color: #f6b90f;
+
+  font-weight: 900;
+}
+
+.ratingStatus span {
+  color: var(--ug-primary-strong);
+  margin-left: 2px;
+}
+
+.ratingStatus small {
+  color: var(--ug-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.noRating {
+  display: inline-block;
+  margin-top: 18px;
+
+  color: var(--ug-text-muted) !important;
+
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
 .priceProduct {
   color: var(--ug-primary);
   font-size: 2rem;
@@ -363,6 +398,12 @@
   max-height: 380px;
   overflow-y: auto;
   margin-top: 10px;
+}
+
+.reviewsEmpty {
+  padding: 24px 0;
+  color: var(--ug-text-muted);
+  text-align: center;
 }
 
 .reviewCardProduct {

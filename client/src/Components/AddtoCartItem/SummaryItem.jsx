@@ -7,6 +7,7 @@ import { logOut } from "../../redux/slices/userSlice";
 import OrderDetail from "./OrderDetail";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../lib/apiBase";
+import { FiTruck } from "react-icons/fi";
 
 const SummaryItem = () => {
   const storedCart = useSelector((state) => state.cart);
@@ -80,7 +81,10 @@ const SummaryItem = () => {
             <p className="eyebrow">Order Summary</p>
             <h2 className="title">Price Details</h2>
           </div>
-          <span className="summaryBadge">⚡ Fast delivery</span>
+          <span className="summaryBadge">
+            <FiTruck aria-hidden="true" />
+            Delivery available
+          </span>
         </div>
 
         <p className="summarySubtitle">

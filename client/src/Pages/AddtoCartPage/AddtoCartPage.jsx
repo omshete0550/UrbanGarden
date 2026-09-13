@@ -36,7 +36,7 @@ const AddtoCartPage = () => {
           {cartData.length === 0 ? (
             <div className="emptyCart">
               <h2>Your cart is empty</h2>
-              <p>Add something amazing ✨</p>
+              <p>Browse our collection to add an item.</p>
             </div>
           ) : (
             cartData.map((item) => (

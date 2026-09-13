@@ -39,15 +39,15 @@ const Footer = () => {
       <div className="footer-trust">
         <div className="trust-item">
           <FiTruck />
-          <span>Fast nursery delivery</span>
+          <span>Nursery listings</span>
         </div>
         <div className="trust-item">
           <FiShield />
-          <span>Healthy plant guarantee</span>
+          <span>Plant care information</span>
         </div>
         <div className="trust-item">
           <FiCreditCard />
-          <span>Secure checkout</span>
+          <span>Order management</span>
         </div>
       </div>
 
@@ -58,18 +58,18 @@ const Footer = () => {
             <span>Urban Garden</span>
           </Link>
           <p>
-            Premium plants, seeds, pots, and gardening essentials from trusted
-            nurseries, delivered with care.
+            Browse plants, seeds, pots, and gardening essentials from nursery
+            listings in one place.
           </p>
           <div className="footer-contact">
             <span>
-              <FiMapPin /> Mumbai, Maharashtra
+              <FiMapPin /> Browse nurseries by location
             </span>
             <span>
-              <FiPhone /> +91 98765 43210
+              <FiPhone /> Contact details are listed by each nursery
             </span>
             <span>
-              <FiMail /> support@urbangarden.com
+              <FiMail /> Sign in to manage orders and addresses
             </span>
           </div>
         </div>

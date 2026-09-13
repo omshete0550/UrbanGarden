@@ -120,6 +120,12 @@
   font-weight: 700;
 }
 
+.itemRatingEmpty {
+  color: #718073;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
 .itemPrice {
   display: flex;
   flex-direction: column;

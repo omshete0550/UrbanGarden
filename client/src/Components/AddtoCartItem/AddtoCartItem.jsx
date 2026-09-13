@@ -34,7 +34,7 @@ const AddtoCartItem = ({ product }) => {
     <article className="cartCard">
       <div className="itemImage">
         <img src={product.photos?.[0]} alt={product.name} />
-        <span className="itemBadge">Premium</span>
+        <span className="itemBadge">{product.category || "Garden item"}</span>
       </div>
 
       <div className="itemDetails">
@@ -44,12 +44,16 @@ const AddtoCartItem = ({ product }) => {
         </div>
 
         <div className="itemMeta">
-          <div className="itemRating" aria-label={`Rated ${product.rating ?? 4.8} out of 5`}>
-            {[...Array(5)].map((_, index) => (
-              <FaStar key={index} aria-hidden="true" />
-            ))}
-            <span>{product.rating ?? 4.8}</span>
-          </div>
+          {Number(product.rating) > 0 ? (
+            <div className="itemRating" aria-label={`Rated ${product.rating} out of 5`}>
+              {[...Array(5)].map((_, index) => (
+                <FaStar key={index} aria-hidden="true" />
+              ))}
+              <span>{Number(product.rating).toFixed(1)}</span>
+            </div>
+          ) : (
+            <span className="itemRatingEmpty">No ratings yet</span>
+          )}
 
           <div className="itemPrice">
             <span>Unit price</span>

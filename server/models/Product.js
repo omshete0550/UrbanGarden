@@ -23,6 +23,18 @@ const ProductSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        size: {
+            type: String,
+            trim: true,
+        },
+        sunlight: {
+            type: String,
+            trim: true,
+        },
+        water: {
+            type: String,
+            trim: true,
+        },
         category: {
             type: String,
             required: true,

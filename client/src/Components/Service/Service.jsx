@@ -5,27 +5,27 @@ import { FaRecycle, FaShieldAlt, FaTags, FaTint } from "react-icons/fa";
 const services = [
   {
     icon: <FaRecycle />,
-    title: "Sustainable Packaging",
+    title: "Plant care details",
     description:
-      "Your plants are carefully packed using secure and recyclable materials.",
+      "Review season, light, and watering information before placing an order.",
   },
   {
     icon: <FaShieldAlt />,
-    title: "Damage Protection",
+    title: "Nursery listings",
     description:
-      "Received a damaged plant? We provide free replacements so you can shop worry-free.",
+      "Compare products and listing details from participating nurseries.",
   },
   {
     icon: <FaTags />,
-    title: "Exclusive Offers",
+    title: "Clear product pricing",
     description:
-      "Enjoy seasonal deals, special discounts and exciting offers on your favourite products.",
+      "Review item prices and order totals before you continue to checkout.",
   },
   {
     icon: <FaTint />,
-    title: "Self-Watering Pots",
+    title: "Account tools",
     description:
-      "Selected plants come with self-watering pots to make plant care easier.",
+      "Keep delivery addresses and previous orders organised in your account.",
   },
 ];
 
