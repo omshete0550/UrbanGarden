@@ -15,7 +15,9 @@
   --ug-radius-sm: 8px;
   --ug-radius-md: 14px;
   --ug-radius-lg: 22px;
-  --ug-container: min(1300px, calc(100vw - 40px));
+  --ug-container: calc(100vw - 160px);
+  --ug-page-padding: 80px;
+  --ug-section-space: 20px;
   --ug-transition: 180ms ease;
 }
 
@@ -49,7 +51,28 @@ button {
   margin-inline: auto;
 }
 .ug-section {
-  padding: 36px 0;
+  padding: 28px 0;
+}
+
+@media (max-width: 1440px) {
+  :root {
+    --ug-container: calc(100vw - 120px);
+    --ug-page-padding: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --ug-container: calc(100vw - 80px);
+    --ug-page-padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --ug-container: calc(100vw - 40px);
+    --ug-page-padding: 20px;
+  }
 }
 .ug-section-heading {
   color: var(--ug-text);

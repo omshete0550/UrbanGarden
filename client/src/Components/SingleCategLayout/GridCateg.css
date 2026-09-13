@@ -6,29 +6,57 @@
 
 .gridHeader {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 4px 0 6px;
+  padding: 4px 0 18px;
+  border-bottom: 1px solid var(--ug-border);
 }
 
-.gridHeader p {
-  color: var(--ug-text-muted);
+.gridHeaderCopy {
+  min-width: 0;
+}
+
+.gridEyebrow {
+  color: var(--ug-primary);
+  font-size: 0.72rem;
   font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
 }
 
 .gridheading {
   color: var(--ug-text);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin: 3px 0 0;
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
   font-weight: 900;
+  line-height: 1.1;
   text-transform: capitalize;
 }
 
-.gridheading svg {
-  color: var(--ug-primary);
+.gridTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gridItemCount {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  border-radius: 999px;
+  background: var(--ug-primary-soft);
+  color: var(--ug-primary-strong);
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.gridDescription {
+  margin-top: 5px;
+  color: var(--ug-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 .gridHeader select {
@@ -96,5 +124,9 @@
 
   .grid-loading {
     grid-template-columns: 1fr;
+  }
+
+  .gridTitleRow {
+    flex-wrap: wrap;
   }
 }

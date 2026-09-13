@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
 
-  padding: 100px 6%;
+  padding: var(--ug-section-space) var(--ug-page-padding);
 
   background: #f7faf5;
 }
@@ -17,7 +17,7 @@
 
   max-width: 700px;
 
-  margin: 0 auto 55px;
+  margin: 0 auto 32px;
 
   text-align: center;
 }
@@ -75,7 +75,7 @@
 
   margin: 0 auto;
 
-  padding: 65px 80px 55px;
+  padding: 40px 48px;
 
   background: #ffffff;
 

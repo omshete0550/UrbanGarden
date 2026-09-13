@@ -1,6 +1,6 @@
 .plantJourney {
   position: relative;
-  padding: 90px 6%;
+  padding: var(--ug-section-space) var(--ug-page-padding);
   background-image: url("../../assets/Landing/timeline_bg.jpg");
   background-size: cover;
   background-position: center;
@@ -26,7 +26,7 @@
 
 .plantJourneyHeader {
   max-width: 750px;
-  margin: 0 auto 70px;
+  margin: 0 auto 40px;
   text-align: center;
 }
 

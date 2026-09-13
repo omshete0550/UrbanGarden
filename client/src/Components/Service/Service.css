@@ -1,5 +1,5 @@
 .serviceSection {
-  padding: 90px 6% 100px;
+  padding: var(--ug-section-space) var(--ug-page-padding);
   background: #f7faf5;
 }
 
@@ -9,7 +9,7 @@
 
 .serviceHeader {
   max-width: 700px;
-  margin: 0 auto 60px;
+  margin: 0 auto 32px;
   text-align: center;
 }
 
@@ -54,7 +54,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  max-width: 1250px;
+  max-width: none;
   margin: 0 auto;
 
   background: #ffffff;
@@ -74,7 +74,7 @@
 .service {
   position: relative;
 
-  padding: 45px 30px;
+  padding: 28px 22px;
 
   text-align: center;
 

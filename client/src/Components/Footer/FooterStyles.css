@@ -1,8 +1,8 @@
 .footer-sec {
   position: relative;
   width: 100%;
-  margin-top: 70px;
-  padding: 0 56px 28px;
+  margin-top: 40px;
+  padding: 0 var(--ug-page-padding) 24px;
   overflow: hidden;
   color: #edf8ee;
   background:
@@ -28,7 +28,7 @@
 .footer-bottom {
   position: relative;
   z-index: 1;
-  max-width: 1220px;
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -247,7 +247,7 @@
 
 @media (max-width: 1050px) {
   .footer-sec {
-    padding: 0 32px 28px;
+    padding: 0 var(--ug-page-padding) 24px;
   }
 
   .footer-main {
@@ -258,7 +258,7 @@
 @media (max-width: 720px) {
   .footer-sec {
     margin-top: 46px;
-    padding: 0 18px 24px;
+    padding: 0 var(--ug-page-padding) 20px;
   }
 
   .footer-trust,

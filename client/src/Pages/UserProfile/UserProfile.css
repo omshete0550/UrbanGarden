@@ -3,7 +3,7 @@
     radial-gradient(circle at top left, rgba(229, 132, 63, 0.1), transparent 28%),
     linear-gradient(180deg, #f7faf4 0%, #eef7ed 100%);
   min-height: 80vh;
-  padding: 42px 0 64px;
+  padding: 32px 0 48px;
 }
 
 .profile-shell {

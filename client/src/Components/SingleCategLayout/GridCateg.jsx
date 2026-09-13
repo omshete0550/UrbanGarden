@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "../Carousel/Product";
-import { FaAngleDoubleRight } from "react-icons/fa";
 import "./GridCateg.css";
 import useFetch from "../../hooks/useFetch";
 
@@ -12,11 +11,19 @@ const GridCateg = (props) => {
   return (
     <section className="gridCategSection">
       <div className="gridHeader">
-        <div>
-          <p>Shop by category</p>
-          <h1 className="gridheading">
-            {category} <FaAngleDoubleRight />
-          </h1>
+        <div className="gridHeaderCopy">
+          <p className="gridEyebrow">Shop the collection</p>
+          <div className="gridTitleRow">
+            <h1 className="gridheading">{category}</h1>
+            {!loading && (
+              <span className="gridItemCount">
+                {products.length} {products.length === 1 ? "item" : "items"}
+              </span>
+            )}
+          </div>
+          <p className="gridDescription">
+            Browse available {String(category).toLowerCase()} from listed nurseries.
+          </p>
         </div>
         <select aria-label="Sort products">
           <option>Featured</option>

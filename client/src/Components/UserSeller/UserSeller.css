@@ -1,6 +1,6 @@
 .growSection {
   position: relative;
-  padding: 100px 6%;
+  padding: var(--ug-section-space) var(--ug-page-padding);
   background: #f7faf5;
   overflow: hidden;
 }
@@ -11,7 +11,7 @@
 
 .growHeader {
   max-width: 720px;
-  margin: 0 auto 55px;
+  margin: 0 auto 32px;
   text-align: center;
 }
 

@@ -1,12 +1,12 @@
 .shop-hero {
   width: var(--ug-container);
-  min-height: 520px;
-  margin: 22px auto 10px;
-  padding: 42px;
+  min-height: 440px;
+  margin: 16px auto 8px;
+  padding: 28px;
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   grid-template-rows: 1fr auto;
-  gap: 28px 42px;
+  gap: 20px 28px;
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(19, 122, 71, 0.1);
@@ -24,8 +24,8 @@
 
 .shop-hero__eyebrow {
   width: fit-content;
-  margin-bottom: 16px;
-  padding: 7px 12px;
+  margin-bottom: 12px;
+  padding: 6px 10px;
   border-radius: 999px;
   background: var(--ug-primary-soft);
   color: var(--ug-primary-strong);
@@ -37,18 +37,18 @@
 .shop-hero h1 {
   max-width: 580px;
   color: var(--ug-text);
-  font-size: clamp(2.1rem, 4vw, 4.8rem);
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.4vw, 3.8rem);
+  line-height: 1.02;
   font-weight: 950;
   letter-spacing: 0;
 }
 
 .shop-hero__copy {
   max-width: 520px;
-  margin-top: 18px;
+  margin-top: 14px;
   color: var(--ug-text-muted);
-  font-size: 1.08rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 650;
 }
 
@@ -56,12 +56,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 20px;
 }
 
 .shop-hero__primary,
 .shop-hero__secondary {
-  min-height: 50px;
+  min-height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +87,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 26px;
+  margin-top: 18px;
 }
 
 .shop-hero__highlights span {
@@ -108,7 +108,7 @@
 }
 
 .shop-hero__visual {
-  min-height: 390px;
+  min-height: 320px;
   position: relative;
   align-self: stretch;
 }
@@ -116,7 +116,7 @@
 .shop-hero__main-img {
   width: min(100%, 660px);
   height: 100%;
-  max-height: 440px;
+  max-height: 360px;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -137,12 +137,12 @@
 
 .shop-hero__float--one {
   left: 0;
-  bottom: 18px;
+  bottom: 12px;
 }
 
 .shop-hero__float--two {
-  right: 24px;
-  top: 24px;
+  right: 18px;
+  top: 18px;
   width: clamp(120px, 13vw, 170px);
 }
 
@@ -154,7 +154,7 @@
 }
 
 .shop-hero__category {
-  min-height: 82px;
+  min-height: 68px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -168,8 +168,8 @@
 }
 
 .shop-hero__category img {
-  width: 58px;
-  height: 58px;
+  width: 46px;
+  height: 46px;
   border-radius: 8px;
   object-fit: cover;
   background: var(--ug-surface-soft);
@@ -179,7 +179,7 @@
   .shop-hero {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding: 32px;
+    padding: 24px;
   }
 
   .shop-hero__content {
@@ -187,18 +187,18 @@
   }
 
   .shop-hero__visual {
-    min-height: 320px;
+    min-height: 280px;
   }
 
   .shop-hero__main-img {
     width: 100%;
-    max-height: 360px;
+    max-height: 320px;
   }
 }
 
 @media (max-width: 600px) {
   .shop-hero {
-    width: min(100% - 28px, 560px);
+    width: var(--ug-container);
     margin-top: 16px;
     padding: 20px;
     gap: 20px;
