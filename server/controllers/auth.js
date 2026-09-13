@@ -64,10 +64,16 @@ export const login = async (req, res, next) => {
         );
 
         const { isAdmin, ...details } = formatUser(user);
+        const isSecureDeployment =
+            process.env.NODE_ENV === "production" ||
+            process.env.CLIENT_URL?.startsWith("https://");
+
         res.cookie("access_token", token, {
             httpOnly: true,
-            sameSite: "lax",
-            secure: process.env.NODE_ENV === "production",
+            // Vercel and Render use different sites, so the browser must be
+            // explicitly allowed to send this cookie on credentialed API calls.
+            sameSite: isSecureDeployment ? "none" : "lax",
+            secure: isSecureDeployment,
             maxAge: 7 * 24 * 60 * 60 * 1000,
         }).status(200).json({ details, isAdmin });
     } catch (err) {
