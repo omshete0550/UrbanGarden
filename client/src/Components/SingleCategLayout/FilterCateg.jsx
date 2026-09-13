@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Slider from "@mui/material/Slider";
 import { FiChevronDown, FiSliders } from "react-icons/fi";
 import "./FilterCateg.css";
 
 const filterGroups = [
   {
+    key: "categories",
     title: "Categories",
     options: [
       "Gardening",
@@ -18,25 +19,32 @@ const filterGroups = [
     ],
   },
   {
+    key: "seasons",
     title: "Season",
-    options: ["Summer", "Winter", "Rainy", "All Seasons"],
+    options: ["Summer", "Winter", "Rainy", "Spring", "All Seasons"],
   },
   {
+    key: "ratings",
     title: "Rating",
     options: ["4 stars & up", "3 stars & up", "2 stars & up"],
   },
 ];
 
-const FilterGroup = ({ title, options }) => (
+const FilterGroup = ({ group, selected, onToggle }) => (
   <details className="filter_type" open>
     <summary>
-      <span>{title}</span>
+      <span>{group.title}</span>
       <FiChevronDown />
     </summary>
     <div className="filter_list">
-      {options.map((option) => (
+      {group.options.map((option) => (
         <label className="checkbox" key={option}>
-          <input name={title} type="checkbox" />
+          <input
+            checked={selected.includes(option)}
+            name={group.key}
+            type="checkbox"
+            onChange={() => onToggle(group.key, option)}
+          />
           <span>{option}</span>
         </label>
       ))}
@@ -44,12 +52,17 @@ const FilterGroup = ({ title, options }) => (
   </details>
 );
 
-const FilterCateg = () => {
-  const [range, setRange] = useState([0, 5000]);
+const FilterCateg = ({ filters, onChange, onClear }) => {
+  const toggleOption = (key, option) => {
+    const values = filters[key];
 
-  function handleChanges(event, newValue) {
-    setRange(newValue);
-  }
+    onChange({
+      ...filters,
+      [key]: values.includes(option)
+        ? values.filter((value) => value !== option)
+        : [...values, option],
+    });
+  };
 
   return (
     <aside className="parentFilter" aria-label="Product filters">
@@ -58,15 +71,18 @@ const FilterCateg = () => {
           <FiSliders />
           Filters
         </h3>
-        <button type="button">Clear</button>
+        <button type="button" onClick={onClear}>
+          Clear
+        </button>
       </div>
 
       <div className="filterTypes">
         {filterGroups.map((group) => (
           <FilterGroup
-            title={group.title}
-            options={group.options}
-            key={group.title}
+            group={group}
+            key={group.key}
+            selected={filters[group.key]}
+            onToggle={toggleOption}
           />
         ))}
 
@@ -77,28 +93,16 @@ const FilterCateg = () => {
           </summary>
           <div className="filter_list price-filter">
             <Slider
-              value={range}
-              onChange={handleChanges}
+              value={filters.price}
+              onChange={(_, value) => onChange({ ...filters, price: value })}
               valueLabelDisplay="auto"
               min={0}
               max={5000}
-              sx={{
-                color: "var(--ug-primary)",
-              }}
+              sx={{ color: "var(--ug-primary)" }}
             />
             <p className="pricing">
-              Rs. {range[0]} - Rs. {range[1]}
+              Rs. {filters.price[0]} - Rs. {filters.price[1]}
             </p>
-          </div>
-        </details>
-
-        <details className="filter_type" open>
-          <summary>
-            <span>City</span>
-            <FiChevronDown />
-          </summary>
-          <div className="filter_list">
-            <input type="text" className="input" placeholder="City name" />
           </div>
         </details>
       </div>
