@@ -67,7 +67,6 @@ const formatDate = (date) => {
 
 const ProductOrder = ({ product }) => {
   const [productData, setProductData] = useState(null);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -87,9 +86,6 @@ const ProductOrder = ({ product }) => {
       } catch (err) {
         console.error("Unable to load order product:", err);
 
-        if (mounted) {
-          setError(true);
-        }
       }
     };
 
