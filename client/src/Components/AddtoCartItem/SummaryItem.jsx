@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SummaryItem.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -14,6 +14,20 @@ const SummaryItem = () => {
 
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
+  const deliveryDetailsRef = useRef(null);
+
+  useEffect(() => {
+    if (!cash) return;
+
+    const frame = requestAnimationFrame(() => {
+      deliveryDetailsRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [cash]);
 
   const subtotal = products.reduce(
     (total, product) =>
@@ -74,7 +88,7 @@ const SummaryItem = () => {
         </p>
 
         {/* PRICE BREAKDOWN */}
-        <div className={`priceCard ${products.length === 0 ? "emptyCart" : ""}`}>
+        <div className={`priceCard ${products.length === 0 ? "priceCardEmpty" : ""}`}>
           <div className="row">
             <span>Total MRP</span>
             <strong>₹ {cart.total}</strong>
@@ -134,11 +148,16 @@ const SummaryItem = () => {
       </div>
 
       {cash && (
-        <OrderDetail
-          total={totalPayable}
-          createOrder={createOrder}
-          onClose={() => setCash(false)}
-        />
+        <div className="deliveryDetails" ref={deliveryDetailsRef}>
+          <OrderDetail
+            total={totalPayable}
+            createOrder={createOrder}
+            onClose={() => {
+              setCash(false);
+              setOpen(true);
+            }}
+          />
+        </div>
       )}
     </div>
   );

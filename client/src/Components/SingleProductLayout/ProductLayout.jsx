@@ -1,6 +1,12 @@
 import "./ProductLayout.css";
-import { useEffect, useMemo, useState } from "react";
-import { FaHandHoldingWater, FaRuler, FaStar, FaSun } from "react-icons/fa";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  FaCheck,
+  FaHandHoldingWater,
+  FaRuler,
+  FaStar,
+  FaSun,
+} from "react-icons/fa";
 import Footer from "../Footer/Footer";
 import WriteReviewPopUp from "./WriteReviewPopUp";
 import ReviewBox from "./ReviewBox";
@@ -23,6 +29,8 @@ const ProductLayout = (props) => {
   const [imageUnavailable, setImageUnavailable] = useState(false);
   const [buttonPopUp, setButtonPopUp] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const addFeedbackTimeout = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,6 +43,11 @@ const ProductLayout = (props) => {
       setImageUnavailable(true);
     }
   }, [images]);
+
+  useEffect(
+    () => () => window.clearTimeout(addFeedbackTimeout.current),
+    [],
+  );
 
   const review = reviewData.map((item) => (
     <ReviewBox
@@ -49,6 +62,12 @@ const ProductLayout = (props) => {
   const handleClick = () => {
     if (user) {
       dispatch(addProduct({ ...data, price: data.price, quantity }));
+      setAddedToCart(true);
+      window.clearTimeout(addFeedbackTimeout.current);
+      addFeedbackTimeout.current = window.setTimeout(
+        () => setAddedToCart(false),
+        1800,
+      );
     } else {
       navigate("/Login");
     }
@@ -143,17 +162,32 @@ const ProductLayout = (props) => {
 
           <div className="buttonsProduct">
             <input
-              onChange={(e) => setQuantity(Number(e.target.value))}
+              onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))}
               type="number"
               min="1"
-              defaultValue={1}
+              value={quantity}
               className="dimenProduct"
               aria-label="Quantity"
             />
             <div className="cartProduct">
-              <button className="btn-cart" onClick={handleClick} type="button">
-                Add to My Bag
+              <button
+                className={`btn-cart ${addedToCart ? "added" : ""}`}
+                onClick={handleClick}
+                type="button"
+                disabled={addedToCart}
+              >
+                {addedToCart ? (
+                  <>
+                    <FaCheck aria-hidden="true" />
+                    Added to cart
+                  </>
+                ) : (
+                  "Add to My Bag"
+                )}
               </button>
+              <span className={`cartFeedback ${addedToCart ? "visible" : ""}`} role="status">
+                Item added to your cart
+              </span>
             </div>
           </div>
         </div>

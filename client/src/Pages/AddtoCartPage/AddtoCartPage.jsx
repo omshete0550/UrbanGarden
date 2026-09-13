@@ -32,7 +32,7 @@ const AddtoCartPage = () => {
       {/* MAIN LAYOUT */}
       <div className="cartLayout">
         {/* LEFT - ITEMS */}
-        <div className="cartItems">
+        <div className={`cartItems ${cartData.length === 0 ? "cartItems--empty" : ""}`}>
           {cartData.length === 0 ? (
             <div className="emptyCart">
               <h2>Your cart is empty</h2>
@@ -46,9 +46,11 @@ const AddtoCartPage = () => {
         </div>
 
         {/* RIGHT - STICKY SUMMARY */}
-        <div className="cartSummary">
-          <SummaryItem />
-        </div>
+        {cartData.length > 0 && (
+          <div className="cartSummary">
+            <SummaryItem />
+          </div>
+        )}
       </div>
 
       <Footer />

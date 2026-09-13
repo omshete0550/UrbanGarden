@@ -39,13 +39,19 @@
 }
 
 .passiveimage {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+  display: flex;
+  align-items: center;
   gap: 10px;
   margin-top: 14px;
+  overflow-x: auto;
+  padding: 2px 1px 5px;
+  scrollbar-width: thin;
 }
 
 .thumb {
+  width: 82px;
+  height: 82px;
+  flex: 0 0 82px;
   border: 2px solid transparent;
   border-radius: var(--ug-radius-sm);
   background: var(--ug-surface);
@@ -59,7 +65,7 @@
 
 .thumb img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
   object-fit: contain;
   display: block;
   border-radius: 6px;
@@ -204,12 +210,17 @@
 }
 
 .cartProduct {
+  position: relative;
   width: 100%;
 }
 
 .btn-cart {
   width: 100%;
   min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: none;
   border-radius: var(--ug-radius-sm);
   background: var(--ug-primary);
@@ -222,6 +233,49 @@
 .btn-cart:hover {
   background: var(--ug-primary-strong);
   transform: translateY(-1px);
+}
+
+.btn-cart.added {
+  background: #0c8a4a;
+  animation: cart-added-pulse 380ms ease-out;
+}
+
+.btn-cart:disabled {
+  cursor: default;
+}
+
+.cartFeedback {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  border-radius: 999px;
+  background: #e4f5e7;
+  color: #137a47;
+
+  padding: 5px 10px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.cartFeedback.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes cart-added-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.025); }
+  100% { transform: scale(1); }
 }
 
 .singleProductsubheading {
@@ -373,9 +427,31 @@
     grid-template-columns: 1fr;
   }
 
+  .cartFeedback {
+    right: auto;
+    left: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -5px);
+  }
+
+  .cartFeedback.visible {
+    transform: translate(-50%, 0);
+  }
+
   .singleProductsubheading,
   .SingleProductSlider,
   .popupProduct {
     width: min(100% - 28px, 560px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-cart,
+  .cartFeedback {
+    transition: none;
+  }
+
+  .btn-cart.added {
+    animation: none;
   }
 }

@@ -1,13 +1,16 @@
 .summaryContainer {
   display: flex;
-  justify-content: center;
-  padding: 40px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+  padding: 0;
 }
 
 /* MAIN CARD */
 .summaryCard {
   width: 100%;
-  max-width: 520px;
+  max-width: none;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -88,8 +91,15 @@
   color: #1a8f4a;
 }
 
+.deliveryDetails {
+  width: 100%;
+  max-width: none;
+
+  scroll-margin-top: 24px;
+}
+
 /* The fourth summary row is the platform fee. It only applies to a non-empty cart. */
-.emptyCart .row:nth-of-type(4) {
+.priceCardEmpty .row:nth-of-type(4) {
   display: none;
 }
 
@@ -169,10 +179,6 @@
 }
 
 @media (max-width: 600px) {
-  .summaryContainer {
-    padding: 16px;
-  }
-
   .summaryCard {
     padding: 20px;
   }

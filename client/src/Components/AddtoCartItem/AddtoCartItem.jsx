@@ -13,69 +13,84 @@ const AddtoCartItem = ({ product }) => {
   const count = Number(product.quantity) || 1;
 
   const incrementCount = () => {
-    dispatch(updateProductQuantity({ productId: product._id, quantity: count + 1 }));
+    dispatch(
+      updateProductQuantity({ productId: product._id, quantity: count + 1 }),
+    );
   };
 
   const decrementCount = () => {
     if (count > 1) {
-      dispatch(updateProductQuantity({ productId: product._id, quantity: count - 1 }));
+      dispatch(
+        updateProductQuantity({ productId: product._id, quantity: count - 1 }),
+      );
     }
   };
 
-  const handleremove = () => {
+  const handleRemove = () => {
     dispatch(removeProduct(product._id));
   };
 
   return (
-    <div className="cartCard">
+    <article className="cartCard">
       <div className="itemImage">
         <img src={product.photos?.[0]} alt={product.name} />
         <span className="itemBadge">Premium</span>
       </div>
 
       <div className="itemDetails">
-        <div>
+        <div className="itemCopy">
           <h2>{product.name}</h2>
-          <p className="itemByline">by {product.nurseryId}</p>
+          <p className="itemByline">by {product.nurseryId || "Urban Garden"}</p>
         </div>
 
         <div className="itemMeta">
-          <div className="itemRating">
-            {[...Array(5)].map((_, i) => (
-              <FaStar key={i} />
+          <div className="itemRating" aria-label={`Rated ${product.rating ?? 4.8} out of 5`}>
+            {[...Array(5)].map((_, index) => (
+              <FaStar key={index} aria-hidden="true" />
             ))}
             <span>{product.rating ?? 4.8}</span>
+          </div>
+
+          <div className="itemPrice">
+            <span>Unit price</span>
+            <strong>{"\u20B9"} {product.price}</strong>
           </div>
         </div>
       </div>
 
-      <div className="itemPricing">
-        <div className="priceBlock">
-          <span>Unit price</span>
-          <strong>₹ {product.price}</strong>
-        </div>
-
-        <div className="qtyControl">
-          <button onClick={decrementCount} disabled={count === 1}>
+      <div className="itemControls">
+        <div className="qtyControl" aria-label={`Quantity: ${count}`}>
+          <button
+            type="button"
+            onClick={decrementCount}
+            disabled={count === 1}
+            aria-label="Decrease quantity"
+          >
             −
           </button>
           <span>{count}</span>
-          <button onClick={incrementCount}>+</button>
+          <button
+            type="button"
+            onClick={incrementCount}
+            aria-label="Increase quantity"
+          >
+            +
+          </button>
         </div>
 
-        <div className="totalBlock">
-          <span>Total</span>
-          <strong>₹ {product.price * count}</strong>
-        </div>
-
-        <button className="removeBtn" onClick={handleremove}>
+        <button
+          type="button"
+          className="removeBtn"
+          onClick={handleRemove}
+          aria-label={`Remove ${product.name} from cart`}
+          title="Remove item"
+        >
           <MdDelete />
-          Remove
+          <span>Remove</span>
         </button>
       </div>
-    </div>
+    </article>
   );
 };
 
 export default AddtoCartItem;
-
