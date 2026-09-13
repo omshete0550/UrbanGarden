@@ -75,7 +75,13 @@ export const login = async (req, res, next) => {
             sameSite: isSecureDeployment ? "none" : "lax",
             secure: isSecureDeployment,
             maxAge: 7 * 24 * 60 * 60 * 1000,
-        }).status(200).json({ details, isAdmin });
+        }).status(200).json({
+            details,
+            isAdmin,
+            // Used only when a browser blocks the cross-site HTTP-only cookie.
+            // The API accepts this as a Bearer token via verifyToken.
+            accessToken: token,
+        });
     } catch (err) {
         next(err);
     }

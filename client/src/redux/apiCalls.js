@@ -1,6 +1,6 @@
 import { loginFailure, loginStart, loginSuccess, updateUser } from "./slices/userSlice";
 import axios from "axios";
-import { API_BASE_URL } from "../lib/apiBase";
+import { API_BASE_URL, AUTH_TOKEN_KEY } from "../lib/apiBase";
 
 export const login = async (dispatch, user) => {
     dispatch(loginStart());
@@ -14,7 +14,13 @@ export const login = async (dispatch, user) => {
             }
         );
 
-        dispatch(loginSuccess(res.data));
+        const { accessToken, ...sessionUser } = res.data;
+
+        if (accessToken) {
+            window.localStorage.setItem(AUTH_TOKEN_KEY, accessToken);
+        }
+
+        dispatch(loginSuccess(sessionUser));
     } catch (err) {
         console.error("Login failed:", err);
         dispatch(loginFailure());

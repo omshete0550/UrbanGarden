@@ -3,10 +3,9 @@ import "./SummaryItem.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { reset } from "../../redux/slices/Cartslice";
-import { logOut } from "../../redux/slices/userSlice";
 import OrderDetail from "./OrderDetail";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../../lib/apiBase";
+import { API_BASE_URL, clearAccessToken } from "../../lib/apiBase";
 import { FiTruck } from "react-icons/fi";
 
 const SummaryItem = () => {
@@ -15,6 +14,7 @@ const SummaryItem = () => {
 
   const [open, setOpen] = useState(false);
   const [cash, setCash] = useState(false);
+  const [checkoutError, setCheckoutError] = useState("");
   const deliveryDetailsRef = useRef(null);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ const SummaryItem = () => {
 
   const createOrder = async (data) => {
     try {
+      setCheckoutError("");
       const res = await axios.post(
         `${API_BASE_URL}/orders`,
         data,
@@ -60,14 +61,17 @@ const SummaryItem = () => {
       const status = err.response?.status;
 
       if (status === 401 || status === 403) {
-        dispatch(logOut());
-        navigate("/Login", {
-          state: { message: "Your session has expired. Please sign in again to place your order." },
-        });
+        clearAccessToken();
+        setCheckoutError(
+          "We could not verify your session. Please sign out, sign in again, and retry your order.",
+        );
         return false;
       }
 
       console.error("Unable to create order:", err);
+      setCheckoutError(
+        err.response?.data?.message || "Unable to place your order. Please try again.",
+      );
       return false;
     }
   };
@@ -132,6 +136,7 @@ const SummaryItem = () => {
               <button
                 className="payButton"
                 onClick={() => {
+                  setCheckoutError("");
                   setOpen(false);
                   setCash(true);
                 }}
@@ -150,6 +155,12 @@ const SummaryItem = () => {
           )}
         </div>
       </div>
+
+      {checkoutError && (
+        <p className="checkoutError" role="alert">
+          {checkoutError}
+        </p>
+      )}
 
       {cash && (
         <div className="deliveryDetails" ref={deliveryDetailsRef}>

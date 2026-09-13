@@ -23,7 +23,7 @@ import axios from "axios";
 import { logo } from "../../assets";
 import "./Header.css";
 import { logOut } from "../../redux/slices/userSlice";
-import { API_BASE_URL } from "../../lib/apiBase";
+import { API_BASE_URL, clearAccessToken } from "../../lib/apiBase";
 
 const categories = [
   "Gardening",
@@ -52,6 +52,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
+    clearAccessToken();
     dispatch(logOut());
     navigate("/Login");
   };

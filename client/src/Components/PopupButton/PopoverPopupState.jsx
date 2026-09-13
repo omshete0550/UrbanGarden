@@ -7,11 +7,13 @@ import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/slices/userSlice";
 import { useNavigate } from "react-router-dom";
+import { clearAccessToken } from "../../lib/apiBase";
 
 export default function PopoverPopupState() {
   const user = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const handleClick = (e) => {
+    clearAccessToken();
     dispatch(logOut());
   };
   const navigate = useNavigate();

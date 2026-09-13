@@ -167,6 +167,23 @@
   text-align: center;
 }
 
+.checkoutError {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 12px 14px;
+
+  border: 1px solid #f0caca;
+  border-radius: 12px;
+
+  background: #fff7f7;
+  color: #a13636;
+
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 /* MOBILE */
 @media (max-width: 900px) {
   .summaryCard {
